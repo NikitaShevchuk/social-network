@@ -1,0 +1,1 @@
+{"version":3,"file":"static/css/380.15d7eee7.chunk.css","mappings":"AAAA,wBACI,eACJ,CACA,6BACI,sBACJ","sources":["components/MainContent/Profile/Profile.module.css"],"sourcesContent":[".whiteBg {\r\n    background: white;\r\n}\r\n.transparent {\r\n    background: transparent;\r\n}"],"names":[],"sourceRoot":""}
