@@ -1,0 +1,22 @@
+.errorInfo {
+    color: #f94444;
+    position: absolute;
+    right: 5px;
+    bottom: 5px;
+}
+.errorSelect::before {
+    background: #f94444!important;
+}
+.activeBorder {
+    width: 100%;
+    left: 0;
+}
+.activeLabel {
+    color: #088dcd;
+    font-size: .8rem;
+    top: -1rem;
+    left: 0;
+}
+.activeInput {
+    color: #2a2a2a!important;
+}
