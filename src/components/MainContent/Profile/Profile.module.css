@@ -4,3 +4,9 @@
 .transparent {
     background: transparent;
 }
+.green {
+    color: lawngreen!important;
+}
+.red {
+    color: rgb(183 183 183)!important;
+}

@@ -2,6 +2,7 @@ import React from "react";
 import Shortcuts from "./Widgets/Shortcuts";
 import {connect} from "react-redux";
 import {logoutThunk} from "../redux/auth";
+import {updStatusThunk} from "../redux/ProfilePageReducer";
 
 const LeftSidebar = (props) => {
 
@@ -18,7 +19,8 @@ const LeftSidebar = (props) => {
 
 let mapStateToProps = (state) => ({
     isAuthorized: state.auth.isAuthorized,
-    userData: state.auth.userData
+    userData: state.auth.userData,
+    status: state.profilePage.status
 })
 
-export default connect(mapStateToProps, {logoutThunk})(LeftSidebar);
+export default connect(mapStateToProps, {logoutThunk, updStatusThunk})(LeftSidebar);

@@ -8,29 +8,29 @@ const SingleDialog = (props) => {
     let day = new Date(addedAt).getDay();
     let messageAddedTime = ''
     switch (day) {
-        case 1:
+        case 0:
             messageAddedTime =  'Mon'
             break
-        case 2:
+        case 1:
             messageAddedTime =  'Thu'
             break
-        case 3:
+        case 2:
             messageAddedTime =  'Wed'
             break
-        case 4:
+        case 3:
             messageAddedTime =  'Thur'
             break
-        case 5:
+        case 4:
             messageAddedTime =  'Fri'
             break
-        case 6:
+        case 5:
             messageAddedTime =  'Sut'
             break
-        case 7:
+        case 6:
             messageAddedTime =  'Sun'
             break
         default:
-            return 'Monday'
+            messageAddedTime = 'Mon'
     }
     let lastMessage = `${body.length > 25 ? body.slice(0, 26) + '...' : body}`
     if (!props.id) return <Preloader/>

@@ -28,6 +28,15 @@ export const profileApi = {
     },
     logout() {
         return usersInstance.delete('auth/login').then(response => response.data)
+    },
+    uploadPhoto(photo) {
+        let formData = new FormData();
+        formData.append("image", photo);
+        return usersInstance.put(`profile/photo`, formData, {
+            headers: {
+                'Content-Type': 'multipart/form-data'
+            }
+        }).then(response => response.data)
     }
 }
 

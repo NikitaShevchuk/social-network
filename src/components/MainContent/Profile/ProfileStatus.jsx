@@ -10,7 +10,7 @@ const ProfileStatus = (props) => {
     }
     const exitEditMode = () => {
         setEditMode(false)
-        props.updStatusThunk(status);
+        if (props.status !== status) props.updStatusThunk(status);
     }
     const changeStatusText = (e) => {
         setStatus(e.target.value)
@@ -18,7 +18,7 @@ const ProfileStatus = (props) => {
     const changeStatusTextOnEnter = (e) => {
         if (e.key === 'Enter') {
             setEditMode(false)
-            props.updStatusThunk(status);
+            if (props.status !== status) props.updStatusThunk(status);
         }
     }
     useEffect(() => {
@@ -42,7 +42,8 @@ const ProfileStatus = (props) => {
                 props.status === null || props.status === '' ?
                     'Add your status' :
                     props.status
-            }</span>
+            }
+                {props.isMyProfile ? <i style={{marginLeft: '7px'}} className="fa fa-edit"/> : ''}</span>
         }
     </>
 

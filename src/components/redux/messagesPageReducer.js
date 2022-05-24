@@ -1,6 +1,6 @@
 import {dialogsApi} from "./api";
 
-const SET_NEW_MESSAGE = 'SET_NEW_MESSAGE';
+//const SET_NEW_MESSAGE = 'SET_NEW_MESSAGE';
 const SET_MESSAGES = 'SET_MESSAGES';
 const SET_DIALOG = 'SET_DIALOG';
 const SET_LAST_MESSAGE = 'SET_LAST_MESSAGE';
@@ -40,12 +40,16 @@ const messagesPageReducer = (state = initialState, action) => {
             }
         case SET_CONVERSATION_HEAD:
             let dialogIndex = state.dialogs.findIndex( d => d.id == action.id )
-            return {
-                ...state,
-                conversationHead: {
-                    photo: state.dialogs[dialogIndex].photos.big,
-                    userName: state.dialogs[dialogIndex].userName
+            if (dialogIndex !== -1) {
+                return {
+                    ...state,
+                    conversationHead: {
+                        photo: state.dialogs[dialogIndex].photos.big,
+                        userName: state.dialogs[dialogIndex].userName
+                    }
                 }
+            } else {
+                return {...state}
             }
         default:
             return state;
@@ -70,7 +74,7 @@ export const sendNewMessage = (id, body) => dispatch => {
     })
 }
 export const getDialog = id => async dispatch => {
-    let data = await dialogsApi.startDialog(id)
+    // let data = await dialogsApi.startDialog(id)
     // dispatch(setDialog(data.data))
 }
 export const setDialogs = id => async dispatch => {

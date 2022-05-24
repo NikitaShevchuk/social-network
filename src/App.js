@@ -16,7 +16,7 @@ import {initializeApp} from "./components/redux/appReducer";
 import Preloader from "./components/common/Preloader";
 import WithSuspense from "./components/HOC/withSuspense";
 
-const ProfileContainer = React.lazy(() => import('./components/MainContent/Profile/ProfileContainer'))
+const Profile = React.lazy(() => import('./components/MainContent/Profile/Profile'))
 
 class App extends React.Component {
     componentDidMount() {
@@ -27,23 +27,33 @@ class App extends React.Component {
         if (!this.props.initialized) return <div className='globalPreloader'><Preloader/></div>
         return (
             <div className="App">
-                <Routes>
-                    <Route path={'/profile'} element={WithSuspense(ProfileContainer)}/>
-                    <Route path={'/profile/:userId'} element={WithSuspense(ProfileContainer)}/>
-                </Routes>
                 <div className="container">
                     <div className="row">
                         <LeftSidebar/>
                         <Routes>
                             <Route exact path='/'
                                    element={<FeedContainer/>}/>
+
+                            <Route exact path='/my-app'
+                                   element={<FeedContainer/>}/>
+
                             <Route path='/messages/:userId'
                                    element={<MessagesContainer/>}/>
+
                             <Route path='/messages'
                                    element={<MessagesContainer/>}/>
+
                             <Route path='/users'
                                    element={<UsersContainer/>}/>
-                            <Route path='/login' element={<LoginContainer/>}/>
+
+                            <Route path='/login'
+                                   element={<LoginContainer/>}/>
+
+                            <Route path={'/profile'}
+                                   element={WithSuspense(Profile)}/>
+
+                            <Route path={'/profile/:userId'}
+                                   element={WithSuspense(Profile)}/>
                         </Routes>
                     </div>
                 </div>

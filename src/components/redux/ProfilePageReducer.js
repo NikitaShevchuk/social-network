@@ -6,13 +6,16 @@ const UNFOLLOW_USER = 'UNFOLLOW-USER';
 const DISABLE_BUTTON = 'DISABLE_BUTTON';
 const ABLE_BUTTON = 'ABLE_BUTTON';
 const SET_STATUS = 'SET_STATUS';
-const UPD_STATUS = 'UPD_STATUS'
+const UPD_STATUS = 'UPD_STATUS';
+const UPD_PHOTO = 'UPD_PHOTO';
+const PHOTO_UPDATING = 'PHOTO_UPDATING';
 
 let initialState = {
     profile: null,
     disableWhileRequest: false,
     followed: false,
-    status: ''
+    status: '',
+    photoUpdating: false
 }
 
 
@@ -53,6 +56,16 @@ const profilePageReducer = (state = initialState, action) => {
                 ...state,
                 status: action.status
             }
+        case UPD_PHOTO:
+            return {
+                ...state,
+                profile: {...state.profile, photos: action.photo}
+            }
+        case PHOTO_UPDATING:
+            return {
+                ...state,
+                photoUpdating: action.isUpdating
+            }
         default:
             return state;
     }
@@ -65,6 +78,8 @@ const disableButton = () => ({type: DISABLE_BUTTON})
 const ableButton = () => ({type: ABLE_BUTTON})
 const setStatus = (status) => ({type: SET_STATUS, status})
 const updStatus = (status) => ({type: UPD_STATUS, status})
+const photoUploadedSuccessfully = (photo) => ({type: UPD_PHOTO, photo})
+const isPhotoUpdating = (isUpdating) => ({type: PHOTO_UPDATING, isUpdating})
 
 export const updStatusThunk = (status) => (dispatch) => {
     profileApi.updStatus(status).then( data => {
@@ -98,6 +113,13 @@ export const unfollowUser = (id) => (dispatch) => {
         dispatch(unfollowUserProfile());
         dispatch(ableButton());
     })
+}
+
+export const updatePhoto = (photo) => async (dispatch) => {
+    dispatch(isPhotoUpdating(true))
+    let data = await profileApi.uploadPhoto(photo);
+    dispatch(photoUploadedSuccessfully(data.data.photos))
+    dispatch(isPhotoUpdating(false))
 }
 
 export default profilePageReducer;

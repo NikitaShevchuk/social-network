@@ -1,84 +1,94 @@
-import React, {useEffect} from "react";
-import userIcon from "../../common/assets/img/userIcon.jpg";
-import style from './Profile.module.css'
-import profileBackground from '../../common/assets/img/timeline-1.jpg'
+import React, {useEffect, useState} from "react";
 import Preloader from "../../common/Preloader";
-import ProfileStatus from "./ProfileStatus";
 import {useParams} from "react-router-dom";
+import ProfileInfo from "./ProfileInfo";
+import {connect} from "react-redux";
+import {followUser, loadProfile, unfollowUser, updatePhoto, updStatusThunk} from "../../redux/ProfilePageReducer";
+import {compose} from "redux";
+import withRedirect from "../../HOC/withRedirect";
+import EditProfile from "./EditProfile";
+import profileBackground from "../../common/assets/img/profileCover.jpg";
+import style from "./Profile.module.css";
+import UserPhoto from "../../common/UserPhoto";
 
 const Profile = (props) => {
 
     let userId = useParams().userId;
-
+    let isMyProfile = false;
     if (!userId) userId = props.myId
+    !userId || userId === props.myId ? isMyProfile = true : isMyProfile = false;
+
+    let [profileEditMode, setProfileEditMode] = useState(false)
 
     useEffect(() => {
         props.loadProfile(userId)
     }, [userId])
 
-    const followUserProfile = () => {
-        props.followUser(userId);
+    const onPhotoUpload = (e) => {
+        if (e.target.files[0]) props.updatePhoto(e.target.files[0])
     }
-
-    const unfollowUserProfile = () => {
-        props.unfollowUser(userId);
-    }
-
-    if (!props.profile) return <Preloader />
-    return <section>
+    if (!props.profile) return <Preloader/>
+    return <div className='central-meta'>
         <div className="feature-photo">
-            <figure><img src={profileBackground} alt=""/></figure>
-            <div className="add-btn">
-                {props.followed ?
-                    <button title="" className="add-butn" disabled={props.disableWhileRequest} onClick={unfollowUserProfile}>Unfollow</button>:
-                    <button title="" className="add-butn" disabled={props.disableWhileRequest} onClick={followUserProfile}>Follow</button>
-                }
-            </div>
-            <div className="container-fluid">
-                <div className="row merged">
-                    <div className="col-lg-2 col-sm-3">
-                        <div className="user-avatar">
-                            <figure className={props.profile.photos.large ? style.transparent : style.whiteBg}>
-                                <img src={ props.profile.photos.large ? props.profile.photos.large : userIcon } alt=""/>
-                                <form className="edit-phto">
-                                    <i className="fa fa-camera-retro"/>
-                                    <label className="fileContainer">
-                                        Edit Display Photo
-                                        <input type="file"/>
-                                    </label>
-                                </form>
-                            </figure>
-                        </div>
+            <figure>
+                <img src={profileBackground} alt=""/>
+                <div className="social-media">
+                    <div className='social-media__element'><a
+                        href={`${props.profile.contacts.facebook}`}
+                        target='_blank'
+                    ><i className="ti-facebook"/></a></div>
+                    <div className='social-media__element'>
+                        <a href={`${props.profile.contacts.twitter}`} target='_blank'><i className="ti-twitter"/></a>
                     </div>
-                    <div className="col-lg-10 col-sm-9">
-                        <div className="timeline-info">
-                            <ul>
-                                <li className="admin-name">
-                                    <h5>{props.profile.fullName}</h5>
-                                    <ProfileStatus  status={props.status} updStatusThunk={props.updStatusThunk} />
-                                </li>
-                                <li>
-                                    <a className="active" href="time-line.html" title="">time line</a>
-                                    <a className="" href="timeline-photos.html" title="">Photos</a>
-                                    <a className="" href="timeline-videos.html" title="">Videos</a>
-                                    <a className="" href="timeline-friends.html" title="">Friends</a>
-                                    <a className="" href="timeline-groups.html" title="">Groups</a>
-                                    <a className="" href="about.html" title="">about</a>
-                                    <a className="" href="#" title="">more</a>
-                                </li>
-                                <li>
-                                    <ul className="education">
-                                        <li><i className="ti-facebook"></i> <a href={`${props.profile.contacts.facebook}`}>My Facebook</a></li>
-                                        <li><i className="ti-twitter"></i><a href={`${props.profile.contacts.twitter}`}>My Twitter</a></li>
-                                    </ul>
-                                </li>
-                            </ul>
+                </div>
+            </figure>
+            <div className="bg">
+                <div className="timeline-info">
+                    <div className='timeline-info__container'>
+                        <div className='timeline-info__row'>
+                            <div className="user-avatar">
+                                <figure
+                                    className={props.profile.photos.large && !props.photoUpdating ? style.transparent : style.whiteBg}>
+                                    {props.photoUpdating ? <Preloader/> :
+                                        <UserPhoto userPhoto={props.profile.photos.large}/>
+                                    }
+                                    {isMyProfile ?
+                                        <form className="edit-phto">
+                                            <i className="fa fa-edit"/>
+                                            <label className="fileContainer">
+                                                Edit Display Photo
+                                                <input onChange={onPhotoUpload} type="file"/>
+                                            </label>
+                                        </form>
+                                        :
+                                        ''
+                                    }
+                                </figure>
+                            </div>
                         </div>
+                        {profileEditMode ? <EditProfile {...props} setProfileEditMode={setProfileEditMode} isMyProfile={isMyProfile} /> :
+                            <ProfileInfo {...props} setProfileEditMode={setProfileEditMode} isMyProfile={isMyProfile} />
+                        }
                     </div>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
 }
 
-export default Profile;
+
+let mapStateToProps = (state) => {
+    return {
+        profile: state.profilePage.profile,
+        followed: state.profilePage.followed,
+        disableWhileRequest: state.profilePage.disableWhileRequest,
+        status: state.profilePage.status,
+        myId: state.auth.userData.id,
+        photoUpdating: state.profilePage.photoUpdating
+    }
+}
+
+export default compose(
+    withRedirect,
+    connect(mapStateToProps, {followUser, unfollowUser, loadProfile, updStatusThunk, updatePhoto})
+)(Profile);

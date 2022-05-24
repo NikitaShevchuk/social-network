@@ -19,7 +19,7 @@ const Login = (props) => {
                 <Field validate={composeValidators(required, minLength8, maxLength40)} name="password" inputType={'password'} label={'Password'} component={Input}/>
                 {props.loginFailed !== '' ? <div className="loginError">{props.loginFailed}</div> : ''}
                 <Field name={'rememberMe'} component={'input'} type={'checkbox'}/> Remember me
-                <a className="forgot-pwd underline" title="" href="#">Forgot Password?</a>
+                <a className="forgot-pwd underline" title="" href="#">Registration</a>
                 <div className="submit-btns">
                     <button type="submit" disabled={submitting} className="mtr-btn"><span>Login</span></button>
                     <button type="button" onClick={form.reset} disabled={submitting || pristine} className="mtr-btn"><span>Reset</span></button>

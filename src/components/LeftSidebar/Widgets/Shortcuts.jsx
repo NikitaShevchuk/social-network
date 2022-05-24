@@ -1,6 +1,8 @@
 import React, {useEffect, useRef, useState} from "react";
 import {NavLink} from "react-router-dom";
 import UserPhoto from "../../common/UserPhoto";
+import UserName from "../../common/UserName";
+import ProfileStatus from "../../MainContent/Profile/ProfileStatus";
 
 const Shortcuts = (props) => {
     let toggleSubnav = useRef();
@@ -16,6 +18,7 @@ const Shortcuts = (props) => {
             document.removeEventListener('mousedown', clickOutsideElement)
         }
     }, [subnav])
+    let isMyProfile = true;
     return <>
         <div className="naves">
             <NavLink to='/'>
@@ -41,11 +44,19 @@ const Shortcuts = (props) => {
             <div className="user-nav__info" onClick={() => changeSubnav(true)}>
                 <div className="user-nav__info-wrapper">
                     <div className="user-img">
-                        <UserPhoto />
+                        <UserPhoto  />
                     </div>
                     <div className="user-name">
-                        <div className="name">{props.isAuthorized ? props.userData.login : <NavLink to='/login'>Login</NavLink>}</div>
-                        <div className="status">status</div>
+                        <UserName name={props.userData.login} isAuthorized={props.isAuthorized} />
+                        <div className="status">
+                            {props.isAuthorized ?
+                                <ProfileStatus isMyProfile={isMyProfile} status={props.status}
+                                               updStatusThunk={props.updStatusThunk}/>
+                                :
+                                'Login to add status'
+                            }
+
+                        </div>
                     </div>
                 </div>
                 <div className="open-subnav">...</div>
