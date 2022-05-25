@@ -3,7 +3,14 @@ import Preloader from "../../common/Preloader";
 import {useParams} from "react-router-dom";
 import ProfileInfo from "./ProfileInfo";
 import {connect} from "react-redux";
-import {followUser, loadProfile, unfollowUser, updatePhoto, updStatusThunk} from "../../redux/ProfilePageReducer";
+import {
+    followUser,
+    loadProfile,
+    unfollowUser,
+    updatePhoto,
+    updateProfile,
+    updStatusThunk
+} from "../../redux/ProfilePageReducer";
 import {compose} from "redux";
 import withRedirect from "../../HOC/withRedirect";
 import EditProfile from "./EditProfile";
@@ -44,30 +51,29 @@ const Profile = (props) => {
             </figure>
             <div className="bg">
                 <div className="timeline-info">
-                    <div className='timeline-info__container'>
-                        <div className='timeline-info__row'>
-                            <div className="user-avatar">
-                                <figure
-                                    className={props.profile.photos.large && !props.photoUpdating ? style.transparent : style.whiteBg}>
-                                    {props.photoUpdating ? <Preloader/> :
-                                        <UserPhoto userPhoto={props.profile.photos.large}/>
-                                    }
-                                    {isMyProfile ?
-                                        <form className="edit-phto">
-                                            <i className="fa fa-edit"/>
-                                            <label className="fileContainer">
-                                                Edit Display Photo
-                                                <input onChange={onPhotoUpload} type="file"/>
-                                            </label>
-                                        </form>
-                                        :
-                                        ''
-                                    }
-                                </figure>
-                            </div>
-                        </div>
-                        {profileEditMode ? <EditProfile {...props} setProfileEditMode={setProfileEditMode} isMyProfile={isMyProfile} /> :
-                            <ProfileInfo {...props} setProfileEditMode={setProfileEditMode} isMyProfile={isMyProfile} />
+                    <div className="user-avatar">
+                        <figure
+                            className={props.profile.photos?.large && !props.photoUpdating ? style.transparent : style.whiteBg}>
+                            {props.photoUpdating ? <Preloader/> :
+                                <UserPhoto userPhoto={props.profile.photos?.large}/>
+                            }
+                            {isMyProfile ?
+                                <form className="edit-phto">
+                                    <i className="fa fa-edit"/>
+                                    <label className="fileContainer">
+                                        Edit Display Photo
+                                        <input onChange={onPhotoUpload} type="file"/>
+                                    </label>
+                                </form>
+                                :
+                                ''
+                            }
+                        </figure>
+                    </div>
+                    <div className="timeline-info__container">
+                        {profileEditMode ? <EditProfile {...props} setProfileEditMode={setProfileEditMode}
+                                                        isMyProfile={isMyProfile}/> :
+                            <ProfileInfo {...props} setProfileEditMode={setProfileEditMode} isMyProfile={isMyProfile}/>
                         }
                     </div>
                 </div>
@@ -90,5 +96,5 @@ let mapStateToProps = (state) => {
 
 export default compose(
     withRedirect,
-    connect(mapStateToProps, {followUser, unfollowUser, loadProfile, updStatusThunk, updatePhoto})
+    connect(mapStateToProps, {followUser, unfollowUser, loadProfile, updStatusThunk, updatePhoto, updateProfile})
 )(Profile);

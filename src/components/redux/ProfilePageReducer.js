@@ -9,6 +9,7 @@ const SET_STATUS = 'SET_STATUS';
 const UPD_STATUS = 'UPD_STATUS';
 const UPD_PHOTO = 'UPD_PHOTO';
 const PHOTO_UPDATING = 'PHOTO_UPDATING';
+const UPDATE_PROFILE = 'UPDATE_PROFILE';
 
 let initialState = {
     profile: null,
@@ -66,6 +67,11 @@ const profilePageReducer = (state = initialState, action) => {
                 ...state,
                 photoUpdating: action.isUpdating
             }
+        case UPDATE_PROFILE:
+            return {
+                ...state,
+                profile: action.profile
+            }
         default:
             return state;
     }
@@ -80,6 +86,7 @@ const setStatus = (status) => ({type: SET_STATUS, status})
 const updStatus = (status) => ({type: UPD_STATUS, status})
 const photoUploadedSuccessfully = (photo) => ({type: UPD_PHOTO, photo})
 const isPhotoUpdating = (isUpdating) => ({type: PHOTO_UPDATING, isUpdating})
+const setUpdatedProfile = profile => ({type: UPDATE_PROFILE, profile})
 
 export const updStatusThunk = (status) => (dispatch) => {
     profileApi.updStatus(status).then( data => {
@@ -120,6 +127,16 @@ export const updatePhoto = (photo) => async (dispatch) => {
     let data = await profileApi.uploadPhoto(photo);
     dispatch(photoUploadedSuccessfully(data.data.photos))
     dispatch(isPhotoUpdating(false))
+}
+
+export const updateProfile = formData => async dispatch => {
+    let profile = await profileApi.updateProfile(formData);
+    if (profile.resultCode === 0) {
+        dispatch(setUpdatedProfile(formData))
+    } else {
+        console.log(profile.messages)
+        debugger
+    }
 }
 
 export default profilePageReducer;

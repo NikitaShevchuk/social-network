@@ -62,8 +62,14 @@ const Shortcuts = (props) => {
                 <div className="open-subnav">...</div>
             </div>
             <div className={`user-nav__subnav ${ subnav ? 'active': '' }`}>
-                <i className="ti-power-off"/>
-                <button className='logout' onClick={props.logout}>Logout</button>
+                <div className="user-nav__subnav-element" onClick={props.logout} >
+                    <i className="ti-plus"/>
+                    <span className='logout'>Add another account</span>
+                </div>
+                <div className="user-nav__subnav-element" onClick={props.logout} >
+                    <i className="ti-power-off"/>
+                    <span className='logout'>Logout @{props.userData.login}</span>
+                </div>
             </div>
         </div>
     </>

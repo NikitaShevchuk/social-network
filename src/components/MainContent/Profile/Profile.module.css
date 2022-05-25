@@ -6,7 +6,15 @@
 }
 .green {
     color: lawngreen!important;
+    margin-bottom: 12px;
 }
 .red {
-    color: rgb(183 183 183)!important;
+    color: rgb(249, 24, 128)!important;
+    margin-bottom: 12px;
+}
+.green label {
+    margin-right: 5px;
+}
+.red label {
+    margin-right: 5px;
 }

@@ -1,7 +1,5 @@
 import React from 'react';
 import style from "./Profile.module.css";
-import Preloader from "../../common/Preloader";
-import UserPhoto from "../../common/UserPhoto";
 import ProfileStatus from "./ProfileStatus";
 
 const ProfileInfo = ({setProfileEditMode, profile, isMyProfile, userId, ...props}) => {
@@ -33,8 +31,8 @@ const ProfileInfo = ({setProfileEditMode, profile, isMyProfile, userId, ...props
                 <div className={`${profile.lookingFoAJob ? style.green : style.red}`}>
                     {profile.lookingFoAJob ? 'Looking for a job' : 'Not interested in job'}
                 </div>
-                <div>
-                    {profile.lookingFoAJobDescription}
+                <div className='lookingForAJobDescription'>
+                    {profile.lookingForAJobDescription}
                 </div>
             </div>
         </div>

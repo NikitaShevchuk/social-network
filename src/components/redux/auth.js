@@ -1,4 +1,4 @@
-import {profileApi} from "./api";
+import {profileApi, securityApi} from "./api";
 
 const SET_USER_DATA = 'SET_USER_DATA';
 const SET_USER_PHOTO = 'SET_USER_PHOTO';
@@ -6,6 +6,7 @@ const TOGGLE_IS_AUTHORIZED = 'TOGGLE_IS_AUTHORIZED';
 const LOGIN = 'LOGIN';
 const LOGOUT = 'LOGOUT';
 const LOGIN_FAILED = 'LOGIN_FAILED';
+const GET_CAPTCHA = 'GET_CAPTCHA';
 
 let initialState = {
     userData: {
@@ -16,7 +17,8 @@ let initialState = {
     profileImg: null,
     isAuthorized: false,
     successLogin: false,
-    loginFailed: ''
+    loginFailed: '',
+    captcha: null
 }
 
 
@@ -55,6 +57,11 @@ const authReducer = (state = initialState, action) => {
                 userData: {id: null, login: null, email: null},
                 profileImg: null
             }
+        case GET_CAPTCHA:
+            return {
+                ...state,
+                captcha: action.captcha
+            }
         default:
             return state;
     }
@@ -66,6 +73,7 @@ const toggleIsAuthorized = (toggle) => ({type: TOGGLE_IS_AUTHORIZED, toggle})
 const login = (login) => ({type: LOGIN, login})
 const logout = () => ({type: LOGOUT})
 const loginError = (loginErrorText) => ({type: LOGIN_FAILED, loginErrorText})
+const getCaptcha = captcha => ({type: GET_CAPTCHA, captcha})
 
 export const authorize = () => (dispatch) => {
     return profileApi.auth().then(data => {
@@ -84,8 +92,12 @@ export const loginThunk = (formData) => async (dispatch) => {
     if (data.resultCode === 0) {
         dispatch(login(true))
         dispatch(authorize());
-    } else {
+    } else if (data.resultCode === 1) {
         dispatch(loginError(data.messages[0]))
+    } else if (data.resultCode === 10) {
+        let captcha = await securityApi.requireCaptcha();
+        dispatch(getCaptcha(captcha))
+        debugger
     }
 }
 

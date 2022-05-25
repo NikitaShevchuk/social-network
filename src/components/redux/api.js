@@ -37,6 +37,9 @@ export const profileApi = {
                 'Content-Type': 'multipart/form-data'
             }
         }).then(response => response.data)
+    },
+    updateProfile(formData) {
+        return usersInstance.put(`profile`, formData).then(response => response.data)
     }
 }
 
@@ -78,5 +81,10 @@ export const dialogsApi = {
     },
     requireLastMessage(id) {
         return usersInstance.get(`dialogs/${id}/messages?page=1&count=1`).then(response => response.data)
+    }
+}
+export const securityApi = {
+    requireCaptcha() {
+        return usersInstance.get(`security/get-captcha-url`).then(response => response.data)
     }
 }

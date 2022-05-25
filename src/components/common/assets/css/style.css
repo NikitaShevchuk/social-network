@@ -772,7 +772,7 @@ header.sticky {
     margin-bottom: 0;
     position: absolute;
     overflow: hidden;
-    max-height: 409px;
+    max-height: 100%;
     width: 100%;
 }
 
@@ -790,6 +790,8 @@ header.sticky {
     overflow: hidden;
     position: relative;
     width: 200px;
+    top: -50%;
+    margin-left: 20px;
 }
 
 .user-avatar > figure > img {
@@ -804,7 +806,7 @@ header.sticky {
 }
 
 .timeline-info {
-    display: block;
+    display: flex;
     line-height: 59px;
     width: 100%;
     position: relative;
@@ -818,10 +820,8 @@ header.sticky {
     display: flex;
     list-style: outside none none;
     width: 100%;
-    padding: 0px 20px;
+    padding: 20px 20px 0 20px;
     position: relative;
-    top: -50%;
-    align-items: end;
 }
 
 .timeline-info .timeline-info__container .timeline-info__row {
@@ -838,20 +838,32 @@ ul.education li {
 ul.education > li {
     color: rgb(247, 249, 249);
 }
-.timeline-info .timeline-info__container .timeline-info__row.admin-name {
-    margin-bottom: 25px;
-}
-.timeline-info .timeline-info__container .timeline-info__row:last-child {
-    margin-bottom: 21px;
-}
+
 .timeline-info .add-butn {
-    top: 60%;
+    top: -30%;
+}
+.timeline-info .form-group {
+    margin: 0px;
+    display: block;
+}
+.lookingForAJobDescription {
+    font-size: 15px;
+    line-height: 15px;
+    display: block;
+    color: rgb(183 183 183);
+}
+.lookingForAJobDescription-edit {
+    margin-top: 20px;
 }
 button.add-butn.white {
-    top: 107%;
+    top: 35%;
     height: 35px;
-    background: rgba(255,255,255, 0.2);
+    background: transparent;
     border: 1px solid #fff;
+    transition: all .3s ease-in-out;
+}
+button.add-butn.white:hover {
+    background: rgba(255,255,255, 0.2);
 }
 .timeline-info .timeline-info__container .timeline-info__row a {
     display: inline-block;
@@ -875,7 +887,7 @@ button.add-butn.white {
     color: rgb(183 183 183);
     cursor: pointer;
     position: absolute;
-    bottom: 0;
+    top: 25%;
     left: 0;
 }
 .timeline-info .admin-name > input {
@@ -1495,7 +1507,7 @@ form button {
 .social-media {
     position: absolute;
     right: 20px;
-    top: 36%;
+    top: 40%;
     display: flex;
     background: rgba(0,0,0,0.3);
     padding: 12px 20px 8px 20px;
@@ -3739,9 +3751,8 @@ a.add-butn.more-action {
     display: flex;
 }
 .lookingFoAJob {
-    padding-left: 20px;
+    padding: 10px 0px 10px 20px;
     line-height: 14px;
-    padding-bottom: 10px;
 }
 .education {
     list-style: none;
@@ -10217,6 +10228,7 @@ aside.sidebar.full-style {
     padding: 10px 0px;
     border-radius: 30px;
     transition: all .3s ease-in-out;
+    margin-bottom: 10px;
 }
 .user-nav__info:hover {
     background: rgba(255, 255, 255, 0.1);
@@ -10247,17 +10259,35 @@ aside.sidebar.full-style {
     position: absolute;
     bottom: -100%;
     transition: all .2s ease-in-out;
-    width: 100%;
     min-height: 70px;
+    width: 100%;
     justify-content: space-around;
     display: flex;
     box-shadow: rgba(136, 153, 166, 0.2) 0px 0px 15px, rgba(136, 153, 166, 0.15) 0px 0px 3px 1px;
     align-items: center;
     border-radius: 30px;
+    flex-direction: column;
     opacity: 0;
+    padding: 10px 0px;
+    overflow: hidden;
 }
 .user-nav__subnav.active {
     bottom: 100%;
     opacity: 1;
     background: rgb(40, 44, 52);
+}
+.user-nav__subnav-element {
+    display: flex;
+    justify-content: space-around;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    width: 100%;
+    transition: all .3s ease-in-out;
+}
+.user-nav__subnav-element:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+.user-nav__subnav-element i {
+    margin-right: 10px;
 }
