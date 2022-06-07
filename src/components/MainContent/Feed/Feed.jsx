@@ -4,12 +4,14 @@ import NewPost from "./NewPost";
 
 const Feed = (props) => {
     return (
-        <div className="central-meta">
-            <NewPost state={props.state} onPostChange={props.onPostChange} addPostAction={props.addPostAction} postNewText={props.postNewText}/>
-            <div className="loadMore">
+        <>
+            <div className="loadMore opacity-animation">
+                <NewPost state={props.state} onPostChange={props.onPostChange}
+                         addPostActionCreator={props.addPostActionCreator } postNewText={props.postNewText}
+                         profileImg={props.profileImg}/>
                 {props.postList}
             </div>
-        </div>
+        </>
     )
 }
 

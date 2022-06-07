@@ -1,46 +1,35 @@
 import React from "react";
 import {Form, Field} from "react-final-form"
+import {addPostActionCreator} from "../../redux/postPageReducer";
 
 
-const NewPostForm = (props) => {
-    return <Form onSubmit={props.onSubmit}
+const NewPostForm = ({onSubmit}) => {
+    return <Form onSubmit={onSubmit}
                  render={({handleSubmit}) => (
                      <form onSubmit={handleSubmit}>
-                         <Field name={'postBody'} component={'textarea'}/>
+                         <Field name={'postBody'} initialValue="What's new?" component={'textarea'}/>
                          <div className="attachments">
-                             <ul>
-                                 <li>
-                                     <i className="fa fa-music"/>
-                                     <label className="fileContainer">
-                                         {/*<input type="file" />*/}
-                                     </label>
-                                 </li>
-                                 <li>
-                                     <button>Post</button>
-                                 </li>
-                             </ul>
+                             <div className="icons">
+                                 <i className="fa fa-photo"/>
+                                 <i className="fa fa-music"/>
+                             </div>
+                             <button className='add-butn'>Post</button>
                          </div>
                      </form>
                  )}
     />
 }
 
-class NewPost extends React.Component {
+const NewPost = ({addPostActionCreator}) => {
 
-    onSubmit(formData) {
-        console.log(formData)
+    const onSubmit = formData => {
+        addPostActionCreator(formData)
     }
-
-    render() {
-        return <div className="new-postbox">
-            <figure>
-                <img src="images/resources/admin2.jpg" alt=""/>
-            </figure>
-            <div className="newpst-input">
-                <NewPostForm onSubmit={this.onSubmit}/>
-            </div>
+    return <div className="new-postbox">
+        <div className="newpst-input">
+            <NewPostForm onSubmit={onSubmit}/>
         </div>
-    }
+    </div>
 }
 
 export default NewPost;

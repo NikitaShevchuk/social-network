@@ -22,8 +22,8 @@ const Shortcuts = (props) => {
     return <>
         <div className="naves">
             <NavLink to='/'>
-                <i className="ti-clipboard"/>
-                <span> News feed </span>
+                <i className="ti-share"/>
+                <span> Find friends </span>
             </NavLink>
             <NavLink to='/messages'>
                 <i className="ti-comments-smiley"/>
@@ -33,10 +33,6 @@ const Shortcuts = (props) => {
                 <i className="ti-user"/>
                 <span> My profile </span>
             </NavLink>
-            <NavLink to='/users'>
-                <i className="ti-share"/>
-                <span> People Nearby </span>
-            </NavLink>
         </div>
 
 
@@ -44,13 +40,13 @@ const Shortcuts = (props) => {
             <div className="user-nav__info" onClick={() => changeSubnav(true)}>
                 <div className="user-nav__info-wrapper">
                     <div className="user-img">
-                        <UserPhoto  />
+                        <UserPhoto profileImg={props.profileImg}/>
                     </div>
                     <div className="user-name">
                         <UserName name={props.userData.login} isAuthorized={props.isAuthorized} />
                         <div className="status">
                             {props.isAuthorized ?
-                                <ProfileStatus isMyProfile={isMyProfile} status={props.status}
+                                <ProfileStatus isMyProfile={false} status={props.status}
                                                updStatusThunk={props.updStatusThunk}/>
                                 :
                                 'Login to add status'

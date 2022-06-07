@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react";
-import Preloader from "../../common/Preloader";
+import Preloader from "../../common/Preloader/Preloader";
 import {useParams} from "react-router-dom";
 import ProfileInfo from "./ProfileInfo";
 import {connect} from "react-redux";
@@ -17,6 +17,9 @@ import EditProfile from "./EditProfile";
 import profileBackground from "../../common/assets/img/profileCover.jpg";
 import style from "./Profile.module.css";
 import UserPhoto from "../../common/UserPhoto";
+import ErrorComponent from "../../common/ErrorComponent";
+import {setMyStatus, updateProfileImg} from "../../redux/auth";
+import FeedContainer from "../Feed/FeedContainer";
 
 const Profile = (props) => {
 
@@ -32,22 +35,18 @@ const Profile = (props) => {
     }, [userId])
 
     const onPhotoUpload = (e) => {
-        if (e.target.files[0]) props.updatePhoto(e.target.files[0])
+        if (e.target.files[0]) props.updatePhoto(e.target.files[0]).then(response => {
+            props.updateProfileImg(response)
+        })
     }
     if (!props.profile) return <Preloader/>
     return <div className='central-meta'>
+        {
+            props.localError && <ErrorComponent errorText={props.localError} />
+        }
         <div className="feature-photo">
             <figure>
                 <img src={profileBackground} alt=""/>
-                <div className="social-media">
-                    <div className='social-media__element'><a
-                        href={`${props.profile.contacts.facebook}`}
-                        target='_blank'
-                    ><i className="ti-facebook"/></a></div>
-                    <div className='social-media__element'>
-                        <a href={`${props.profile.contacts.twitter}`} target='_blank'><i className="ti-twitter"/></a>
-                    </div>
-                </div>
             </figure>
             <div className="bg">
                 <div className="timeline-info">
@@ -55,14 +54,14 @@ const Profile = (props) => {
                         <figure
                             className={props.profile.photos?.large && !props.photoUpdating ? style.transparent : style.whiteBg}>
                             {props.photoUpdating ? <Preloader/> :
-                                <UserPhoto userPhoto={props.profile.photos?.large}/>
+                                <UserPhoto profileImg={props.profile.photos?.large}/>
                             }
                             {isMyProfile ?
                                 <form className="edit-phto">
                                     <i className="fa fa-edit"/>
                                     <label className="fileContainer">
                                         Edit Display Photo
-                                        <input onChange={onPhotoUpload} type="file"/>
+                                        <input onChange={onPhotoUpload} type="file" accept=".jpg, .jpeg, .png"/>
                                     </label>
                                 </form>
                                 :
@@ -72,13 +71,19 @@ const Profile = (props) => {
                     </div>
                     <div className="timeline-info__container">
                         {profileEditMode ? <EditProfile {...props} setProfileEditMode={setProfileEditMode}
+                                                        profileEditMode={profileEditMode}
                                                         isMyProfile={isMyProfile}/> :
-                            <ProfileInfo {...props} setProfileEditMode={setProfileEditMode} isMyProfile={isMyProfile}/>
+                            <ProfileInfo {...props} setProfileEditMode={setProfileEditMode}
+                                         profileEditMode={profileEditMode}
+                                         isMyProfile={isMyProfile}
+                                         setMyStatus={props.setMyStatus}
+                            />
                         }
                     </div>
                 </div>
             </div>
         </div>
+        <FeedContainer/>
     </div>
 }
 
@@ -90,11 +95,12 @@ let mapStateToProps = (state) => {
         disableWhileRequest: state.profilePage.disableWhileRequest,
         status: state.profilePage.status,
         myId: state.auth.userData.id,
-        photoUpdating: state.profilePage.photoUpdating
+        photoUpdating: state.profilePage.photoUpdating,
+        localError: state.profilePage.localError
     }
 }
 
 export default compose(
     withRedirect,
-    connect(mapStateToProps, {followUser, unfollowUser, loadProfile, updStatusThunk, updatePhoto, updateProfile})
+    connect(mapStateToProps, {followUser, unfollowUser, loadProfile, updStatusThunk, updatePhoto, updateProfile, updateProfileImg, setMyStatus})
 )(Profile);

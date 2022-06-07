@@ -1,16 +1,17 @@
 .whiteBg {
-    background: white;
+    background: rgb(40, 44, 52);
+    width: 100%;
 }
 .transparent {
     background: transparent;
 }
 .green {
     color: lawngreen!important;
-    margin-bottom: 12px;
+    line-height: 1rem;
 }
 .red {
     color: rgb(249, 24, 128)!important;
-    margin-bottom: 12px;
+    line-height: 1rem;
 }
 .green label {
     margin-right: 5px;

@@ -1,8 +1,8 @@
 export const changeById = (state, id, propertyToChange) => {
-    return state.map( user => {
-        if (user.id === id) {
-            return {...user, ...propertyToChange}
+    return state.map( item => {
+        if (item.id === id) {
+            return {...item, ...propertyToChange}
         }
-        return user;
+        return item;
     })
 }

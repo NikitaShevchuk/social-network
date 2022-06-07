@@ -7,6 +7,8 @@ const LOGIN = 'LOGIN';
 const LOGOUT = 'LOGOUT';
 const LOGIN_FAILED = 'LOGIN_FAILED';
 const GET_CAPTCHA = 'GET_CAPTCHA';
+const SET_MY_STATUS = 'SET_MY_STATUS';
+const UPD_MY_STATUS = 'UPD_MY_STATUS';
 
 let initialState = {
     userData: {
@@ -15,6 +17,7 @@ let initialState = {
         email: null
     },
     profileImg: null,
+    status: '',
     isAuthorized: false,
     successLogin: false,
     loginFailed: '',
@@ -32,7 +35,7 @@ const authReducer = (state = initialState, action) => {
         case SET_USER_PHOTO:
             return {
                 ...state,
-                userPhoto: action.userPhoto
+                profileImg: action.userPhoto
             }
         case TOGGLE_IS_AUTHORIZED:
             return {
@@ -62,6 +65,16 @@ const authReducer = (state = initialState, action) => {
                 ...state,
                 captcha: action.captcha
             }
+        case SET_MY_STATUS:
+            return {
+                ...state,
+                status: action.status
+            }
+        case UPD_MY_STATUS:
+            return {
+                ...state,
+                status: action.status
+            }
         default:
             return state;
     }
@@ -74,6 +87,8 @@ const login = (login) => ({type: LOGIN, login})
 const logout = () => ({type: LOGOUT})
 const loginError = (loginErrorText) => ({type: LOGIN_FAILED, loginErrorText})
 const getCaptcha = captcha => ({type: GET_CAPTCHA, captcha})
+export const setMyStatus = (status) => ({type: SET_MY_STATUS, status})
+export const updMyStatus = (status) => ({type: UPD_MY_STATUS, status})
 
 export const authorize = () => (dispatch) => {
     return profileApi.auth().then(data => {
@@ -83,6 +98,9 @@ export const authorize = () => (dispatch) => {
             profileApi.getProfile(data.data.id).then(data => {
                 dispatch(setUserPhoto(data.photos.small));
             })
+            profileApi.getStatus(data.data.id).then( data => {
+                dispatch(setMyStatus(data))
+            } )
         }
     })
 }
@@ -95,9 +113,9 @@ export const loginThunk = (formData) => async (dispatch) => {
     } else if (data.resultCode === 1) {
         dispatch(loginError(data.messages[0]))
     } else if (data.resultCode === 10) {
+        dispatch(loginError(data.messages[0]))
         let captcha = await securityApi.requireCaptcha();
         dispatch(getCaptcha(captcha))
-        debugger
     }
 }
 
@@ -106,6 +124,10 @@ export const logoutThunk = () => async (dispatch) => {
     if (data.resultCode === 0) {
         dispatch(logout())
     }
+}
+
+export const updateProfileImg = profileImg => dispatch => {
+    dispatch(setUserPhoto(profileImg))
 }
 
 

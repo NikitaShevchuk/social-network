@@ -1,16 +1,18 @@
 import React, {useEffect, useState} from "react";
 
-const ProfileStatus = (props) => {
+const ProfileStatus = ({isMyProfile, updStatusThunk, setMyStatus,...props}) => {
 
     let [status, setStatus] = useState(props.status);
+
     let [editMode, setEditMode] = useState(false);
 
     const enterEditMode = () => {
-        setEditMode(true)
+        if (isMyProfile) setEditMode(true)
     }
     const exitEditMode = () => {
         setEditMode(false)
-        if (props.status !== status) props.updStatusThunk(status);
+        if (props.status !== status) updStatusThunk(status);
+        setMyStatus(status)
     }
     const changeStatusText = (e) => {
         setStatus(e.target.value)
@@ -18,7 +20,8 @@ const ProfileStatus = (props) => {
     const changeStatusTextOnEnter = (e) => {
         if (e.key === 'Enter') {
             setEditMode(false)
-            if (props.status !== status) props.updStatusThunk(status);
+            if (props.status !== status) updStatusThunk(status);
+            setMyStatus(status)
         }
     }
     useEffect(() => {
@@ -38,12 +41,12 @@ const ProfileStatus = (props) => {
                    }/>
         }
         {!editMode &&
-            <span onClick={enterEditMode}>{
+            <span className='profile-status' onClick={enterEditMode}>{
                 props.status === null || props.status === '' ?
-                    'Add your status' :
+                    '' :
                     props.status
             }
-                {props.isMyProfile ? <i style={{marginLeft: '7px'}} className="fa fa-edit"/> : ''}</span>
+                {isMyProfile ? <i style={{marginLeft: '7px'}} className="fa fa-pencil"/> : ''}</span>
         }
     </>
 

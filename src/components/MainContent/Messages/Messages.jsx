@@ -1,7 +1,7 @@
 import React, {useEffect, useRef} from "react";
 import {Form, Field} from "react-final-form"
 import {useParams} from "react-router-dom";
-import Preloader from "../../common/Preloader";
+import Preloader from "../../common/Preloader/Preloader";
 import send from '../../common/assets/img/send.svg'
 import userImg from '../../common/assets/img/userIcon.jpg'
 
@@ -26,11 +26,11 @@ const Messages = (props) => {
         <div className="messages">
             <div className="message-box">
                 <ul className="peoples ps-container ps-theme-default ps-active-y">
-                    {props.dialogs ? props.dialogs : <Preloader/>}
+                    {props.dialogs[0] ? props.dialogs : <Preloader/>}
                 </ul>
                 <div className="peoples-mesg-box">
                     {userId ?
-                        <div className='chatArea'>
+                        <div className='chatArea opacity-animation'>
                             <div className="conversation-head">
                                 <figure><img src={props.conversationHead.photo ? props.conversationHead.photo : userImg} alt=""/></figure>
                                 <span>{props.conversationHead.userName}<i>online</i></span>
@@ -61,8 +61,10 @@ const NewMessage = (props) => {
     }
     return <Form onSubmit={props.sendMessage} render={({handleSubmit, submitting, pristine, form}) => (
         <form onSubmit={handleSubmit}>
-            <div className="messages-additional-icons"><i className="fa fa-picture-o"/></div>
-            <div className="messages-additional-icons"><i className="fa fa-smile-o"/></div>
+            <div className="messages-additional-icons">
+                <i className="fa fa-picture-o"/>
+                <i className="fa fa-smile-o"/>
+            </div>
             <Field onKeyDown={e => {
                 sendMessageOnEnter(e, form)
             }} name={'body'} component={'textarea'} placeholder='Text a message'/>

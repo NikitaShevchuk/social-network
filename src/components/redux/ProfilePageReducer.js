@@ -10,13 +10,15 @@ const UPD_STATUS = 'UPD_STATUS';
 const UPD_PHOTO = 'UPD_PHOTO';
 const PHOTO_UPDATING = 'PHOTO_UPDATING';
 const UPDATE_PROFILE = 'UPDATE_PROFILE';
+const ADD_LOCAL_ERROR = 'ADD_LOCAL_ERROR';
 
 let initialState = {
     profile: null,
     disableWhileRequest: false,
     followed: false,
     status: '',
-    photoUpdating: false
+    photoUpdating: false,
+    localError: null
 }
 
 
@@ -70,7 +72,17 @@ const profilePageReducer = (state = initialState, action) => {
         case UPDATE_PROFILE:
             return {
                 ...state,
-                profile: action.profile
+                profile: {
+                    ...state.profile,
+                    fullName: action.profile.fullName,
+                    lookingForAJob: action.profile.lookingForAJob,
+                    lookingForAJobDescription: action.profile.lookingForAJobDescription
+                }
+            }
+        case ADD_LOCAL_ERROR:
+            return {
+                ...state,
+                localError: action.localError
             }
         default:
             return state;
@@ -87,11 +99,17 @@ const updStatus = (status) => ({type: UPD_STATUS, status})
 const photoUploadedSuccessfully = (photo) => ({type: UPD_PHOTO, photo})
 const isPhotoUpdating = (isUpdating) => ({type: PHOTO_UPDATING, isUpdating})
 const setUpdatedProfile = profile => ({type: UPDATE_PROFILE, profile})
+export const addLocalError = localError => ({type: ADD_LOCAL_ERROR, localError})
 
 export const updStatusThunk = (status) => (dispatch) => {
     profileApi.updStatus(status).then( data => {
         if (data.resultCode === 0) dispatch(updStatus(status))
-    } )
+    } ).catch(reason => {
+        dispatch(addLocalError('Please login to edit your profile'))
+        setTimeout(() => {
+            dispatch(addLocalError(null))
+        }, 5000)
+    })
 }
 
 export const loadProfile = (id) => async (dispatch) => {
@@ -125,17 +143,35 @@ export const unfollowUser = (id) => (dispatch) => {
 export const updatePhoto = (photo) => async (dispatch) => {
     dispatch(isPhotoUpdating(true))
     let data = await profileApi.uploadPhoto(photo);
-    dispatch(photoUploadedSuccessfully(data.data.photos))
     dispatch(isPhotoUpdating(false))
+    if (data.resultCode === 0) {
+        return data.data.photos.small
+    } else {
+        dispatch(addLocalError(data.messages[0]))
+        setTimeout(() => {
+            dispatch(addLocalError(null))
+        }, 5000)
+    }
 }
 
 export const updateProfile = formData => async dispatch => {
     let profile = await profileApi.updateProfile(formData);
     if (profile.resultCode === 0) {
-        dispatch(setUpdatedProfile(formData))
+        dispatch(setUpdatedProfile({...formData, contacts: {
+                github: formData.github,
+                vk: null,
+                facebook: formData.facebook,
+                instagram: formData.instagram,
+                twitter: formData.twitter,
+                website: null,
+                youtube: formData.youtube,
+                mainLink: null
+            }}))
     } else {
-        console.log(profile.messages)
-        debugger
+        dispatch(addLocalError(profile.messages[0]))
+        setTimeout(() => {
+            dispatch(addLocalError(null))
+        }, 5000)
     }
 }
 

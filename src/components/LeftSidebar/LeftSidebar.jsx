@@ -20,7 +20,8 @@ const LeftSidebar = (props) => {
 let mapStateToProps = (state) => ({
     isAuthorized: state.auth.isAuthorized,
     userData: state.auth.userData,
-    status: state.profilePage.status
+    profileImg: state.auth.profileImg,
+    status: state.auth.status
 })
 
 export default connect(mapStateToProps, {logoutThunk, updStatusThunk})(LeftSidebar);

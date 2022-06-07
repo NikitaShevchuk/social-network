@@ -4,12 +4,14 @@ const usersInstance = axios.create({
     baseURL: 'https://social-network.samuraijs.com/api/1.0/',
     withCredentials: true,
     headers: {
-        "API-KEY": "b843ce8c-834e-410f-a28e-165a22d3eaab" // nikitashev
+        "API-KEY": localStorage.getItem('apiKey') // nikitashev
         // "API-KEY": "b843ce8c-834e-410f-a28e-165a22d3eaab"  //test account
         // "API-KEY": "78e8b5ca-1d57-4f99-b0ed-b0e4c9972089" //nikitashev1112
     }
 })
-
+export const modifyHeaders = () => {
+    usersInstance.defaults.headers.common['API-KEY'] = localStorage.getItem('apiKey')
+}
 export const profileApi = {
     getProfile(id) {
         return usersInstance.get(`profile/${id}`).then(response => response.data)

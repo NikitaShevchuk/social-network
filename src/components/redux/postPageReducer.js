@@ -1,4 +1,3 @@
-const CHANGE_TEXT = 'CHANGE-TEXT';
 const ADD_POST = 'ADD-POST';
 
 let initState = {
@@ -13,38 +12,28 @@ let initState = {
             postText: 'second post',
             likesCount: 0
         }
-    ],
-    postNewText: 'zalupa'
+    ]
 }
 
 const postPageReducer = (state = initState, action) => {
     switch(action.type) {
-        case CHANGE_TEXT:
-            return {
-                ...state,
-                postNewText: action.newText
-            }
         case ADD_POST:
             let newPost = {
                 id: 3,
-                postText: state.postNewText,
+                postText: action.newPost.postBody,
                 likesCount: 0
             };
             return {
                 ...state,
-                posts: [...state.posts, newPost],
-                postNewText: ''
+                posts: [...state.posts, newPost]
             }
         default:
             return state;
     }
 }
 
-export const changeTextActionCreator = (text) => {
-    return {type: CHANGE_TEXT, newText: text}
-}
-export const addPostActionCreator = () => {
-    return {type: ADD_POST}
+export const addPostActionCreator = (newPost) => {
+    return {type: ADD_POST, newPost}
 }
 
 export default postPageReducer;

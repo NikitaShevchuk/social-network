@@ -13,7 +13,7 @@ class LoginApi extends React.Component {
         return <div className="central-meta">
                 <div className="editing-info">
                     <h5 className="f-title"><i className="ti-lock"/>Login</h5>
-                    <Login submitForm={this.submitForm} loginFailed={this.props.loginFailed} />
+                    <Login {...this.props} submitForm={this.submitForm} />
                 </div>
             </div>
     }
@@ -21,7 +21,10 @@ class LoginApi extends React.Component {
 
 const mapStateToProps = (state) => ({
     isAuthorized: state.auth.isAuthorized,
-    loginFailed: state.auth.loginFailed
+    loginFailed: state.auth.loginFailed,
+    successLogin: state.auth.successLogin,
+    captcha: state.auth.captcha,
+    profileImg: state.auth.profileImg
 })
 
 const LoginContainer = connect(mapStateToProps, {loginThunk})(LoginApi)

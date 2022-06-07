@@ -44,8 +44,8 @@ const messagesPageReducer = (state = initialState, action) => {
                 return {
                     ...state,
                     conversationHead: {
-                        photo: state.dialogs[dialogIndex].photos.big,
-                        userName: state.dialogs[dialogIndex].userName
+                        photo: state.dialogs[dialogIndex]?.photos.small,
+                        userName: state.dialogs[dialogIndex]?.userName
                     }
                 }
             } else {

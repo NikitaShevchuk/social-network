@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import Users from "./Users";
 import {connect} from "react-redux";
 import {
@@ -6,30 +6,26 @@ import {
     followUser, getUsers, unfollowUser
 } from "../../redux/UsersPageReducer";
 
-class UsersPageAPI extends React.Component {
-
-    componentDidMount() {
-        this.props.getUsers(this.props.currentPage, this.props.pageSize)
+const UsersPageAPI = (props) => {
+    let [pageCounter, setPageCounter] = useState(2)
+    const loadUsers = (e) => {
+        if (e.currentTarget.scrollHeight - e.currentTarget.offsetHeight !== e.currentTarget.scrollTop || props.isFetching) return;
+        props.getUsers(pageCounter, props.pageSize)
+        setPageCounter( pageCounter + 1 )
     }
-
-    onChangeCurrentPage = (newCurrentPage) => {
-        this.props.changePage(newCurrentPage)
-        this.props.getUsers(this.props.currentPage, this.props.pageSize)
+    const followUserEvent = (id) => {
+        props.followUser(id);
     }
-    followUserEvent = (id) => {
-        this.props.followUser(id);
+    const unfollowUserEvent = (id) => {
+        props.unfollowUser(id);
     }
-    unfollowUserEvent = (id) => {
-        this.props.unfollowUser(id);
-    }
-
-    render() {
-        return <Users {...this.props}
-                      onChangeCurrentPage={this.onChangeCurrentPage}
-                      followUserEvent={this.followUserEvent}
-                      unfollowUserEvent={this.unfollowUserEvent}
-                      key={55} />
-    }
+    useEffect(() => {
+        props.getUsers(1, props.pageSize)
+    }, [])
+    return <Users {...props} key={55} loadUsers={loadUsers}
+                  followUserEvent={followUserEvent}
+                  unfollowUserEvent={unfollowUserEvent}
+    />
 }
 
 const mapStateToProps = state => {

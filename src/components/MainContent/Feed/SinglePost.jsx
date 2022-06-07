@@ -1,18 +1,19 @@
 import React from "react";
+import profileBackground from "../../common/assets/img/profileCover.jpg";
 
 const SinglePost = (props) => {
     return (
         <div className="user-post">
             <div className="friend-info">
                 <figure>
-                    <img src="images/resources/friend-avatar10.jpg" alt=""/>
+                    <img src={props.profileImg} alt=""/>
                 </figure>
                 <div className="friend-name">
-                    <ins><a href="time-line.html" title="">Janice Griffith</a></ins>
+                    <ins><a href="time-line.html" title="">{props.userName}</a></ins>
                     <span>published: june,2 2018 19:PM</span>
                 </div>
                 <div className="post-meta">
-                    <img src="images/resources/user-post.jpg" alt=""/>
+                    <img src={profileBackground} alt=""/>
                     <div className="we-video-info">
                         <ul>
                             <li>
@@ -43,51 +44,9 @@ const SinglePost = (props) => {
                                             <ins>200</ins>
                                         </span>
                             </li>
-                            <li className="social-media">
-                                <div className="menu">
-                                    <div className="btn trigger"><i className="fa fa-share-alt"></i></div>
-                                    <div className="rotater">
-                                        <div className="btn btn-icon"><a href="#" title=""><i
-                                            className="fa fa-html5"></i></a></div>
-                                    </div>
-                                    <div className="rotater">
-                                        <div className="btn btn-icon"><a href="#" title=""><i
-                                            className="fa fa-facebook"></i></a></div>
-                                    </div>
-                                    <div className="rotater">
-                                        <div className="btn btn-icon"><a href="#" title=""><i
-                                            className="fa fa-google-plus"></i></a></div>
-                                    </div>
-                                    <div className="rotater">
-                                        <div className="btn btn-icon"><a href="#" title=""><i
-                                            className="fa fa-twitter"></i></a></div>
-                                    </div>
-                                    <div className="rotater">
-                                        <div className="btn btn-icon"><a href="#" title=""><i
-                                            className="fa fa-css3"></i></a></div>
-                                    </div>
-                                    <div className="rotater">
-                                        <div className="btn btn-icon"><a href="#" title=""><i
-                                            className="fa fa-instagram"></i></a>
-                                        </div>
-                                    </div>
-                                    <div className="rotater">
-                                        <div className="btn btn-icon"><a href="#" title=""><i
-                                            className="fa fa-dribbble"></i></a>
-                                        </div>
-                                    </div>
-                                    <div className="rotater">
-                                        <div className="btn btn-icon"><a href="#" title=""><i
-                                            className="fa fa-pinterest"></i></a>
-                                        </div>
-                                    </div>
-
-                                </div>
-                            </li>
                         </ul>
                     </div>
                     <div className="description">
-
                         <p>
                             {props.postText}
                         </p>

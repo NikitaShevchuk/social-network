@@ -1,27 +1,16 @@
 import React from "react";
-import SinglePost from "./SinglePost";
 import Feed from "./Feed";
-import {addPostActionCreator, changeTextActionCreator} from "../../redux/postPageReducer";
+import {addPostActionCreator} from "../../redux/postPageReducer";
 import {connect} from "react-redux";
+import {postsSelector} from './postsReselector'
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
     return {
-        postList: state.postPage.posts.map( postData => <SinglePost postText={postData.postText} likesCount={postData.likesCount} key={postData.id}/> )
-    }
-}
-const mapDispatchToProps = (dispatch) => {
-    return {
-        onPostChange(text) {
-            let action = changeTextActionCreator(text);
-            dispatch(action)
-        },
-        addPostAction() {
-            let action = addPostActionCreator();
-            dispatch(action)
-        }
+        postList: postsSelector(state),
+        profileImg: state.auth.profileImg
     }
 }
 
-const FeedContainer = connect(mapStateToProps, mapDispatchToProps)(Feed)
+const FeedContainer = connect(mapStateToProps, {addPostActionCreator})(Feed)
 
 export default FeedContainer;

@@ -1,7 +1,7 @@
 import React from "react";
 import userImg from '../../common/assets/img/userIcon.jpg'
 import {NavLink} from "react-router-dom";
-import Preloader from "../../common/Preloader";
+import Preloader from "../../common/Preloader/Preloader";
 
 const SingleDialog = (props) => {
     let {body, addedAt} = props.lastMessage
@@ -34,7 +34,7 @@ const SingleDialog = (props) => {
     }
     let lastMessage = `${body.length > 25 ? body.slice(0, 26) + '...' : body}`
     if (!props.id) return <Preloader/>
-    return <li>
+    return <li className='opacity-animation'>
         <div className="last-activity">{messageAddedTime}</div>
         <figure>
             <img src={props.photos.small ? props.photos.small : userImg} alt=""/>
