@@ -2,6 +2,8 @@ import React, {useRef, useState, useEffect} from 'react';
 import {Field} from "react-final-form"
 import {isLink} from "../../common/validators";
 import {Input} from "../../common/FormControl";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import style from './Profile.module.css'
 
 const AdditionalProfileInfo = ({
                                    contacts, setProfileEditMode,
@@ -12,6 +14,7 @@ const AdditionalProfileInfo = ({
     let toggleSubmenu = useRef();
     let [editSocialMedia, setEditSocialMedia] = useState(false)
     const contactsArray = Object.keys(contacts).map(key => [key, contacts[key]])
+    let hasAnyLink = Object.values(contacts).find(item => item !== null);
     useEffect(() => {
         let clickOutsideElement = e => {
             if (editSocialMedia && toggleSubmenu.current && !toggleSubmenu.current.contains(e.target)) {
@@ -24,32 +27,32 @@ const AdditionalProfileInfo = ({
         }
     }, [editSocialMedia])
     return <div className="additional-profile-info">
-        <div className="social-media">
-            {contactsArray.map(item => {
-                if (item[1] === null || item[1] === '' || item[0] === 'vk') return ''
-                return <div className='social-media__element' key={contactsArray.indexOf(item)}><a
-                    href={`${item[1]}`}
-                    target='_blank'
-                ><i className={`ti-${item[0]}`}/></a></div>
-            })}
-            {profileEditMode &&
-                <div className='edit-social-media' onClick={() => setEditSocialMedia(!editSocialMedia)}><i
-                    className="fa fa-chevron-down"></i></div>
-            }
-            {editSocialMedia &&
-                <div className={`user-nav__subnav active`} ref={toggleSubmenu}>
-                    {contactsArray.map(item => {
-                            if (item[0] === 'website' || item[0] === 'vk' || item[0] === 'mainLink') return ''
-                            return <Field name={item[0]}
-                                   label={item[0]}
-                                   initialValue={item[1]}
-                                   component={Input}
-                                   validate={isLink}
-                                   key={contactsArray.indexOf(item)}/>
-                        })}
-                </div>
-            }
-        </div>
+        {hasAnyLink || editSocialMedia ?
+            <div className="social-media">
+                {contactsArray.map(item => {
+                    if (item[1] === null || item[1] === '' || item[0] === 'vk') return ''
+                    return <div className='social-media__element' key={contactsArray.indexOf(item)}>
+                        <a href={`${item[1]}`} target='_blank'><FontAwesomeIcon icon={`fab fa-${item[0]}`}/></a></div>
+                })}
+                {profileEditMode &&
+                    <><div className='edit-social-media' onClick={() => setEditSocialMedia(!editSocialMedia)}>
+                            <FontAwesomeIcon icon="fas fa-angle-down"/>
+                        </div>
+                        <div className={editSocialMedia ? style.additionalInfActive : style.additionalInf}
+                             ref={toggleSubmenu}>
+                            {contactsArray.map(item => {
+                                if (item[0] === 'website' || item[0] === 'vk' || item[0] === 'mainLink') return ''
+                                return <Field name={item[0]}
+                                              label={item[0]}
+                                              initialValue={item[1]}
+                                              component={Input}
+                                              validate={isLink}
+                                              key={contactsArray.indexOf(item)}/>
+                            })}
+                        </div></>
+                }
+            </div>:''
+        }
         {isMyProfile ?
             profileEditMode ?
                 <>

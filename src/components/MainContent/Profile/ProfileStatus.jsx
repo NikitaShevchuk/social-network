@@ -1,4 +1,6 @@
 import React, {useEffect, useState} from "react";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {faPencil} from "@fortawesome/free-solid-svg-icons";
 
 const ProfileStatus = ({isMyProfile, updStatusThunk, setMyStatus,...props}) => {
 
@@ -46,7 +48,7 @@ const ProfileStatus = ({isMyProfile, updStatusThunk, setMyStatus,...props}) => {
                     '' :
                     props.status
             }
-                {isMyProfile ? <i style={{marginLeft: '7px'}} className="fa fa-pencil"/> : ''}</span>
+                {isMyProfile ? <FontAwesomeIcon icon={faPencil} style={{marginLeft: '7px'}} size='xs' /> : ''}</span>
         }
     </>
 

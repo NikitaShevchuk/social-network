@@ -4,7 +4,12 @@ import {NavLink} from "react-router-dom";
 import Preloader from "../../common/Preloader/Preloader";
 
 const SingleDialog = (props) => {
-    let {body, addedAt} = props.lastMessage
+    let body = '';
+    let addedAt = 0;
+    if (props.lastMessage) {
+        body = props.lastMessage.body
+        addedAt = props.lastMessage.addedAt
+    }
     let day = new Date(addedAt).getDay();
     let messageAddedTime = ''
     switch (day) {
@@ -32,7 +37,7 @@ const SingleDialog = (props) => {
         default:
             messageAddedTime = 'Mon'
     }
-    let lastMessage = `${body.length > 25 ? body.slice(0, 26) + '...' : body}`
+    let lastMessage = `${body.length > 28 ? body.slice(0, 29) + '...' : body}`
     if (!props.id) return <Preloader/>
     return <li className='opacity-animation'>
         <div className="last-activity">{messageAddedTime}</div>
@@ -41,7 +46,9 @@ const SingleDialog = (props) => {
         </figure>
         <NavLink className='people-name' to={`/messages/${props.id}`}>
             <span className='dialog-header'>{props.userName}</span>
-            <span className='dialog-message-text'>{lastMessage}</span>
+            {lastMessage &&
+                <span className='dialog-message-text'>{lastMessage}</span>
+            }
         </NavLink>
         {props.hasNewMessages &&
             <div className="unreaded">{props.newMessagesCount}</div>

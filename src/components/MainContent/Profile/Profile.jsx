@@ -39,7 +39,7 @@ const Profile = (props) => {
             props.updateProfileImg(response)
         })
     }
-    if (!props.profile) return <Preloader/>
+    if (!props.profile) return <div className='central-meta'><Preloader/></div>
     return <div className='central-meta'>
         {
             props.localError && <ErrorComponent errorText={props.localError} />

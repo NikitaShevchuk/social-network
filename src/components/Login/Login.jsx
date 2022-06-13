@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react";
-import {Form, Field} from "react-final-form"
+import {Form, Field} from "react-final-form";
 import {isEmail, maxLengthCreator, minLengthCreator, required} from "../common/validators";
 import {Input} from "../common/FormControl";
 import {modifyHeaders} from "../redux/api";
@@ -22,19 +22,23 @@ const Login = ({ submitForm, loginFailed, captcha }) => {
         onSubmit={onSubmit}
         render={({handleSubmit, submitting, pristine, form}) => (
             <form onSubmit={handleSubmit}>
-                <Field validate={composeValidators(required, maxLength40, isEmail)} name="email" inputType={'email'} label={'Email'} component={Input}/>
-                <Field validate={composeValidators(required, minLength8, maxLength40)} name="password" inputType={'password'} label={'Password'} component={Input}/>
-                <Field validate={composeValidators(minLength8)} name="cookie" inputType={'password'} label={'API-KEY'} component={Input}/>
+                <Field validate={composeValidators(required, maxLength40, isEmail)} name="email" inputType='email' label='Email' component={Input}/>
+                <Field validate={composeValidators(required, minLength8, maxLength40)} name="password" inputType={'password'} label='Password' component={Input}/>
+                <Field validate={composeValidators(minLength8)} name="cookie" inputType='password' label='API-KEY' component={Input}/>
                 {loginFailed !== '' && <div className="loginError">{loginFailed}</div>}
-                <Field name={'rememberMe'} component={'input'} type={'checkbox'}/> Remember me
-                <a className="forgot-pwd underline" target='_blank' title="" href="https://social-network.samuraijs.com/signUp">Registration</a>
-                { captcha ? <div className='captcha'>
+                <div className="additionalLinks">
+                    <span><Field name='rememberMe' id='rememberMe' component='input' type='checkbox'/> <label htmlFor="rememberMe">Remember me</label></span>
+                    <a className="forgot-pwd underline" target='_blank' title="" href="https://social-network.samuraijs.com/signUp">Registration</a>
+                </div>
+                {captcha &&
+                    <div className='captcha'>
                         <img src={captcha.url} alt=""/>
                         <Field name='captcha' label='Please enter captcha' component={Input} />
-                    </div> : '' }
+                    </div>
+                }
                 <div className="submit-btns">
-                    <button type="submit" disabled={submitting} className="mtr-btn"><span>Login</span></button>
-                    <button type="button" onClick={form.reset} disabled={submitting || pristine} className="mtr-btn"><span>Reset</span></button>
+                    <button type="submit" disabled={submitting} className="add-butn mr-20"><span>Login</span></button>
+                    <button type="button" onClick={form.reset} disabled={submitting || pristine} className="add-butn whiteBg"><span>Reset</span></button>
                 </div>
             </form>
         )}

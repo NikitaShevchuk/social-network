@@ -4,15 +4,21 @@ import './components/common/assets/css/color.css';
 import './components/common/assets/css/fonts.css';
 import './components/common/assets/css/style.css';
 import './components/common/assets/css/main.min.css';
-import './components/common/assets/css/responsive.css';
 import {Route, Routes} from "react-router-dom";
 import LeftSidebar from "./components/LeftSidebar/LeftSidebar";
-import UsersContainer from "./components/MainContent/Users/UsersContainer";
 import LoginContainer from "./components/Login/LoginContainer";
-import {connect} from "react-redux";
 import {initializeApp} from "./components/redux/appReducer";
 import Preloader from "./components/common/Preloader/Preloader";
 import WithSuspense from "./components/HOC/withSuspense";
+import {connect} from "react-redux";
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { fab } from '@fortawesome/free-brands-svg-icons'
+import { faAngleDown } from '@fortawesome/free-solid-svg-icons'
+import RightSidebar from "./components/RightSidebar/RightSidebar";
+import MainPage from "./components/MainContent/MainPage";
+import {Navigate} from "react-router-dom";
+
+library.add(fab, faAngleDown)
 
 const Profile = React.lazy(() => import('./components/MainContent/Profile/Profile'))
 const MessagesContainer = React.lazy(() => import('./components/MainContent/Messages/MessagesContainer'))
@@ -21,7 +27,6 @@ class App extends React.Component {
     handleRejection = (event) => {
         console.warn("Внимание: Необработанная ошибка Promise. Позор вам! Причина: "
             + event.reason);
-        alert('Короче что-то не работает. Потом сделаю нормальное отображение ошибки, чтобы вот это кривое окно сверху не вылазило')
     }
 
     componentDidMount() {
@@ -37,26 +42,17 @@ class App extends React.Component {
                     <div className="row">
                         <LeftSidebar/>
                         <Routes>
-                            <Route exact path='/'
-                                   element={<UsersContainer/>}/>
+                            <Route path='/'>
 
-                            <Route exact path='/my-app'
-                                   element={<UsersContainer/>}/>
+                                <Route path='' element={<><MainPage/><RightSidebar /></>}/>
+                                <Route path='login' element={<><LoginContainer/><RightSidebar /></>}/>
+                                <Route path='profile' element={<>{WithSuspense(Profile)}<RightSidebar /></>}/>
+                                <Route path='profile/:userId' element={<>{WithSuspense(Profile)}<RightSidebar /></>}/>
+                                <Route path='messages'  element={WithSuspense(MessagesContainer)}/>
+                                <Route path='messages/:userId' element={WithSuspense(MessagesContainer)}/>
+                                <Route path='*' element={<div>page not found</div>}/>
 
-                            <Route path='/messages'
-                                   element={WithSuspense(MessagesContainer)}/>
-
-                            <Route path='/messages/:userId'
-                                   element={WithSuspense(MessagesContainer)}/>
-
-                            <Route path='/login'
-                                   element={<LoginContainer/>}/>
-
-                            <Route path={'/profile'}
-                                   element={WithSuspense(Profile)}/>
-
-                            <Route path={'/profile/:userId'}
-                                   element={WithSuspense(Profile)}/>
+                            </Route>
                         </Routes>
                     </div>
                 </div>

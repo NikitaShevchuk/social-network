@@ -9,6 +9,7 @@ const usersInstance = axios.create({
         // "API-KEY": "78e8b5ca-1d57-4f99-b0ed-b0e4c9972089" //nikitashev1112
     }
 })
+
 export const modifyHeaders = () => {
     usersInstance.defaults.headers.common['API-KEY'] = localStorage.getItem('apiKey')
 }
@@ -50,6 +51,9 @@ export const usersApi = {
         return usersInstance.get(`users?page=${currentPage}&count=${pageSize}`)
             .then(response => response.data)
     },
+    searchUsers(term = 'Bandera') {
+        return usersInstance.get(`users?term=${term}`).then( response => response.data )
+    },
     follow(id) {
         return usersInstance.post(`follow/${id}`).then(response => response.data)
     },
@@ -72,9 +76,6 @@ export const dialogsApi = {
     sendMessage(id = 1, body = {body: 'message text'}) {
         return usersInstance.post(`dialogs/${id}/messages`, body).then(response => response.data)
     },
-    //requireMessages(id, page = 1, count = 10) {
-    //    return usersInstance.get(`dialogs/${id}/messages?page=${page}&count=${count}`).then(response => response.data)
-    //},
     requireMessages(id, date = '2022-05-19') {
         return usersInstance.get(`dialogs/${id}/messages/new?newerThen=${date}`).then(response => response.data)
     },

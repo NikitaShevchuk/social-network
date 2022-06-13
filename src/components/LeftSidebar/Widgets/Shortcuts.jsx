@@ -3,6 +3,8 @@ import {NavLink} from "react-router-dom";
 import UserPhoto from "../../common/UserPhoto";
 import UserName from "../../common/UserName";
 import ProfileStatus from "../../MainContent/Profile/ProfileStatus";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {faComment, faHome, faPlus, faPowerOff, faUser} from "@fortawesome/free-solid-svg-icons";
 
 const Shortcuts = (props) => {
     let toggleSubnav = useRef();
@@ -22,15 +24,15 @@ const Shortcuts = (props) => {
     return <>
         <div className="naves">
             <NavLink to='/'>
-                <i className="ti-share"/>
-                <span> Find friends </span>
+                <FontAwesomeIcon icon={faHome}/>
+                <span> Home </span>
             </NavLink>
             <NavLink to='/messages'>
-                <i className="ti-comments-smiley"/>
+                <FontAwesomeIcon icon={faComment}/>
                 <span> Messages </span>
             </NavLink>
             <NavLink to='/profile'>
-                <i className="ti-user"/>
+                <FontAwesomeIcon icon={faUser}/>
                 <span> My profile </span>
             </NavLink>
         </div>
@@ -59,11 +61,11 @@ const Shortcuts = (props) => {
             </div>
             <div className={`user-nav__subnav ${ subnav ? 'active': '' }`}>
                 <div className="user-nav__subnav-element" onClick={props.logout} >
-                    <i className="ti-plus"/>
+                    <FontAwesomeIcon icon={faPlus} />
                     <span className='logout'>Add another account</span>
                 </div>
                 <div className="user-nav__subnav-element" onClick={props.logout} >
-                    <i className="ti-power-off"/>
+                    <FontAwesomeIcon icon={faPowerOff} />
                     <span className='logout'>Logout @{props.userData.login}</span>
                 </div>
             </div>

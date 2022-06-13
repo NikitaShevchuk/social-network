@@ -3,14 +3,14 @@ import Users from "./Users";
 import {connect} from "react-redux";
 import {
     changePage,
-    followUser, getUsers, unfollowUser
+    followUser, getUsers, searchUsers, unfollowUser, updUsers, updUsersThunk
 } from "../../redux/UsersPageReducer";
 
 const UsersPageAPI = (props) => {
     let [pageCounter, setPageCounter] = useState(2)
     const loadUsers = (e) => {
         if (e.currentTarget.scrollHeight - e.currentTarget.offsetHeight !== e.currentTarget.scrollTop || props.isFetching) return;
-        props.getUsers(pageCounter, props.pageSize)
+        props.updUsersThunk(pageCounter, props.pageSize)
         setPageCounter( pageCounter + 1 )
     }
     const followUserEvent = (id) => {
@@ -19,12 +19,17 @@ const UsersPageAPI = (props) => {
     const unfollowUserEvent = (id) => {
         props.unfollowUser(id);
     }
+    const searchSubmit = (formData) => {
+        formData.searchBody !== '' ? props.searchUsers(formData.searchBody) : props.getUsers(1, props.pageSize);
+    }
     useEffect(() => {
         props.getUsers(1, props.pageSize)
     }, [])
     return <Users {...props} key={55} loadUsers={loadUsers}
                   followUserEvent={followUserEvent}
                   unfollowUserEvent={unfollowUserEvent}
+                  searchSubmit={searchSubmit}
+                  startDialog={props.startDialog}
     />
 }
 
@@ -39,6 +44,6 @@ const mapStateToProps = state => {
     }
 }
 
-const UsersContainer = connect(mapStateToProps, {followUser, unfollowUser, changePage, getUsers})(UsersPageAPI);
+const UsersContainer = connect(mapStateToProps, {followUser, unfollowUser, changePage, getUsers, searchUsers, updUsersThunk})(UsersPageAPI);
 
 export default UsersContainer;

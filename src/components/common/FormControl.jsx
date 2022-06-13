@@ -11,3 +11,7 @@ export const Input = (props) => {
     </div>
 
 }
+export const isSearchFieldEmpty = (e, form, requestFunc, ...args) => {
+    let formValues = form.getState().values
+    if (e.key === 'Backspace' && !formValues.searchBody) return requestFunc(...args)
+}

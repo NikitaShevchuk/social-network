@@ -1,5 +1,5 @@
 import React from "react";
-import {getDialog, sendNewMessage, setAllMessages, setDialogs} from "../../redux/messagesPageReducer";
+import {filterDialogs, getDialog, sendNewMessage, setAllMessages, setDialogs} from "../../redux/messagesPageReducer";
 import Messages from "./Messages";
 import {connect} from "react-redux";
 import withRedirect from "../../HOC/withRedirect";
@@ -18,5 +18,5 @@ const mapStateToProps = (state) => {
 
 export default compose(
     withRedirect,
-    connect(mapStateToProps, {getDialog, sendNewMessage, setAllMessages, setDialogs})
+    connect(mapStateToProps, {getDialog, sendNewMessage, setAllMessages, setDialogs, filterDialogs})
 )(Messages);

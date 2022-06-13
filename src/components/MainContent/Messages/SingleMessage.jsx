@@ -1,5 +1,6 @@
 import React from "react";
 import UserPhoto from "../../common/UserPhoto";
+import {NavLink} from "react-router-dom";
 
 const SingleMessage = ({profileImg, addedAt, myId, senderId, body, senderPhoto}) => {
     let messageAdded = new Date(addedAt)
@@ -8,7 +9,7 @@ const SingleMessage = ({profileImg, addedAt, myId, senderId, body, senderPhoto})
     let messageAddedTime = `${hours}:${minutes > 9 ? minutes : `0${minutes}` }`;
     return (
         <li className={myId === senderId ? 'me' : 'you' }>
-            <figure><UserPhoto profileImg={myId === senderId ? profileImg : senderPhoto} /></figure>
+            <NavLink to={`/profile/${senderId}`} ><figure><UserPhoto profileImg={myId === senderId ? profileImg : senderPhoto} /></figure> </NavLink>
             <p>
                 <span className="text">{body}</span>
                 <div className="message-added-time">{messageAddedTime}</div>

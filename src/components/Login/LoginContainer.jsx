@@ -11,8 +11,8 @@ class LoginApi extends React.Component {
     render() {
         if (this.props.isAuthorized) return <Navigate replace to={'/profile'} />
         return <div className="central-meta">
+                <h4 className="sidebarHeader">Login</h4>
                 <div className="editing-info">
-                    <h5 className="f-title"><i className="ti-lock"/>Login</h5>
                     <Login {...this.props} submitForm={this.submitForm} />
                 </div>
             </div>

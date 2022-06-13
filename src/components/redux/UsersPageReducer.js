@@ -1,7 +1,8 @@
 import {usersApi} from "./api";
-import {changeById} from "./change-by-id";
+import {changeById} from "./reducerHelpers";
 
-const UPD_USERS = 'SET-USERS';
+const UPD_USERS = 'UPD_USERS';
+const SET_USERS = 'SET_USERS';
 const FOLLOW_USER = 'FOLLOW-USER';
 const UNFOLLOW_USER = 'UNFOLLOW-USER';
 const CHANGE_PAGE = 'CHANGE_PAGE';
@@ -11,7 +12,7 @@ const ABLE_BUTTON = 'ABLE_BUTTON';
 
 let initialState = {
     users: [],
-    pageSize: 10,
+    pageSize: 20,
     isFetching: true,
     disableWhileRequest: []
 }
@@ -19,6 +20,11 @@ let initialState = {
 
 const UsersPageReducer = (state = initialState, action) => {
     switch (action.type) {
+        case SET_USERS:
+            return {
+                ...state,
+                users: action.users
+            }
         case UPD_USERS:
             return {
                 ...state,
@@ -55,6 +61,7 @@ const UsersPageReducer = (state = initialState, action) => {
 }
 
 export const updUsers = (newUsers) => ({type: UPD_USERS, newUsers })
+export const setUsers = (users) => ({type: SET_USERS, users })
 export const followSuccessful = (id) => ({type: FOLLOW_USER, id})
 export const unfollowSuccessful = (id) => ({type: UNFOLLOW_USER, id})
 export const changePage = (newCurrentPage) => ({type: CHANGE_PAGE, newCurrentPage})
@@ -66,7 +73,20 @@ export const getUsers = (currentPage, pageSize) => async (dispatch) => {
     dispatch(isFetchingFunc(true))
     let data = await usersApi.getUsers(currentPage, pageSize)
     dispatch(isFetchingFunc(false));
+    dispatch(setUsers(data.items));
+}
+export const updUsersThunk = (currentPage, pageSize) => async (dispatch) => {
+    dispatch(isFetchingFunc(true))
+    let data = await usersApi.getUsers(currentPage, pageSize)
+    dispatch(isFetchingFunc(false));
     dispatch(updUsers(data.items));
+}
+
+export const searchUsers = (term) => async (dispatch) => {
+    dispatch(isFetchingFunc(true))
+    let data = await usersApi.searchUsers(term)
+    dispatch(isFetchingFunc(false));
+    dispatch(setUsers(data.items));
 }
 
 export const followUser = (id) => async (dispatch) => {
