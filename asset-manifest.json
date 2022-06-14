@@ -1,24 +1,25 @@
 {
   "files": {
-    "main.css": "/my-app/static/css/main.932939f6.css",
-    "main.js": "/my-app/static/js/main.8b890d12.js",
+    "main.css": "/my-app/static/css/main.d552259e.css",
+    "main.js": "/my-app/static/js/main.2ad6ee6b.js",
     "static/css/275.43a6209d.chunk.css": "/my-app/static/css/275.43a6209d.chunk.css",
-    "static/js/275.31047ff2.chunk.js": "/my-app/static/js/275.31047ff2.chunk.js",
-    "static/js/657.6c52d3d1.chunk.js": "/my-app/static/js/657.6c52d3d1.chunk.js",
+    "static/js/275.d543ce01.chunk.js": "/my-app/static/js/275.d543ce01.chunk.js",
+    "static/js/657.346b91f4.chunk.js": "/my-app/static/js/657.346b91f4.chunk.js",
     "static/js/787.28cb0dcd.chunk.js": "/my-app/static/js/787.28cb0dcd.chunk.js",
     "static/media/profileCover.jpg": "/my-app/static/media/profileCover.f77c41c8ba007e39e6df.jpg",
+    "static/media/instruction.png": "/my-app/static/media/instruction.3a8ea33b66abff9a21e6.png",
     "static/media/chatBg.jpg": "/my-app/static/media/chatBg.cd01d451fbf6969c4c30.jpg",
     "static/media/send.svg": "/my-app/static/media/send.2ec83b7d2370fbd448eddc161ecfe473.svg",
     "index.html": "/my-app/index.html",
-    "main.932939f6.css.map": "/my-app/static/css/main.932939f6.css.map",
-    "main.8b890d12.js.map": "/my-app/static/js/main.8b890d12.js.map",
+    "main.d552259e.css.map": "/my-app/static/css/main.d552259e.css.map",
+    "main.2ad6ee6b.js.map": "/my-app/static/js/main.2ad6ee6b.js.map",
     "275.43a6209d.chunk.css.map": "/my-app/static/css/275.43a6209d.chunk.css.map",
-    "275.31047ff2.chunk.js.map": "/my-app/static/js/275.31047ff2.chunk.js.map",
-    "657.6c52d3d1.chunk.js.map": "/my-app/static/js/657.6c52d3d1.chunk.js.map",
+    "275.d543ce01.chunk.js.map": "/my-app/static/js/275.d543ce01.chunk.js.map",
+    "657.346b91f4.chunk.js.map": "/my-app/static/js/657.346b91f4.chunk.js.map",
     "787.28cb0dcd.chunk.js.map": "/my-app/static/js/787.28cb0dcd.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.932939f6.css",
-    "static/js/main.8b890d12.js"
+    "static/css/main.d552259e.css",
+    "static/js/main.2ad6ee6b.js"
   ]
 }
