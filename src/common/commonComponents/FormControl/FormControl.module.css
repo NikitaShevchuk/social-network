@@ -1,0 +1,40 @@
+.errorInfo {
+    color: #f94444;
+    position: absolute;
+    right: 5px;
+    bottom: 5px;
+    font-size: 15px;
+    padding-left: 5px;
+}
+.errorSelect::before {
+    background: #f94444!important;
+}
+.activeBorder {
+    width: 100%;
+    left: 0;
+}
+.activeLabel {
+    color: #088dcd;
+    font-size: .8rem;
+    top: -1rem;
+    left: 0;
+}
+.activeInput {
+    color: #fff!important;
+}
+.apiKeyModal {
+    position: absolute;
+    right: 5px;
+    bottom: 5px;
+    font-size: 15px;
+    padding-left: 5px;
+    cursor: pointer;
+}
+.apiKeyModalWithError {
+    position: absolute;
+    right: 20%;
+    bottom: 5px;
+    font-size: 15px;
+    padding-left: 5px;
+    cursor: pointer;
+}
