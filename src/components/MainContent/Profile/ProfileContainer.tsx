@@ -1,43 +1,47 @@
-import React, {FC} from 'react';
+import React, {FC, useEffect} from 'react';
 import Profile from "./Profile";
 import {RootState} from "../../../redux/redux-store";
 import {connect, ConnectedProps} from "react-redux";
-import {
-    followUser,
-    loadProfile,
-    unfollowUser,
-    updatePhoto,
-    updateProfile
-} from "../../../redux/Reducers/profileReducer/middleware";
-import {updateProfileImg} from "../../../redux/Reducers/authReducer/middleware";
+import {getMyProfileFromState, loadProfile} from "../../../redux/reducers/profileReducer/middleware";
+import {setIsMyProfile, setUserId} from "../../../redux/reducers/profileReducer/actions";
+import {useParams} from "react-router-dom";
 
 const ProfileContainer: FC<ProfileProps> = (props) => {
-    const onPhotoUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
-        let inputFiles = e.target.files ? e.target.files[0] : null
-        if (inputFiles) props.updatePhoto(inputFiles)
-    }
+    const id = useParams().userId
+    useEffect(() => {
+        // make sure that the userId won't be undefined
+        const userIdForState = id ? Number(id) : props.myId
+        props.setUserId(userIdForState)
+        const isMyProfile = userIdForState === props.myId || userIdForState === 0
+        if (isMyProfile) {
+            props.setIsMyProfile(true)
+            props.getMyProfileFromState()
+        }
+        else {
+            props.setIsMyProfile(false)
+            props.loadProfile(userIdForState)
+        }
+    }, [id, props.myId])
     return (
-        <Profile {...props} onPhotoUpload={onPhotoUpload} />
+        <Profile {...props}/>
     );
 };
 
-
-
-let mapStateToProps = (state: RootState) => {
+const mapStateToProps = (state: RootState) => {
     return {
         profile: state.profilePage.profile,
-        followed: state.profilePage.followed,
-        disableWhileRequest: state.profilePage.disableWhileRequest,
-        status: state.profilePage.status,
         myId: state.auth.userData.id,
-        photoUpdating: state.profilePage.photoUpdating,
-        localError: state.profilePage.localError
+        localError: state.profilePage.localError,
+        isMyProfile: state.profilePage.isMyProfile,
+        profileEditMode: state.profilePage.profileEditMode,
+        userId: state.profilePage.userIdParam,
+        profileFetchError: state.profilePage.profileFetchError,
+        profileIsLoading: state.profilePage.profileIsLoading
     }
 }
 
 const connector = connect(mapStateToProps, {
-    followUser, unfollowUser, loadProfile,
-    updatePhoto, updateProfile, updateProfileImg
+    loadProfile, setIsMyProfile, setUserId, getMyProfileFromState
 })
 
 export default connector(ProfileContainer);

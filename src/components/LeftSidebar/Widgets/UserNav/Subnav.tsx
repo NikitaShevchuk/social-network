@@ -1,7 +1,7 @@
 import React, {FC, memo} from 'react';
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faPlus, faPowerOff} from "@fortawesome/free-solid-svg-icons";
-import {UserData} from "../../../../types/authTypes";
+import {UserData} from "../../../../types/AuthTypes";
 
 interface Props {
     logout: () => void

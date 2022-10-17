@@ -1,9 +1,9 @@
 import React, {FC} from "react";
 import {connect, ConnectedProps} from "react-redux";
 import Login from "./Login";
-import {loginThunk} from "../../redux/Reducers/authReducer/middleware";
-import {setDialogs} from "../../redux/Reducers/messagesReducer/middleware";
-import {modifyHeaders} from "../../api/api";
+import {loginThunk} from "../../redux/reducers/authReducer/middleware";
+import {setDialogs} from "../../redux/reducers/messagesReducer/middleware";
+import {modifyHeaders} from "../../services";
 
 export interface FormValues {
     email: string

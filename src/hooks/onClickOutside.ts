@@ -3,7 +3,7 @@ import React, {useEffect} from "react";
 export const useOnClickOutside = (
     ref: React.MutableRefObject<any> | null,
     callback: (toggle: boolean) => void,
-    stateToChange: boolean
+    stateToChange: boolean,
 ) => {
     const outsideClickHandler = (e: MouseEvent): void => {
         const target = e.target as HTMLElement;

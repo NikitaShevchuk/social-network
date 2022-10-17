@@ -4,7 +4,7 @@ import {faQuestionCircle} from "@fortawesome/free-solid-svg-icons";
 import React from "react";
 import {Captcha} from "../Login";
 import {FormValues} from "../LoginContainer";
-import {getFields} from "./fields";
+import {useGetFields} from "./fields";
 
 const REGISTRATION_LINK = 'https://social-network.samuraijs.com/signUp'
 
@@ -22,7 +22,7 @@ export const loginFormRender = (
     ({handleSubmit, submitting, pristine, form}) => {
         const {
             captchaField, apiKeyField, emailField, passwordField, rememberMeField
-        } = getFields()
+        } = useGetFields()
         const openModal = () => setModalWindow(true)
         const resetForm = () => form.reset()
         return (

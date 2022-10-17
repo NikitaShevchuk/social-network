@@ -1,11 +1,11 @@
 import {applyMiddleware, combineReducers, createStore} from "redux";
 import thunkMiddleWare from "redux-thunk"
-import postPageReducer from "./Reducers/postPageReducer";
-import messagesReducer from "./Reducers/messagesReducer";
-import usersReducer from "./Reducers/usersReducer";
-import profileReducer from "./Reducers/profileReducer";
-import authReducer from "./Reducers/authReducer";
-import appReducer from "./Reducers/appReducer";
+import postPageReducer from "./reducers/postPageReducer";
+import messagesReducer from "./reducers/messagesReducer";
+import usersReducer from "./reducers/usersReducer";
+import profileReducer from "./reducers/profileReducer";
+import authReducer from "./reducers/authReducer";
+import appReducer from "./reducers/appReducer";
 
 const reducersToCombine = {
     postPage: postPageReducer,

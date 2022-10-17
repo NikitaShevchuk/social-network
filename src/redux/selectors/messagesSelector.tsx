@@ -1,8 +1,8 @@
 import React from "react";
 import SingleMessage from "../../components/MainContent/Messages/SingleMessage";
-import SingleDialog from "../../components/MainContent/Messages/Dialogs/SingleDialog";
+import SingleDialog from "../../features/DialogsList/SingleDialog";
 import {createSelector} from "reselect";
-import {Idialog, Imessage} from "../../types/messagesTypes";
+import {DialogWithMessage, Message} from "../../types/MessagesTypes";
 import {RootState} from "../redux-store";
 
 const getMessages = (state: RootState) => state.messagesPage.messages
@@ -12,10 +12,22 @@ export const getMyId = (state: RootState) => state.auth.userData.id
 const getDialogs = (state: RootState) => state.messagesPage.dialogs
 const getProfileImg = (state: RootState) => state.auth.profileImg
 
-export let messagesReselect = createSelector(getMessages, getMyId, getProfileImg, getSenderPhoto, (messages, myId, profileImg, senderPhoto) => {
-    return messages.map( (mes: Imessage) => <SingleMessage {...mes} myId={myId} profileImg={profileImg} senderPhoto={senderPhoto} key={mes.id} /> )
-})
+export const messagesReselect = createSelector(
+    getMessages, getMyId, getProfileImg, getSenderPhoto,
+    (messages, myId, profileImg, senderPhoto) => messages.map(
+        (mes: Message) => (
+            <SingleMessage
+                {...mes} key={mes.id}
+                myId={myId}
+                profileImg={profileImg}
+                senderPhoto={senderPhoto}
+            />
+        )
+    )
+)
 
-export let dialogsReselect = createSelector(getDialogs, dialogs => {
-    return dialogs.map( (dialog: Idialog) => <SingleDialog {...dialog}  key={dialog.id} /> )
+export const dialogsReselect = createSelector(getDialogs, dialogs => {
+    return dialogs.map(
+        (dialog: DialogWithMessage) => <SingleDialog {...dialog} key={dialog.id} />
+    )
 })

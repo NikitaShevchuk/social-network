@@ -1,222 +1,5 @@
-@font-face {
-    font-family: 'SF Pro Display';
-    src: url('../fonts/SF Pro Display/SFProDisplay-Medium.eot');
-    src: local('SF Pro Display Medium'), local('SFProDisplay-Medium'),
-    url('../fonts/SF Pro Display/SFProDisplay-Medium.eot?#iefix') format('embedded-opentype'),
-    url('../fonts/SF Pro Display/SFProDisplay-Medium.woff2') format('woff2'),
-    url('../fonts/SF Pro Display/SFProDisplay-Medium.woff') format('woff'),
-    url('../fonts/SF Pro Display/SFProDisplay-Medium.ttf') format('truetype');
-    font-weight: 500;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'SF Pro Display';
-    src: url('../fonts/SF Pro Display/SFProDisplay-Heavy.eot');
-    src: local('SF Pro Display Heavy'), local('SFProDisplay-Heavy'),
-    url('../fonts/SF Pro Display/SFProDisplay-Heavy.eot?#iefix') format('embedded-opentype'),
-    url('../fonts/SF Pro Display/SFProDisplay-Heavy.woff2') format('woff2'),
-    url('../fonts/SF Pro Display/SFProDisplay-Heavy.woff') format('woff'),
-    url('../fonts/SF Pro Display/SFProDisplay-Heavy.ttf') format('truetype');
-    font-weight: 900;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'SF Pro Display';
-    src: url('../fonts/SF Pro Display/SFProDisplay-UltralightItalic.eot');
-    src: local('SF Pro Display UltralightItalic'), local('SFProDisplay-UltralightItalic'),
-    url('../fonts/SF Pro Display/SFProDisplay-UltralightItalic.eot?#iefix') format('embedded-opentype'),
-    url('../fonts/SF Pro Display/SFProDisplay-UltralightItalic.woff2') format('woff2'),
-    url('../fonts/SF Pro Display/SFProDisplay-UltralightItalic.woff') format('woff'),
-    url('../fonts/SF Pro Display/SFProDisplay-UltralightItalic.ttf') format('truetype');
-    font-weight: 200;
-    font-style: italic;
-}
-
-@font-face {
-    font-family: 'SF Pro Display';
-    src: url('../fonts/SF Pro Display/SFProDisplay-RegularItalic.eot');
-    src: local('SF Pro Display Regular Italic'), local('SFProDisplay-RegularItalic'),
-    url('../fonts/SF Pro Display/SFProDisplay-RegularItalic.eot?#iefix') format('embedded-opentype'),
-    url('../fonts/SF Pro Display/SFProDisplay-RegularItalic.woff2') format('woff2'),
-    url('../fonts/SF Pro Display/SFProDisplay-RegularItalic.woff') format('woff'),
-    url('../fonts/SF Pro Display/SFProDisplay-RegularItalic.ttf') format('truetype');
-    font-weight: normal;
-    font-style: italic;
-}
-
-@font-face {
-    font-family: 'SF Pro Display';
-    src: url('../fonts/SF Pro Display/SFProDisplay-Thin.eot');
-    src: local('SF Pro Display Thin'), local('SFProDisplay-Thin'),
-    url('../fonts/SF Pro Display/SFProDisplay-Thin.eot?#iefix') format('embedded-opentype'),
-    url('../fonts/SF Pro Display/SFProDisplay-Thin.woff2') format('woff2'),
-    url('../fonts/SF Pro Display/SFProDisplay-Thin.woff') format('woff'),
-    url('../fonts/SF Pro Display/SFProDisplay-Thin.ttf') format('truetype');
-    font-weight: 100;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'SF Pro Display';
-    src: url('../fonts/SF Pro Display/SFProDisplay-Light.eot');
-    src: local('SF Pro Display Light'), local('SFProDisplay-Light'),
-    url('../fonts/SF Pro Display/SFProDisplay-Light.eot?#iefix') format('embedded-opentype'),
-    url('../fonts/SF Pro Display/SFProDisplay-Light.woff2') format('woff2'),
-    url('../fonts/SF Pro Display/SFProDisplay-Light.woff') format('woff'),
-    url('../fonts/SF Pro Display/SFProDisplay-Light.ttf') format('truetype');
-    font-weight: 200;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'SF Pro Display';
-    src: url('../fonts/SF Pro Display/SFProDisplay-BlackItalic.eot');
-    src: local('SF Pro Display Black Italic'), local('SFProDisplay-BlackItalic'),
-    url('../fonts/SF Pro Display/SFProDisplay-BlackItalic.eot?#iefix') format('embedded-opentype'),
-    url('../fonts/SF Pro Display/SFProDisplay-BlackItalic.woff2') format('woff2'),
-    url('../fonts/SF Pro Display/SFProDisplay-BlackItalic.woff') format('woff'),
-    url('../fonts/SF Pro Display/SFProDisplay-BlackItalic.ttf') format('truetype');
-    font-weight: 900;
-    font-style: italic;
-}
-
-@font-face {
-    font-family: 'SF Pro Display';
-    src: url('../fonts/SF Pro Display/SFProDisplay-Bold.eot');
-    src: local('SF Pro Display Bold'), local('SFProDisplay-Bold'),
-    url('../fonts/SF Pro Display/SFProDisplay-Bold.eot?#iefix') format('embedded-opentype'),
-    url('../fonts/SF Pro Display/SFProDisplay-Bold.woff2') format('woff2'),
-    url('../fonts/SF Pro Display/SFProDisplay-Bold.woff') format('woff'),
-    url('../fonts/SF Pro Display/SFProDisplay-Bold.ttf') format('truetype');
-    font-weight: bold;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'SF Pro Display';
-    src: url('../fonts/SF Pro Display/SFProDisplay-Black.eot');
-    src: local('SF Pro Display Black'), local('SFProDisplay-Black'),
-    url('../fonts/SF Pro Display/SFProDisplay-Black.eot?#iefix') format('embedded-opentype'),
-    url('../fonts/SF Pro Display/SFProDisplay-Black.woff2') format('woff2'),
-    url('../fonts/SF Pro Display/SFProDisplay-Black.woff') format('woff'),
-    url('../fonts/SF Pro Display/SFProDisplay-Black.ttf') format('truetype');
-    font-weight: 900;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'SF Pro Display';
-    src: url('../fonts/SF Pro Display/SFProDisplay-SemiboldItalic.eot');
-    src: local('SF Pro Display SemiboldItalic'), local('SFProDisplay-SemiboldItalic'),
-    url('../fonts/SF Pro Display/SFProDisplay-SemiboldItalic.eot?#iefix') format('embedded-opentype'),
-    url('../fonts/SF Pro Display/SFProDisplay-SemiboldItalic.woff2') format('woff2'),
-    url('../fonts/SF Pro Display/SFProDisplay-SemiboldItalic.woff') format('woff'),
-    url('../fonts/SF Pro Display/SFProDisplay-SemiboldItalic.ttf') format('truetype');
-    font-weight: 600;
-    font-style: italic;
-}
-
-@font-face {
-    font-family: 'SF Pro Display';
-    src: url('../fonts/SF Pro Display/SFProDisplay-Ultralight.eot');
-    src: local('SF Pro Display Ultralight'), local('SFProDisplay-Ultralight'),
-    url('../fonts/SF Pro Display/SFProDisplay-Ultralight.eot?#iefix') format('embedded-opentype'),
-    url('../fonts/SF Pro Display/SFProDisplay-Ultralight.woff2') format('woff2'),
-    url('../fonts/SF Pro Display/SFProDisplay-Ultralight.woff') format('woff'),
-    url('../fonts/SF Pro Display/SFProDisplay-Ultralight.ttf') format('truetype');
-    font-weight: 200;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'SF Pro Display';
-    src: url('../fonts/SF Pro Display/SFProDisplay-LightItalic.eot');
-    src: local('SF Pro Display LightItalic'), local('SFProDisplay-LightItalic'),
-    url('../fonts/SF Pro Display/SFProDisplay-LightItalic.eot?#iefix') format('embedded-opentype'),
-    url('../fonts/SF Pro Display/SFProDisplay-LightItalic.woff2') format('woff2'),
-    url('../fonts/SF Pro Display/SFProDisplay-LightItalic.woff') format('woff'),
-    url('../fonts/SF Pro Display/SFProDisplay-LightItalic.ttf') format('truetype');
-    font-weight: 200;
-    font-style: italic;
-}
-
-@font-face {
-    font-family: 'SF Pro Display';
-    src: url('../fonts/SF Pro Display/SFProDisplay-ThinItalic.eot');
-    src: local('SF Pro Display ThinItalic'), local('SFProDisplay-ThinItalic'),
-    url('../fonts/SF Pro Display/SFProDisplay-ThinItalic.eot?#iefix') format('embedded-opentype'),
-    url('../fonts/SF Pro Display/SFProDisplay-ThinItalic.woff2') format('woff2'),
-    url('../fonts/SF Pro Display/SFProDisplay-ThinItalic.woff') format('woff'),
-    url('../fonts/SF Pro Display/SFProDisplay-ThinItalic.ttf') format('truetype');
-    font-weight: 100;
-    font-style: italic;
-}
-
-@font-face {
-    font-family: 'SF Pro Display';
-    src: url('../fonts/SF Pro Display/SFProDisplay-MediumItalic.eot');
-    src: local('SF Pro Display MediumItalic'), local('SFProDisplay-MediumItalic'),
-    url('../fonts/SF Pro Display/SFProDisplay-MediumItalic.eot?#iefix') format('embedded-opentype'),
-    url('../fonts/SF Pro Display/SFProDisplay-MediumItalic.woff2') format('woff2'),
-    url('../fonts/SF Pro Display/SFProDisplay-MediumItalic.woff') format('woff'),
-    url('../fonts/SF Pro Display/SFProDisplay-MediumItalic.ttf') format('truetype');
-    font-weight: 500;
-    font-style: italic;
-}
-
-@font-face {
-    font-family: 'SF Pro Display';
-    src: url('../fonts/SF Pro Display/SFProDisplay-Semibold.eot');
-    src: local('SF Pro Display Semibold'), local('SFProDisplay-Semibold'),
-    url('../fonts/SF Pro Display/SFProDisplay-Semibold.eot?#iefix') format('embedded-opentype'),
-    url('../fonts/SF Pro Display/SFProDisplay-Semibold.woff2') format('woff2'),
-    url('../fonts/SF Pro Display/SFProDisplay-Semibold.woff') format('woff'),
-    url('../fonts/SF Pro Display/SFProDisplay-Semibold.ttf') format('truetype');
-    font-weight: 600;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'SF Pro Display';
-    src: url('../fonts/SF Pro Display/SFProDisplay-HeavyItalic.eot');
-    src: local('SF Pro Display HeavyItalic'), local('SFProDisplay-HeavyItalic'),
-    url('../fonts/SF Pro Display/SFProDisplay-HeavyItalic.eot?#iefix') format('embedded-opentype'),
-    url('../fonts/SF Pro Display/SFProDisplay-HeavyItalic.woff2') format('woff2'),
-    url('../fonts/SF Pro Display/SFProDisplay-HeavyItalic.woff') format('woff'),
-    url('../fonts/SF Pro Display/SFProDisplay-HeavyItalic.ttf') format('truetype');
-    font-weight: 900;
-    font-style: italic;
-}
-
-@font-face {
-    font-family: 'SF Pro Display';
-    src: url('../fonts/SF Pro Display/SFProDisplay-Regular.eot');
-    src: local('SF Pro Display Regular'), local('SFProDisplay-Regular'),
-    url('../fonts/SF Pro Display/SFProDisplay-Regular.eot?#iefix') format('embedded-opentype'),
-    url('../fonts/SF Pro Display/SFProDisplay-Regular.woff2') format('woff2'),
-    url('../fonts/SF Pro Display/SFProDisplay-Regular.woff') format('woff'),
-    url('../fonts/SF Pro Display/SFProDisplay-Regular.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'SF Pro Display';
-    src: url('../fonts/SF Pro Display/SFProDisplay-BoldItalic.eot');
-    src: local('SF Pro Display BoldItalic'), local('SFProDisplay-BoldItalic'),
-    url('../fonts/SF Pro Display/SFProDisplay-BoldItalic.eot?#iefix') format('embedded-opentype'),
-    url('../fonts/SF Pro Display/SFProDisplay-BoldItalic.woff2') format('woff2'),
-    url('../fonts/SF Pro Display/SFProDisplay-BoldItalic.woff') format('woff'),
-    url('../fonts/SF Pro Display/SFProDisplay-BoldItalic.ttf') format('truetype');
-    font-weight: bold;
-    font-style: italic;
-}
-
-
 body {
-    font-family: 'SF Pro Display', sans-serif;
+    font-family: 'Inter', sans-serif;
     width: 100%;
     margin: 0;
     padding: 0;
@@ -274,7 +57,26 @@ img {
     box-shadow: 0 0 6px #747474;
 }
 
+.profile-data {
+    transition: width .2s ease-in-out, opacity .3s ease-in-out;
+}
 
+.hidden {
+    position: absolute;
+    top: -100vh;
+    opacity: 0;
+    width: 80%;
+}
+
+.shown {
+    position: static;
+    top: initial;
+    opacity: 1;
+    width: 100%;
+}
+.wrapper {
+    text-align: center;
+}
 .gray-bg {
     width: 100%;
 }
@@ -379,7 +181,19 @@ a:hover.vk {
     display: none;
 }
 
-
+.main-logo {
+    margin: 40px 0px 40px 20px;
+    display: flex;
+    align-items: center;
+}
+.main-logo__image {
+    max-width: 30px;
+}
+.main-logo__text {
+    font-size: 16px;
+    font-weight: 900;
+    margin-left: 10px;
+}
 
 /*--- timeline area ---*/
 
@@ -409,14 +223,8 @@ a:hover.vk {
 }
 
 .user-avatar {
-    border: 3px solid #181818;
-    border-radius: 50%;
-    float: right;
-    overflow: hidden;
     position: relative;
-    width: 200px;
-    top: -50%;
-    margin-left: 20px;
+    width: 20%;
 }
 
 .user-avatar > figure > img {
@@ -428,18 +236,25 @@ a:hover.vk {
 .user-avatar > figure {
     margin-bottom: 0;
     position: relative;
+    top: -50%;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    border: 3px solid #181818;
+    border-radius: 50%;
+    overflow: hidden;
 }
 
 .timeline-info {
-    display: flex;
-    line-height: 59px;
     width: 100%;
+    padding: 0 20px;
     position: relative;
     background: #181818;
 }
 .bg {
     display: flex;
     padding: 25.5% 0 0 0;
+    background: url("../img/profileCover.jpg") center top no-repeat;
+    background-size: 100%;
 }
 .timeline-info .timeline-info__container {
     display: flex;
@@ -451,6 +266,14 @@ a:hover.vk {
 .timeline-info .timeline-info__container form {
     display: flex;
     width: 100%;
+}
+.profile-status {
+    max-width: 140px;
+    white-space: nowrap;
+    overflow: hidden;
+    display: block;
+    position: relative;
+    text-overflow: ellipsis;
 }
 .timeline-info__container form .profile-status {
     top: 45%!important;
@@ -465,19 +288,26 @@ form .timeline-info__row:last-child {
 }
 
 
-.timeline-info .form-group {
+    .timeline-info .form-group {
     margin: 0px;
     display: block;
 }
 .lookingForAJobDescription {
-    font-size: 15px;
-    line-height: 15px;
+    font-size: 16px;
+    line-height: 16px;
     display: block;
-    color: rgb(183 183 183);
-    margin-bottom: 10px;
+    color: rgb(255 255 255);
+    margin-bottom: 15px;
 }
 .lookingForAJobDescription-edit {
     margin-bottom: 30px;
+}
+.lookingForAJobDescription-edit textarea {
+    background: inherit;
+    border: none;
+    color: #fff;
+    border-bottom: .0625rem solid #e1e8ed;
+    height: auto;
 }
 button.add-butn.white {
     height: 35px;
@@ -488,6 +318,16 @@ button.add-butn.white {
 }
 button.add-butn.white:hover {
     background: rgba(255,255,255, 0.2);
+}
+button.add-butn.transparent {
+    background: transparent;
+    border: 2px solid #fff;
+    padding: 8px 30px 12px 30px;
+}
+button.add-butn.transparent:hover {
+    color: #181818;
+    box-shadow: none;
+    background: #fff;
 }
 .timeline-info .timeline-info__container .timeline-info__row a {
     display: inline-block;
@@ -503,37 +343,78 @@ button.add-butn.white:hover {
 .timeline-info .timeline-info__container .timeline-info__row a:last-child {
     margin-right: 0;
 }
-.timeline-info .admin-name > span, .timeline-info .admin-name > input {
-    font-size: 15px;
+.admin-name {
+    position: relative;
+}
+.edit-profile-form .admin-name {
+    width: min-content;
+    width: -moz-min-content;
+}
+.profile-preloader {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-bottom: 20vh;
+    height: 100vh;
+}
+.dots__wrapper {
+    display: flex;
+    justify-content: center;
+}
+.admin-name .status__wrapper input, .admin-name .status__wrapper span {
+    font-size: 13px;
     line-height: 15px;
     display: flex;
     right: 0;
-    color: rgb(183 183 183);
+    color: rgba(183, 183, 183, .8);
     cursor: pointer;
     position: absolute;
-    top: 25%;
+    align-items: center;
+    bottom: 0;
     left: 0;
-    width: 114%;
+    width: auto;
+    max-width: none;
 }
-.timeline-info .admin-name > input {
+.admin-name .status__wrapper input {
+    bottom: -10px;
+}
+.status__wrapper input {
+    background: transparent;
+    border: 2px solid rgba(255,255,255, .2);
+    max-width: 130px;
+    border-radius: 20px;
+    color: #fff;
+}
+.profile-status input, .admin-name .status__wrapper input, .status__wrapper .status input {
     color: rgb(247, 249, 249);
     background: transparent;
     border: 2px solid #303030;
-    padding: 4px 15px;
-    border-radius: 20px;
+    padding: 2px 15px;
+    border-radius: 10px;
     left: -3px;
 }
-
-.timeline-info .admin-name > h5 {
+.links-form .form-group {
+    margin-bottom: 35px;
+}
+.links-form .form-group:first-child {
+    margin-top: 35px;
+}
+.admin-name h5 {
     display: inline-block;
     font-size: 24px;
     font-weight: 700;
     margin-bottom: 0;
-    padding-bottom: 25px;
+    padding-bottom: 15px;
+    padding-top: 10px;
     display: block;
-    min-width: 120px;
 }
-
+.edit-profile-buttons {
+    margin-top: 20px;
+}
+.edit-profile-form .admin-name h5 {
+    padding-bottom: 30px;
+    margin-bottom: 20px;
+}
 .timeline-info .timeline-info__container .timeline-info__row a::after {
     border-bottom: 8px solid;
     border-left: 8px solid transparent;
@@ -580,6 +461,12 @@ button.add-butn.white:hover {
     margin: 0 0 0 5px;
     position: relative;
     text-transform: capitalize;
+    cursor: pointer;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .fileContainer [type=file] {
@@ -596,14 +483,15 @@ button.add-butn.white:hover {
 }
 
 .edit-phto .fileContainer [type="file"] {
-    height: 35px;
-    top: -11px;
-    width: 126px;
+    height: 100%;
+    width: 100%;
+    cursor: pointer;
 }
 
 .timeline-info .user-avatar .edit-phto {
     border-radius: 0;
     bottom: 0px;
+    font-weight: bold;
     cursor: pointer;
     left: 0;
     opacity: 0;
@@ -612,7 +500,7 @@ button.add-butn.white:hover {
     transition: all 0.3s linear 0s;
     padding: 5px;
     text-align: center;
-    background: rgba(40, 44, 52, .7);
+    background: rgba(0, 0, 0, .7);
     border: none;
     color: inherit;
     height: 100%;
@@ -657,12 +545,29 @@ button.add-butn.white:hover {
 
 /*--- sidebar widgets ---*/
 
+.widget__wrapper {
+    padding: 0 15px;
+    border-radius: 30px;
+    background: #242424;
+    margin: 20px;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    min-height: 20vh;
+}
+.widget__wrapper .dialog-header.see-all {
+    padding: 20px 20px;
+}
 .sidebar {
     height: 100vh;
     flex: 0 0 20%;
     max-width: 20%;
 }
-
+.sidebar.right {
+    flex: 0 0 24%;
+    max-width: 24%;
+}
 .sidebar .widget {
     position: relative;
     width: 100%;
@@ -717,6 +622,10 @@ button.add-butn.white:hover {
     margin-bottom: 0;
 }
 
+.sidebar .widget .naves a.active {
+    background: rgba(255, 255, 255, 0.2);
+}
+
 .sidebar .widget .naves a svg {
     color: rgb(247, 249, 249);
     display: inline-block;
@@ -760,9 +669,9 @@ button.add-butn.white:hover {
 .central-meta {
     /*background: #E6EEFA none repeat scroll 0 0;*/
     display: inline-block;
-    flex: 0 0 60%;
-    max-width: 60%;
-    min-width: 60%;
+    flex: 0 0 56%;
+    max-width: 56%;
+    min-width: 56%;
     border-left: 1px solid #303030;
     border-right: 1px solid #303030;
 }
@@ -822,7 +731,7 @@ button.add-butn.white:hover {
 textarea {
     border: 1px solid #eeeeee;
     border-radius: 6px 6px 0 0;
-    padding: 10px;
+    padding: 10px 0;
     width: 100%;
     border-bottom: 0;
 }
@@ -929,10 +838,22 @@ form button {
     padding-left: 0;
     margin-bottom: 0;
 }
+.profile-header {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    max-height: 100px;
+}
+.profile-buttons {
+    padding-top: 20px;
+}
+.profile-buttons .whiteBg {
+    margin-left: 10px;
+}
 .additional-profile-info {
     position: absolute;
     right: 20px;
-    top: -35%;
+    top: 135px;
     display: flex;
 }
 .additional-profile-info .whiteBg {
@@ -1201,11 +1122,13 @@ li.google {
     margin-bottom: 0;
     padding-left: 0;
     width: 100%;
-    height: 88.4vh;
+    height: 92vh;
     overflow-x: hidden;
     overflow-y: scroll;
 }
-
+.nearby-contct .whiteBg {
+    margin-right: 20px;
+}
 .nearby-contct > div {
     display: flex;
     justify-content: space-between;
@@ -1322,7 +1245,7 @@ li.google {
     display: flex;
 }
 .lookingForAJob {
-    padding: 5px 0px 10px 20px;
+    padding: 20px 0 10px 0;
     line-height: 14px;
 }
 form .lookingForAJob {
@@ -1347,12 +1270,14 @@ form .lookingForAJob {
     padding-left: 0;
     position: relative;
     width: 35%;
-    resize: horizontal;
     max-width: 35%;
     height: 100vh;
 }
-
-.peoples > li {
+.dialogs-list {
+    max-height: 87.7vh;
+    overflow-y: auto;
+}
+.peoples li {
     border-bottom: 1px solid #303030;
     cursor: pointer;
     display: flex;
@@ -1362,7 +1287,7 @@ form .lookingForAJob {
     position: relative;
     transition: all 0.2s linear 0s;
 }
-.peoples li .unreaded {
+.peoples li .unread {
     position: absolute;
     font-size: 12px;
     font-weight: 700;
@@ -1387,11 +1312,11 @@ form .lookingForAJob {
     justify-content: center;
     color: rgb(183 183 183);
 }
-.peoples > li:hover {
+.peoples li:hover {
     background: rgba(255, 255, 255, 0.1);
 }
 
-.peoples > li figure {
+.peoples li figure {
     display: inline-block;
     margin-bottom: 0;
     max-width: 45px;
@@ -1403,10 +1328,13 @@ form .lookingForAJob {
 .sidebar .peoples {
     width: 100%;
     max-width: none;
-    height: 100vh;
+    height: auto;
     border: none;
+    max-height: 82vh;
+    overflow-y: auto;
+    overflow-x: hidden;
 }
-.sidebar .peoples > li:last-child {
+.sidebar .peoples li:last-child {
     border-bottom: none;
 }
 .people-name {
@@ -1416,12 +1344,25 @@ form .lookingForAJob {
     width: 66%;
 }
 
-.people-name > .dialog-header {
+.dialog-header {
     display: inline-block;
     font-size: 15px;
     text-transform: capitalize;
     font-weight: 700;
     line-height: 15px;
+    max-width: 85%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.link {
+    color: rgb(87 144 223 / 70%);
+    transition: all .3s ease-in-out;
+    text-decoration: underline;
+    cursor: pointer;
+}
+.link:hover {
+    color: rgb(87 144 223 / 100%);
 }
 .people-name > .dialog-message-text {
     display: inline-block;
@@ -1431,6 +1372,10 @@ form .lookingForAJob {
     line-height: 14px;
     margin-top: 12px;
     color: rgb(183 183 183);
+    max-width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .people-name > svg {
@@ -1445,7 +1390,7 @@ form .lookingForAJob {
     right: -20px;
 }
 
-.peoples > li span.status {
+.peoples li span.status {
     left: 0;
 }
 
@@ -1457,12 +1402,15 @@ form .lookingForAJob {
     max-width: 65%;
     position: relative;
 }
-.noMessages {
+.fetch-error {
     width: 100%;
-    height: 100vh;
+    height: 30vh;
     display: flex;
     align-items: center;
     justify-content: center;
+}
+.fetch-error .text {
+    margin-right: 7px;
 }
 .peoples-mesg-box ul.chatting-area {
     list-style: outside none none;
@@ -1487,11 +1435,11 @@ form .lookingForAJob {
 }
 @keyframes message {
     0% {
-        transform: translateX(100%);
+        transform: translateY(50%);
         opacity: 0;
     }
     100% {
-        transform: translateX(0%);
+        transform: translateY(0%);
         opacity: 1;
     }
 }
@@ -1706,7 +1654,7 @@ form .lookingForAJob {
 .followers > li figure img,
 .invition figure img,
 .nearly-pepls > figure img,
-.peoples > li figure img,
+.peoples li figure img,
 .conversation-head > figure img,
 .peoples-mesg-box ul li  figure img,
 .your-page > figure img,
@@ -2319,7 +2267,7 @@ aside.sidebar.full-style {
     left: 0px;
 }
 .chatArea {
-    background-image: url("../images/chatBg.jpg");
+    background-image: url("../img/chatBg.jpg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -2328,11 +2276,16 @@ aside.sidebar.full-style {
 .user-nav {
     position: relative;
 }
+.user-nav .add-butn {
+    display: block;
+    text-align: center;
+    margin: 0 20px 20px 20px;
+}
 .user-nav__info {
     display: flex;
     align-items: center;
     justify-content: space-around;
-    font-size: 18px;
+    font-size: 15px;
     font-weight: 700;
     cursor: pointer;
     max-height: 70px;
@@ -2354,6 +2307,11 @@ aside.sidebar.full-style {
     font-size: 14px;
     font-weight: 400;
 }
+.user-name .name {
+    max-width: 115px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
 .user-nav__info-wrapper {
     display: flex;
     align-items: center;
@@ -2372,7 +2330,7 @@ aside.sidebar.full-style {
 }
 .user-nav__subnav {
     position: absolute;
-    bottom: -100%;
+    bottom: -200%;
     transition: all .2s ease-in-out;
     min-height: 70px;
     width: 100%;
@@ -2393,7 +2351,7 @@ aside.sidebar.full-style {
 .user-nav__subnav-element {
     display: flex;
     justify-content: space-between;
-    font-size: 15px;
+    font-size: 13px;
     font-weight: 700;
     cursor: pointer;
     width: 100%;
@@ -2459,6 +2417,7 @@ aside.sidebar.full-style {
     animation-direction: normal;
     animation-fill-mode: both;
     animation-play-state: running;
+    transition: opacity .3s ease-in-out;
 }
 @keyframes opacityAnimation {
     0% {
@@ -2470,6 +2429,12 @@ aside.sidebar.full-style {
 }
 .edit-social-media {
     cursor: pointer;
+    padding-left: 10px;
+    border-left: 2px solid rgba(255, 255, 255, .5);
+}
+.edit-profile-form input[name="fullName"] {
+    margin-bottom: 5px;
+    width: auto;
 }
 .notAuthorized {
     width: 100%;
@@ -2617,4 +2582,47 @@ aside.sidebar.full-style {
 }
 span.text a {
     margin-left: 5px;
+}
+.errors-component {
+    position: fixed;
+    top: 20px;
+    left: 0;
+    right: 0;
+    margin: auto;
+    padding: 20px 20px 10px 20px;
+    width: 80vw;
+    max-width: 80vw;
+    border-radius: 20px;
+    background: #ff595a;
+    z-index: 100000;
+    text-align: center;
+    justify-content: center;
+}
+.errors-component__single-error {
+    font-size: 16px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+.errors-component__close-icon {
+    position: absolute;
+    right: 20px;
+    max-height: 20px;
+    top: 0;
+    bottom: 0;
+    cursor: pointer;
+    margin: auto;
+}
+.small-subtitle {
+    font-size: 14px;
+    line-height: 1rem;
+    color: rgba(255, 255, 255, 0.7);
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+.small-subtitle svg {
+    margin-right: 7px;
+}
+.small-subtitle .text {
+    margin-right: 7px;
 }

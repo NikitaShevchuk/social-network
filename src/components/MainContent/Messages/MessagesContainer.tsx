@@ -1,8 +1,8 @@
 import React, {FC} from "react";
-import {sendNewMessage, setAllMessages, setDialogs} from "../../../redux/Reducers/messagesReducer/middleware";
+import {sendNewMessage, setAllMessages, setDialogs} from "../../../redux/reducers/messagesReducer/middleware";
 import Messages from "./Messages";
 import {connect, ConnectedProps} from "react-redux";
-import {dialogsReselect, messagesReselect} from "../../../redux/selectors/messagesSelector";
+import {messagesReselect} from "../../../redux/selectors/messagesSelector";
 import {RootState} from "../../../redux/redux-store";
 
 const MessagesContainer: FC<MessagesPropsType> = (props) => {
@@ -13,8 +13,7 @@ const MessagesContainer: FC<MessagesPropsType> = (props) => {
 
 const mapStateToProps = (state: RootState) => {
     return {
-        messages: messagesReselect(state),
-        dialogs: dialogsReselect(state)
+        messages: messagesReselect(state)
     }
 }
 

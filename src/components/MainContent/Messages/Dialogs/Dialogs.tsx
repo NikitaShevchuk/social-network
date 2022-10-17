@@ -1,15 +1,14 @@
 import React, {FC, useState} from "react";
-import UsersContainer from "../../Users/UsersContainer";
-import Preloader from "../../../../common/Preloader/Preloader";
+import UsersContainer from "../../../../features/Users/UsersContainer";
 import {connect, ConnectedProps} from "react-redux";
 import {RootState} from "../../../../redux/redux-store";
-import {dialogsReselect} from "../../../../redux/selectors/messagesSelector";
-import {filterDialogs, getDialog, setDialogs} from "../../../../redux/Reducers/messagesReducer/middleware";
+import {filterDialogs, getDialog, setDialogs} from "../../../../redux/reducers/messagesReducer/middleware";
 import SidebarHeader from "./SidebarHeader";
 import DialogsSearchForm from "./DialogsSearchForm";
+import DialogsList from "../../../../features/DialogsList";
 
 const Dialogs: FC<DialogsConnectedProps> = ({
-    dialogs, setDialogs, filterDialogs, getDialog
+    filterDialogs, getDialog
 }) => {
     const [searchMode, setSearchMode] = useState(false);
     return (
@@ -18,33 +17,32 @@ const Dialogs: FC<DialogsConnectedProps> = ({
                 searchMode={searchMode}
                 setSearchMode={setSearchMode}
             />
-            {searchMode &&
+            <div className={searchMode ? 'shown' : 'hidden'}>
                 <UsersContainer
                     setSearchMode={setSearchMode}
                     getDialog={getDialog}
                 />
-            }
-            {!searchMode && <>
+            </div>
+            <div className={!searchMode ? 'shown' : 'hidden'}>
                 <DialogsSearchForm
                     setDialogs={setDialogs}
                     filterDialogs={filterDialogs}
                 />
-                {dialogs[0]
-                    ? dialogs
-                    : <Preloader/>
-                }
-            </>}
+                <div className="dialogs-list">
+                    <DialogsList />
+                </div>
+            </div>
         </ul>
     )
 }
 
 const mapStateToProps = (state: RootState) => ({
-    dialogs: dialogsReselect(state)
+
 })
 
 const connector = connect(
     mapStateToProps,
-    {setDialogs, getDialog, filterDialogs}
+    {getDialog, filterDialogs}
 )
 
 export default connector(Dialogs)

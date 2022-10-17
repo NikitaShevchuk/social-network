@@ -1,9 +1,9 @@
 import React, {FC} from "react";
-import UserPhoto from "../../../common/commonComponents/UserPhoto";
+import UserPhoto from "../../../common/UserPhoto";
 import {NavLink} from "react-router-dom";
-import {Imessage} from "../../../types/messagesTypes";
+import {Message} from "../../../types/MessagesTypes";
 
-const SingleMessage: FC<Imessage> = ({profileImg, addedAt, myId, senderId, body, senderPhoto}) => {
+const SingleMessage: FC<Message> = ({profileImg, addedAt, myId, senderId, body, senderPhoto}) => {
     let messageAdded = new Date(addedAt)
     let minutes = messageAdded.getMinutes();
     let hours = messageAdded.getHours();

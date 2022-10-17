@@ -1,8 +1,9 @@
-import {createCheckBox, createInput} from "../../../common/helpers/final-form/createField";
-import {isEmail, required} from "../../../common/helpers/final-form/validators";
-import {maxLength40, minLength8} from "../../../common/helpers/final-form/createValidators";
+import {createCheckBox, createInput} from "../../../common/helpers/createField";
+import {isEmail, required} from "../../../common/helpers/validators";
+import {maxLength40, minLength8} from "../../../common/helpers/createValidators";
+import {useMemo} from "react";
 
-export const getFields = () => {
+export const useGetFields = () => useMemo(() => {
     const emailField = createInput(
         [required, maxLength40, isEmail], 'email', 'email', 'Email*'
     )
@@ -19,4 +20,4 @@ export const getFields = () => {
     return {
         emailField, captchaField, apiKeyField, passwordField, rememberMeField
     }
-}
+}, [])

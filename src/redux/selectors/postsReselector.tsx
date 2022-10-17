@@ -1,6 +1,6 @@
 import React from "react";
 import {createSelector} from "reselect";
-import SinglePost from "../../components/MainContent/Feed/SinglePost";
+import SinglePost from "../../components/Feed/SinglePost";
 import {RootState} from "../redux-store";
 
 const getPosts = (state: RootState) => state.postPage.posts

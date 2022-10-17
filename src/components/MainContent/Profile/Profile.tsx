@@ -1,85 +1,57 @@
-import React, {memo, useEffect, useState} from "react";
-import Preloader from "../../../common/Preloader/Preloader";
-import {useParams} from "react-router-dom";
+import React, {memo} from "react";
 import ProfileInfo from "./ProfileInfo";
-import EditProfile from "./EditProfile";
-import profileBackground from "../../../common/assets/img/profileCover.jpg";
-import style from "./Profile.module.css";
-import UserPhoto from "../../../common/commonComponents/UserPhoto";
-import ErrorComponent from "../../../common/commonComponents/ErrorComponent";
-import FeedContainer from "../Feed/FeedContainer";
+import ErrorComponent from "../../../common/ErrorComponent";
+import FeedContainer from "../../Feed/FeedContainer";
 import {ProfileProps} from "./ProfileContainer";
-import EditProfilePhoto from "./EditProfilePhoto";
+import ProfileHeader from "./ProfileHeader";
+import EditProfile from "./EditProfile";
+import ProfileLinks from "./ProfileLinks";
+import FetchError from "../../../common/FetchError";
+import ProfilePreloader from "../../../preloaders/ProfilePreloader";
 
-export interface IProfileProps extends ProfileProps {
-    onPhotoUpload: (e: React.ChangeEvent<HTMLInputElement>) => void
-}
-
-const Profile = memo<IProfileProps>((props) => {
-    let userId = Number(useParams().userId);
-    let isMyProfile = false;
-    if (!userId) userId = props.myId
-    !userId || userId === props.myId ? isMyProfile = true : isMyProfile = false;
-    let [profileEditMode, setProfileEditMode] = useState(false)
-
-    useEffect(() => {
-        props.loadProfile(userId)
-    }, [userId])
-
-    if (!props.profile) return <div className='central-meta'><Preloader/></div>
-    return <div className='central-meta'>
-        {
-            props.localError && <ErrorComponent errorText={props.localError} />
-        }
-        <div className="feature-photo">
-            <figure>
-                <img src={profileBackground} alt=""/>
-            </figure>
-            <div className="bg">
-                <div className="timeline-info">
-                    <div className="user-avatar">
-                        <figure
-                            className={
-                            props.profile.photos?.large && !props.photoUpdating ?
-                                style.transparent
-                                :
-                                style.whiteBg}
-                        >
-                            {props.photoUpdating ?
-                                <Preloader/>
-                                :
-                                <UserPhoto profileImg={props.profile.photos?.large}/>
-                            }
-                            {isMyProfile ?
-                                <EditProfilePhoto onPhotoUpload={props.onPhotoUpload} />
-                                :
-                                ''
-                            }
-                        </figure>
-                    </div>
-                    <div className="timeline-info__container">
-                        {profileEditMode ?
+const Profile = memo<ProfileProps>(({
+    profile, loadProfile, isMyProfile, localError, profileIsLoading,
+    profileEditMode, userId, profileFetchError
+ }) => {
+    const refetchProfile = () => loadProfile(userId)
+    if (profileIsLoading && !localError) return <ProfilePreloader />
+    return (
+        <div className='central-meta'>
+            {localError &&
+                <ErrorComponent errorText={localError} />
+            }
+            {profileFetchError &&
+                <FetchError
+                    refetch={refetchProfile}
+                    errorText={profileFetchError}
+                />
+            }
+            {!profileFetchError && <>
+                <div className="feature-photo">
+                    <div className="bg">
+                        <div className="timeline-info">
+                            <ProfileHeader profileLargePhoto={profile.photos?.large}/>
                             <EditProfile
-                                {...props}
-                                setProfileEditMode={setProfileEditMode}
+                                profile={profile}
                                 profileEditMode={profileEditMode}
                                 isMyProfile={isMyProfile}
                             />
-                            :
                             <ProfileInfo
-                                {...props}
-                                setProfileEditMode={setProfileEditMode}
                                 profileEditMode={profileEditMode}
                                 isMyProfile={isMyProfile}
-                                userId={userId}
+                                profile={profile}
                             />
-                        }
+                        </div>
+                        <ProfileLinks
+                            contacts={profile.contacts}
+                            profileEditMode={profileEditMode}
+                        />
                     </div>
                 </div>
-            </div>
+                <FeedContainer/>
+            </>}
         </div>
-        <FeedContainer/>
-    </div>
+    )
 })
 
 export default Profile;

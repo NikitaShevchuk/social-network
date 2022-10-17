@@ -2,13 +2,13 @@ import React, {FC} from 'react';
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faSearch} from "@fortawesome/free-solid-svg-icons";
 import {Field, Form} from "react-final-form";
-import {required} from "../../../../common/helpers/final-form/validators";
-import {isSearchFieldEmpty} from "../../../../common/commonComponents/FormControl/formHelpers";
+import {required} from "../../../../common/helpers/validators";
+import {isSearchFieldEmpty} from "../../../../common/FormControl/formHelpers";
 import {FormApi} from "final-form";
 import {useParams} from "react-router-dom";
 
 interface Props {
-    setDialogs: (id: number) => Promise<void>
+    setDialogs: (id: number) => void
     filterDialogs: (userName: string) => void
 }
 

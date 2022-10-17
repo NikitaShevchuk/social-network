@@ -1,5 +1,5 @@
 import React, {FC} from 'react';
-import UsersContainer from "./Users/UsersContainer";
+import UsersContainer from "../../features/Users/UsersContainer";
 
 const MainPage: FC = () => {
     return <div className="central-meta">

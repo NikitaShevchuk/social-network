@@ -1,7 +1,7 @@
 import React from "react";
 import LoginContainer from "../components/Login/LoginContainer";
 import WithSuspense from "../HOC/withSuspense";
-import RightSidebar from "../components/RightSidebar/RightSidebar";
+import RightSidebar from "../components/RightSidebar";
 import MainPage from "../components/MainContent/MainPage";
 import {Navigate} from "react-router-dom";
 

@@ -1,5 +1,5 @@
-import postPageReducer from "./Reducers/postPageReducer";
-import index from "./Reducers/messagesReducer";
+import postPageReducer from "./reducers/postPageReducer";
+import index from "./reducers/messagesReducer";
 
 let renderTree = () => {
     console.log('rendered entire tree')

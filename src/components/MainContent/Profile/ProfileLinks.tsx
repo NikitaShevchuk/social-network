@@ -1,0 +1,59 @@
+import React, {FC} from 'react';
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {Contacts, ContactsArray} from "../../../types/ProfileTypes";
+import {useCreateIcons} from "./EditProfile/utils";
+import {faPencilSquare, faClose} from "@fortawesome/free-solid-svg-icons";
+import {RootState} from "../../../redux/redux-store";
+import {connect, ConnectedProps} from "react-redux";
+import {setSocialMediaEditMode} from "../../../redux/reducers/profileReducer/actions";
+
+interface Props extends ProfileLinksConnectedProps {
+    contactsArray: ContactsArray
+    profileEditMode: boolean
+    contacts: Contacts
+}
+
+const ProfileLinks: FC<Props> = ({
+    contactsArray, profileEditMode, contacts,
+    socialMediaEditMode, setSocialMediaEditMode
+}) => {
+    const toggleSocialMediaEditMode = () => profileEditMode && setSocialMediaEditMode(!socialMediaEditMode)
+
+    const hasAnyLink = Object.values(contacts).find(contact => contact !== null)
+    const contactIcons = useCreateIcons(contactsArray)
+    if (!hasAnyLink && !profileEditMode) return <span></span>
+
+    return (
+        <div className="additional-profile-info">
+            <div className="social-media">
+                {contactIcons}
+                {!contactIcons && profileEditMode && 'Add your social media links'}
+                {profileEditMode &&
+                    <div
+                        className='edit-social-media'
+                        onClick={toggleSocialMediaEditMode}
+                    >
+                        {socialMediaEditMode &&
+                            <FontAwesomeIcon
+                                icon={faClose}
+                            />
+                        }
+                        {!socialMediaEditMode &&
+                            <FontAwesomeIcon
+                                icon={faPencilSquare}
+                            />
+                        }
+                    </div>
+                }
+            </div>
+        </div>
+    )
+};
+
+const mapStateToProps = (state: RootState) => ({
+    socialMediaEditMode: state.profilePage.socialMediaEditMode,
+    contactsArray: state.profilePage.contactsArray
+})
+const connector = connect(mapStateToProps, {setSocialMediaEditMode})
+export default connector(ProfileLinks);
+type ProfileLinksConnectedProps = ConnectedProps<typeof connector>

@@ -1,47 +1,49 @@
 import React, {memo, useRef, useState} from 'react';
-import UserPhoto from "../../../../common/commonComponents/UserPhoto";
-import UserName from "../../../../common/commonComponents/UserName";
+import UserPhoto from "../../../../common/UserPhoto";
+import UserName from "../../../../common/UserName";
 import useOnClickOutside from "../../../../hooks/onClickOutside";
 import Subnav from "./Subnav";
 import Status from "./Status";
-import {UserData} from "../../../../types/authTypes";
+import {UserNavConnectedProps} from "./UserNavContainer";
+import LoginButton from "../../../Buttons/LoginButton";
 
-interface Props {
-    profileImg: string | null
-    userData: UserData
-    isAuthorized: boolean
-    logout: () => void
-}
 
-const UserNav = memo<Props>(({
-    profileImg, userData, isAuthorized, logout
+const UserNav = memo<UserNavConnectedProps>(({
+    profileImg, userData, isAuthorized, logoutThunk
 }) => {
-    let toggleSubnav = useRef<HTMLDivElement | null>(null);
-    let [subnav, changeSubnav] = useState<boolean>(false);
+    const toggleSubnav = useRef<HTMLDivElement | null>(null);
+    const [subnav, changeSubnav] = useState<boolean>(false);
     useOnClickOutside(toggleSubnav, changeSubnav, subnav)
     const handleNavClick = () => isAuthorized && changeSubnav(!subnav)
+
+    if (!isAuthorized) return (
+        <div className="user-nav">
+            <LoginButton />
+        </div>
+    )
+
     return (
         <div className="user-nav" ref={toggleSubnav}>
-            <div className="user-nav__info" onClick={handleNavClick}>
-                <div className="user-nav__info-wrapper">
-                    <div className="user-img">
-                        <UserPhoto profileImg={profileImg}/>
+                <div className="user-nav__info" onClick={handleNavClick}>
+                    <div className="user-nav__info-wrapper">
+                        <div className="user-img">
+                            <UserPhoto profileImg={profileImg}/>
+                        </div>
+                        <div className="user-name">
+                            <UserName
+                                name={userData.login}
+                                isAuthorized={isAuthorized}
+                            />
+                            <Status isAuthorized={isAuthorized} />
+                        </div>
                     </div>
-                    <div className="user-name">
-                        <UserName
-                            name={userData.login}
-                            isAuthorized={isAuthorized}
-                        />
-                        <Status isAuthorized={isAuthorized} />
-                    </div>
+                    <div className="open-subnav">...</div>
                 </div>
-                <div className="open-subnav">...</div>
-            </div>
-            <Subnav 
-				logout={logout} 
-				subnav={subnav} 
-				userData={userData} 
-			/>
+                <Subnav
+                    logout={logoutThunk}
+                    subnav={subnav}
+                    userData={userData}
+                />
         </div>
     );
 });
