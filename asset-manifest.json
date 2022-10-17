@@ -1,25 +1,25 @@
 {
   "files": {
-    "main.css": "/my-app/static/css/main.d552259e.css",
-    "main.js": "/my-app/static/js/main.99c017ee.js",
-    "static/css/275.43a6209d.chunk.css": "/my-app/static/css/275.43a6209d.chunk.css",
-    "static/js/275.781b554e.chunk.js": "/my-app/static/js/275.781b554e.chunk.js",
-    "static/js/657.346b91f4.chunk.js": "/my-app/static/js/657.346b91f4.chunk.js",
-    "static/js/787.28cb0dcd.chunk.js": "/my-app/static/js/787.28cb0dcd.chunk.js",
-    "static/media/profileCover.jpg": "/my-app/static/media/profileCover.f77c41c8ba007e39e6df.jpg",
+    "main.css": "/my-app/static/css/main.17475945.css",
+    "main.js": "/my-app/static/js/main.0f531899.js",
+    "static/css/394.3e2edc4d.chunk.css": "/my-app/static/css/394.3e2edc4d.chunk.css",
+    "static/js/394.04a73378.chunk.js": "/my-app/static/js/394.04a73378.chunk.js",
+    "static/js/582.63cf6fb0.chunk.js": "/my-app/static/js/582.63cf6fb0.chunk.js",
+    "static/media/profileCover.jpg": "/my-app/static/media/profileCover.720ce745f2c60ac654a9.jpg",
+    "static/media/userIcon.jpg": "/my-app/static/media/userIcon.051d50fcbc7b9e14caab.jpg",
     "static/media/instruction.png": "/my-app/static/media/instruction.3a8ea33b66abff9a21e6.png",
     "static/media/chatBg.jpg": "/my-app/static/media/chatBg.cd01d451fbf6969c4c30.jpg",
-    "static/media/send.svg": "/my-app/static/media/send.2ec83b7d2370fbd448eddc161ecfe473.svg",
+    "static/media/logo.svg": "/my-app/static/media/logo.a7541bb5bed1d71b0dd1d1bc245c396d.svg",
     "index.html": "/my-app/index.html",
-    "main.d552259e.css.map": "/my-app/static/css/main.d552259e.css.map",
-    "main.99c017ee.js.map": "/my-app/static/js/main.99c017ee.js.map",
-    "275.43a6209d.chunk.css.map": "/my-app/static/css/275.43a6209d.chunk.css.map",
-    "275.781b554e.chunk.js.map": "/my-app/static/js/275.781b554e.chunk.js.map",
-    "657.346b91f4.chunk.js.map": "/my-app/static/js/657.346b91f4.chunk.js.map",
-    "787.28cb0dcd.chunk.js.map": "/my-app/static/js/787.28cb0dcd.chunk.js.map"
+    "static/media/send.svg": "/my-app/static/media/send.2ec83b7d2370fbd448eddc161ecfe473.svg",
+    "main.17475945.css.map": "/my-app/static/css/main.17475945.css.map",
+    "main.0f531899.js.map": "/my-app/static/js/main.0f531899.js.map",
+    "394.3e2edc4d.chunk.css.map": "/my-app/static/css/394.3e2edc4d.chunk.css.map",
+    "394.04a73378.chunk.js.map": "/my-app/static/js/394.04a73378.chunk.js.map",
+    "582.63cf6fb0.chunk.js.map": "/my-app/static/js/582.63cf6fb0.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.d552259e.css",
-    "static/js/main.99c017ee.js"
+    "static/css/main.17475945.css",
+    "static/js/main.0f531899.js"
   ]
 }
