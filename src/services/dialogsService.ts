@@ -1,29 +1,50 @@
-import {DialogWithMessage, Message} from "../types/MessagesTypes";
-import {defaultInstance, DefaultResponse, Response, ResultCodes} from "./index";
+import {Dialog, Message, NewMessageFormData} from "../types/MessagesTypes";
+import {defaultInstance, Response} from "./index";
 
-interface StartDialogResponse extends Response { data: {} }
-interface lastMessageResponse extends Response { items: Message []}
+export interface StartDialogResponse extends Response { data: {} }
+
+export interface MessagesResponse {
+    items: Message[]
+    error: string | null
+    totalCount: number
+}
+
+interface SendMessageResponse extends Response {
+    data: { message: Message }
+}
 
 export const dialogsService = {
     async startDialog(id: number) {
-        const response = await defaultInstance.put(`dialogs/${id}`)
-        return response.data as StartDialogResponse
+        const response = await defaultInstance.put<StartDialogResponse>(`dialogs/${id}`)
+        return response.data
     },
-    async sendMessage(id: number, body: string) {
-        const response = await defaultInstance.post(`dialogs/${id}/messages`, body)
-        return response.data as DefaultResponse
+    async sendMessage(id: number, formData: NewMessageFormData) {
+        const response = await defaultInstance.post<SendMessageResponse>(`dialogs/${id}/messages`, formData)
+        return response.data
     },
-    async requireMessages(id: number, date: string = '2022-05-19') {
-        const response = await defaultInstance.get(`dialogs/${id}/messages/new?newerThen=${date}`)
-        return response.data as Message[]
+    async requireMessagesByDate(id: number, date: string = '2022-05-19') {
+        const response = await defaultInstance.get<MessagesResponse>(
+            `dialogs/${id}/messages/new?newerThen=${date}`
+        )
+        return response.data
+    },
+    async requireMessages(id: number, count: number, pageNumber: number) {
+        const response = await defaultInstance.get<MessagesResponse>(
+            `dialogs/${id}/messages/?page=${pageNumber}&count=${count}`
+        )
+        return response.data
     },
     async requireDialogs() {
-        const response = await defaultInstance.get(`dialogs`)
-        return response.data as DialogWithMessage[]
+        const response = await defaultInstance.get<Dialog[]>(`dialogs`)
+        return response.data
     },
     async requireLastMessage(id: number) {
-        const response = await defaultInstance.get(`dialogs/${id}/messages?page=1&count=1`)
-        return response.data as lastMessageResponse
+        const response = await defaultInstance.get<MessagesResponse>(`dialogs/${id}/messages?page=1&count=1`)
+        return response.data
+    },
+    async requireNewMessagesCount() {
+        const response = await defaultInstance.get<number>(`dialogs/messages/new/count`)
+        return response.data
     }
 }
 

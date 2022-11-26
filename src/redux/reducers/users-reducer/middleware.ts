@@ -5,7 +5,7 @@ import {ThunkAction} from "redux-thunk";
 import {Dispatch, ReducerAction} from "react";
 import {AnyAction} from "redux";
 import {usersService} from "../../../services/usersService";
-import {appActions} from "../appReducer/actions";
+import {appActions} from "../app-reducer/actions";
 
 type AsyncThunkType = ThunkAction<Promise<void>, RootState, any, AnyAction>
 

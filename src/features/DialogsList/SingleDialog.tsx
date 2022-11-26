@@ -16,21 +16,24 @@ const SingleDialog: FC<DialogWithMessage> = ({
     if (!id) return <Preloader/>
 
     return (
-        <li className='opacity-animation'>
-            <div className="last-activity">{messageAddedTime}</div>
+        <NavLink
+            to={`/messages/${id}`}
+            className='dialogs-list__item opacity-animation'
+        >
+            <span className="last-activity">{messageAddedTime}</span>
             <figure>
                 <img src={photos.small ? photos.small : userImg} alt=""/>
             </figure>
-            <NavLink className='people-name' to={`/messages/${id}`}>
+            <span className='people-name'>
                 <span className='dialog-header'>{userName}</span>
                 {body &&
                     <span className='dialog-message-text'>{body}</span>
                 }
-            </NavLink>
+            </span>
             {hasNewMessages &&
                 <div className="unread">{newMessagesCount}</div>
             }
-        </li>
+        </NavLink>
     )
 }
 

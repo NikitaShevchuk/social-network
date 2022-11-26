@@ -21,7 +21,7 @@ const ConversationHead: FC<ConversationHeadProps> = ({conversationHead}) => {
 };
 
 const mapStateToProps = (state: RootState) => ({
-    conversationHead: state.messagesPage.conversationHead
+    conversationHead: state.dialogsPage.conversationHead
 })
 
 const connector = connect(mapStateToProps, {})

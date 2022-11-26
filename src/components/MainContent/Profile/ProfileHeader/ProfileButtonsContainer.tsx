@@ -2,7 +2,7 @@ import React, {FC} from 'react';
 import {RootState} from "../../../../redux/redux-store";
 import {connect, ConnectedProps} from "react-redux";
 import ProfileButtons from "./ProfileButtons";
-import {setProfileEditMode} from "../../../../redux/reducers/profileReducer/actions";
+import {setProfileEditMode} from "../../../../redux/reducers/profile-reducer/actions";
 
 const ProfileButtonsContainer: FC<ProfileButtonsConnectedProps> = ({
     setProfileEditMode, isMyProfile, userId, disableWhileRequest,

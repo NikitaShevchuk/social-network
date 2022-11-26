@@ -1,7 +1,7 @@
 import React, {FC} from 'react';
 import {RootState} from "../../../../redux/redux-store";
 import {connect, ConnectedProps} from "react-redux";
-import {logoutThunk} from "../../../../redux/reducers/authReducer/middleware";
+import {logoutThunk} from "../../../../redux/reducers/auth-reducer/middleware";
 import UserNav from "./UserNav";
 
 const UserNavContainer: FC<UserNavConnectedProps> = (props) => {

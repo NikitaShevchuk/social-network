@@ -3,7 +3,7 @@ import {connect, ConnectedProps} from "react-redux";
 import {RootState} from "../../redux/redux-store";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faClose} from "@fortawesome/free-solid-svg-icons";
-import {clearAllErrors} from "../../redux/reducers/appReducer/actions";
+import {clearAllErrors} from "../../redux/reducers/app-reducer/actions";
 
 const ErrorsDisplay: FC<ErrorsConnectedProps> = ({errors, clearAllErrors}) => {
     const clearErrors = () => clearAllErrors()

@@ -2,7 +2,7 @@ import React, {FC, useState} from "react";
 import UsersContainer from "../../../../features/Users/UsersContainer";
 import {connect, ConnectedProps} from "react-redux";
 import {RootState} from "../../../../redux/redux-store";
-import {filterDialogs, getDialog, setDialogs} from "../../../../redux/reducers/messagesReducer/middleware";
+import {filterDialogs, getDialog, setDialogs} from "../../../../redux/reducers/dialogs-reducer/middleware";
 import SidebarHeader from "./SidebarHeader";
 import DialogsSearchForm from "./DialogsSearchForm";
 import DialogsList from "../../../../features/DialogsList";

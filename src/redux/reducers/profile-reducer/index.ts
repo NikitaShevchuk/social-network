@@ -45,43 +45,43 @@ export const profileInitialState: ProfileInitialState = {
 
 const profileReducer = (state = profileInitialState, action: ProfileActionsTypes): ProfileInitialState => {
     switch (action.type) {
-        case 'profileReducer/SET_PROFILE':
+        case 'profile-reducer/SET_PROFILE':
             return {
                 ...state,
                 profile: action.profile,
                 contactsArray: mapToContactsArray(action.profile.contacts)
             }
-        case 'profileReducer/FOLLOW_USER':
+        case 'profile-reducer/FOLLOW_USER':
             return {
                 ...state,
                 followed: true
             }
-        case 'profileReducer/UNFOLLOW_USER':
+        case 'profile-reducer/UNFOLLOW_USER':
             return {
                 ...state,
                 followed: false
             }
-        case 'profileReducer/ABLE_BUTTON':
+        case 'profile-reducer/ABLE_BUTTON':
             return {
                 ...state,
                 disableWhileRequest: false
             }
-        case 'profileReducer/DISABLE_BUTTON':
+        case 'profile-reducer/DISABLE_BUTTON':
             return {
                 ...state,
                 disableWhileRequest: true
             }
-        case 'profileReducer/UPD_PHOTO':
+        case 'profile-reducer/UPD_PHOTO':
             return {
                 ...state,
                 profile: {...state.profile, photos: action.photos}
             }
-        case 'profileReducer/PHOTO_UPDATING':
+        case 'profile-reducer/PHOTO_UPDATING':
             return {
                 ...state,
                 photoIsUpdating: action.isUpdating
             }
-        case 'profileReducer/UPDATE_PROFILE':
+        case 'profile-reducer/UPDATE_PROFILE':
             return {
                 ...state,
                 profile: {
@@ -94,42 +94,42 @@ const profileReducer = (state = profileInitialState, action: ProfileActionsTypes
                 },
                 contactsArray: mapToContactsArray(action.profile.contacts)
             }
-        case 'profileReducer/ADD_LOCAL_ERROR':
+        case 'profile-reducer/ADD_LOCAL_ERROR':
             return {
                 ...state,
                 localError: action.localError
             }
-        case 'profileReducer/SET_PROFILE_EDIT_MODE':
+        case 'profile-reducer/SET_PROFILE_EDIT_MODE':
             return {
                 ...state,
                 profileEditMode: action.isInEditMode
             }
-        case 'profileReducer/SET_IS_MY_PROFILE':
+        case 'profile-reducer/SET_IS_MY_PROFILE':
             return {
                 ...state,
                 isMyProfile: action.isMyProfile
             }
-        case "profileReducer/SET_USER_ID":
+        case "profile-reducer/SET_USER_ID":
             return {
                 ...state,
                 userIdParam: action.userId
             }
-        case "profileReducer/ADD_PROFILE_FETCH_ERROR":
+        case "profile-reducer/ADD_PROFILE_FETCH_ERROR":
             return {
                 ...state,
                 profileFetchError: action.errorText
             }
-        case "profileReducer/REMOVE_PROFILE_FETCH_ERROR":
+        case "profile-reducer/REMOVE_PROFILE_FETCH_ERROR":
             return {
                 ...state,
                 profileFetchError: null
             }
-        case "profileReducer/SET_IS_PROFILE_LOADING":
+        case "profile-reducer/SET_IS_PROFILE_LOADING":
             return {
                 ...state,
                 profileIsLoading: action.isLoading
             }
-        case "profileReducer/SET_SOCIAL_MEDIA_EDIT_MODE":
+        case "profile-reducer/SET_SOCIAL_MEDIA_EDIT_MODE":
             return {
                 ...state,
                 socialMediaEditMode: action.isInEditMode

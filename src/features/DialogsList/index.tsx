@@ -2,7 +2,7 @@ import React, {FC, useEffect} from 'react';
 import {RootState} from "../../redux/redux-store";
 import {dialogsReselect} from "../../redux/selectors/messagesSelector";
 import {connect, ConnectedProps} from "react-redux";
-import {setDialogs} from "../../redux/reducers/messagesReducer/middleware";
+import {setDialogs} from "../../redux/reducers/dialogs-reducer/middleware";
 import {getIsAuthorized} from "../../redux/selectors/authSelectors";
 import NoData from "../../common/NoData";
 import FetchError from "../../common/FetchError";
@@ -49,15 +49,15 @@ const DialogsList: FC<DialogsListConnectedProps> = ({
         }
 
         {/* Show dialogs */}
-        {!dialogsIsLoading && dialogs}
+        {!dialogsIsLoading && !dialogsError && dialogs}
     </>
 }
 
 const mapStateToProps = (state: RootState) => ({
     dialogs: dialogsReselect(state),
     isAuthorized: getIsAuthorized(state),
-    dialogsIsLoading: state.messagesPage.dialogsIsLoading,
-    dialogsError: state.messagesPage.dialogsError
+    dialogsIsLoading: state.dialogsPage.dialogsIsLoading,
+    dialogsError: state.dialogsPage.dialogsError
 })
 const connector = connect(mapStateToProps, {setDialogs})
 export default connector(DialogsList);

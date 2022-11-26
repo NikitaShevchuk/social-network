@@ -36,19 +36,32 @@ export interface Dialog {
 }
 
 export interface DialogWithMessage extends Dialog {
-    lastMessage: {
-        body: string
-        addedAt: string
-    };
+    lastMessage: Message | null
+}
+
+export interface MessagesRequestStatus {
+    isLoading: boolean
+    isFetching: boolean
+    allMessagesIsLoaded: boolean
+}
+
+export interface NewMessageFormData {
+    body: string
 }
 
 export interface MessagesInitialState {
+    dialogUserId: number
     messages: Message[]
-    dialogs: DialogWithMessage[]
-    conversationHead: ConversationHead
+    totalMessagesCount: number
+    status: MessagesRequestStatus
     messagesError: string | null
-    dialogsIsLoading: boolean
-    messagesIsLoading: boolean
-    dialogsError: string | null
+    pageNumber: number
+    count: number
 }
 
+export interface DialogsInitialState {
+    dialogsIsLoading: boolean
+    dialogs: DialogWithMessage[]
+    dialogsError: string | null
+    conversationHead: ConversationHead
+}

@@ -2,8 +2,8 @@ import React, {FC, useEffect} from 'react';
 import Profile from "./Profile";
 import {RootState} from "../../../redux/redux-store";
 import {connect, ConnectedProps} from "react-redux";
-import {getMyProfileFromState, loadProfile} from "../../../redux/reducers/profileReducer/middleware";
-import {setIsMyProfile, setUserId} from "../../../redux/reducers/profileReducer/actions";
+import {getMyProfileFromState, loadProfile} from "../../../redux/reducers/profile-reducer/middleware";
+import {setIsMyProfile, setUserId} from "../../../redux/reducers/profile-reducer/actions";
 import {useParams} from "react-router-dom";
 
 const ProfileContainer: FC<ProfileProps> = (props) => {

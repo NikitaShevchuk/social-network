@@ -1,6 +1,6 @@
 import React, {FC} from 'react';
 import {NavLink} from "react-router-dom";
-import {getDialog} from "../../redux/reducers/messagesReducer/middleware";
+import {getDialog} from "../../redux/reducers/dialogs-reducer/middleware";
 import {RootState} from "../../redux/redux-store";
 import {connect, ConnectedProps} from "react-redux";
 

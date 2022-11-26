@@ -1,7 +1,7 @@
 import React, {FC, useEffect, useRef, useState} from "react"
 import Users from "./Users"
 import {connect, ConnectedProps} from "react-redux"
-import {fetchUsers, getUsers, searchUsers} from "../../redux/reducers/usersReducer/middleware"
+import {fetchUsers, getUsers, searchUsers} from "../../redux/reducers/users-reducer/middleware"
 import {RootState} from "../../redux/redux-store"
 import {
     getCurrentPage, getIsFetching, getPageSize,

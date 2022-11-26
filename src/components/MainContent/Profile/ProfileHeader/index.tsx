@@ -5,7 +5,7 @@ import UserPhoto from "../../../../common/UserPhoto";
 import EditProfilePhoto from "../EditProfile/EditProfilePhoto";
 import {connect, ConnectedProps} from "react-redux";
 import {RootState} from "../../../../redux/redux-store";
-import {updatePhoto} from "../../../../redux/reducers/profileReducer/middleware";
+import {updatePhoto} from "../../../../redux/reducers/profile-reducer/middleware";
 import ProfileButtonsContainer from "./ProfileButtonsContainer";
 
 interface Props extends ProfileHeaderConnectedProps {

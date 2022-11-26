@@ -1,10 +1,10 @@
 import {ResultCodes} from "../../../services";
 import {authActions} from "./actions";
-import {appActions} from "../appReducer/actions";
+import {appActions} from "../app-reducer/actions";
 import {AsyncThunk} from "../../Models";
 import {profileService} from "../../../services/profileService";
 import {securityService} from "../../../services/securityService";
-import {tryToReconnect} from "../appReducer/middleware";
+import {tryToReconnect} from "../app-reducer/middleware";
 
 const _setMyProfileById = (id: number): AsyncThunk => async (dispatch) => {
     const profileResponse = await profileService.getProfile(id)

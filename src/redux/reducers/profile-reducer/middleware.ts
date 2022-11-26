@@ -1,10 +1,10 @@
 import {ResultCodes} from "../../../services";
 import {profileActions} from "./actions";
-import {authActions} from "../authReducer/actions";
+import {authActions} from "../auth-reducer/actions";
 import {profileService} from "../../../services/profileService";
 import {usersService} from "../../../services/usersService";
 import {AsyncThunk} from "../../Models";
-import {appActions} from "../appReducer/actions";
+import {appActions} from "../app-reducer/actions";
 import {EditProfilePutRequestData} from "../../../types/ProfileTypes";
 
 export const loadProfile = (id: number): AsyncThunk => async (dispatch) => {

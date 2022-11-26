@@ -5,7 +5,7 @@ import {useCreateIcons} from "./EditProfile/utils";
 import {faPencilSquare, faClose} from "@fortawesome/free-solid-svg-icons";
 import {RootState} from "../../../redux/redux-store";
 import {connect, ConnectedProps} from "react-redux";
-import {setSocialMediaEditMode} from "../../../redux/reducers/profileReducer/actions";
+import {setSocialMediaEditMode} from "../../../redux/reducers/profile-reducer/actions";
 
 interface Props extends ProfileLinksConnectedProps {
     contactsArray: ContactsArray

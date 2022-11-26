@@ -1,11 +1,16 @@
 import React, { FC } from "react";
 
-const Preloader: FC<any> = () => {
-    return <div className='preloader opacity-animation'>
-        <div className='dot'></div>
-        <div className='dot'></div>
-        <div className='dot'></div>
-    </div>
+interface Props {
+    size?: 'small' | 'large'
+    isFetching?: boolean
 }
 
-export default Preloader;
+const Preloader: FC<Props> = ({size, isFetching = true}) => {
+    return (
+        <div className={`preloader opacity-animation ${isFetching ? 'shown' : 'hidden'} ${size ? size : ''}`}>
+            <span className={`loader ${size ? size : ''}`}></span>
+        </div>
+    )
+}
+
+export default Preloader

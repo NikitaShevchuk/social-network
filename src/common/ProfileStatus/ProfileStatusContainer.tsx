@@ -2,7 +2,7 @@ import React, {FC} from 'react';
 import {RootState} from "../../redux/redux-store";
 import {connect, ConnectedProps} from "react-redux";
 import ProfileStatus from "./ProfileStatus";
-import {updStatusThunk} from "../../redux/reducers/authReducer/middleware";
+import {updStatusThunk} from "../../redux/reducers/auth-reducer/middleware";
 
 export interface ProfileStatusProps extends ProfileStatusConnectedProps {
     isMyProfile: boolean

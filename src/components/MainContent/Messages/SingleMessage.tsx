@@ -13,7 +13,7 @@ const SingleMessage: FC<Message> = ({profileImg, addedAt, myId, senderId, body, 
             <NavLink to={`/profile/${senderId}`} ><figure><UserPhoto profileImg={myId === senderId ? profileImg : senderPhoto} /></figure> </NavLink>
             <p>
                 <span className="text">{body}</span>
-                <div className="message-added-time">{messageAddedTime}</div>
+                <span className="message-added-time">{messageAddedTime}</span>
             </p>
         </li>
     )

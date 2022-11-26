@@ -1,7 +1,7 @@
 import {ThunkAction} from "redux-thunk";
 import {RootState} from "../../redux-store";
 import {AnyAction} from "redux";
-import {authorize} from "../authReducer/middleware";
+import {authorize} from "../auth-reducer/middleware";
 import {appActions} from "./actions";
 import {timeout} from "../../../common/helpers/sleep";
 

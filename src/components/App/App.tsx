@@ -4,7 +4,7 @@ import '../../common/assets/css/fonts.css';
 import '../../common/assets/css/style.css';
 import '../../common/assets/css/main.min.css';
 import LeftSidebar from "../LeftSidebar";
-import {initializeApp, tryToReconnect} from "../../redux/reducers/appReducer/middleware";
+import {initializeApp, tryToReconnect} from "../../redux/reducers/app-reducer/middleware";
 import Preloader from "../../preloaders/Preloader";
 import {connect, ConnectedProps} from "react-redux";
 import {RootState} from "../../redux/redux-store";

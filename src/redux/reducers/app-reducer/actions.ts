@@ -2,19 +2,19 @@ import {InferActionsTypes} from "../../redux-store";
 
 export const appActions = {
     initializedSuccessfully: (isInitialized: boolean) => (
-        {type: 'appReducer/INITIALIZE_APP', isInitialized} as const
+        {type: 'app-reducer/INITIALIZE_APP', isInitialized} as const
     ),
     addAppError: (errorText: string | null) => (
-        {type: 'appReducer/ADD_APP_ERROR', errorText} as const
+        {type: 'app-reducer/ADD_APP_ERROR', errorText} as const
     ),
     addError: (errorText: string) => (
-        {type: 'appReducer/ADD_SINGLE_ERROR', errorText} as const
+        {type: 'app-reducer/ADD_SINGLE_ERROR', errorText} as const
     ),
     removeError: (errorText: string) => (
-        {type: 'appReducer/REMOVE_SINGLE_ERROR', errorText} as const
+        {type: 'app-reducer/REMOVE_SINGLE_ERROR', errorText} as const
     ),
     clearAllErrors: () => (
-        {type: 'appReducer/CLEAR_ALL_ERRORS'} as const
+        {type: 'app-reducer/CLEAR_ALL_ERRORS'} as const
     )
 }
 export const {

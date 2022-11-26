@@ -1,61 +1,65 @@
-import React, {FC, useEffect, useRef} from "react";
+import React, {FC, useRef} from "react";
 import {useParams} from "react-router-dom";
 import Preloader from "../../../preloaders/Preloader";
 import {MessagesPropsType} from "./MessagesContainer";
-import Dialogs from "./Dialogs/Dialogs";
 import NewMessage from "./NewMessage";
 import ConversationHead from "./ConversationHead";
-import {isElementScrolledToBottom} from "../../../common/helpers/isElementScrolledToBottom";
+import {useFetchMessages, useScrollChat} from "./hooks";
+import {NewMessageFormData} from "../../../types/MessagesTypes";
+import arrow from '../../../common/assets/img/icons/down-arrow.png'
+
 
 const Messages: FC<MessagesPropsType> = ({
-    messages, setAllMessages, sendNewMessage
+    messages, sendNewMessage, status, loadMoreMessages
 }) => {
     const userId = Number(useParams().userId);
-    const messagesContainer = useRef<HTMLUListElement>(null);
-    const scrollToBottom = () => {
-        if (messagesContainer.current) {
-            messagesContainer.current.scrollTop = messagesContainer.current.scrollHeight
-        }
-    }
-    const loadMessages = () => setAllMessages(userId)
-    const sendMessage = (formData: any) => {
-        sendNewMessage(userId, formData)
-    }
-    useEffect(() => {
-        const requireMessagesInterval = setInterval( loadMessages, 5000 )
-        if (userId) loadMessages()
-        else clearInterval(requireMessagesInterval)
-        return () => clearInterval(requireMessagesInterval)
-    }, [userId])
-    useEffect(() => {
-        const isScrolledToBottom = isElementScrolledToBottom(messagesContainer.current)
-        if (isScrolledToBottom && messages[0]) scrollToBottom()
-    }, [messages])
-    useEffect(() => scrollToBottom(), [])
-    return <div className="central-meta messages">
-        <div className="messages">
-            <div className="message-box">
-                <Dialogs />
-                <div className="peoples-mesg-box">
-                    {userId &&
-                        <div className='chatArea opacity-animation'>
-                            <ConversationHead/>
-                            <ul
-                                className="chatting-area ps-container ps-theme-default ps-active-y"
-                                ref={messagesContainer}
-                            >
-                                {messages[0] ? messages : <Preloader/>}
-                            </ul>
-                            <NewMessage sendMessage={sendMessage}/>
-                        </div>
+    const sendMessage = (formData: NewMessageFormData) => sendNewMessage(formData)
+    const chatRef = useRef<HTMLUListElement | null>(null)
+    const scrolledOnChatLoad = useRef<boolean>(false)
+
+    useFetchMessages(messages, chatRef, scrolledOnChatLoad, status)
+    const {
+        handleScrollClick, handleScroll, showScrollButton
+    } = useScrollChat(loadMoreMessages,chatRef, scrolledOnChatLoad)
+    return (
+        <div className="peoples-mesg-box">
+            {userId &&
+                <div className='chatArea opacity-animation'>
+                    <ConversationHead/>
+                    <ul
+                        className="chatting-area"
+                        ref={chatRef}
+                        onScroll={handleScroll}
+                    >
+                        <Preloader
+                            isFetching={status.isFetching}
+                            size='small'
+                        />
+                        {status.isLoading && <Preloader />}
+                        {messages[0]
+                            ? !status.isLoading && messages
+                            : !status.isLoading && (
+                                <div className='preloader'>
+                                    You've got no messages yet.
+                                </div>
+                              )
+                        }
+                    </ul>
+                    {showScrollButton &&
+                        <img
+                            src={arrow} alt=""
+                            className="scroll-bottom opacity-animation"
+                            onClick={handleScrollClick}
+                        />
                     }
-                    {!userId &&
-                        <div className='fetch-error'>Choose friend to start chat</div>
-                    }
+                    <NewMessage sendMessage={sendMessage}/>
                 </div>
-            </div>
+            }
+            {!userId &&
+                <div className='fetch-error'>Choose friend to start chat</div>
+            }
         </div>
-    </div>
+    )
 }
 
 export default Messages

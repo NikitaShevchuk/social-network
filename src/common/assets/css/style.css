@@ -1277,7 +1277,7 @@ form .lookingForAJob {
     max-height: 87.7vh;
     overflow-y: auto;
 }
-.peoples li {
+.peoples .dialogs-list__item {
     border-bottom: 1px solid #303030;
     cursor: pointer;
     display: flex;
@@ -1287,7 +1287,7 @@ form .lookingForAJob {
     position: relative;
     transition: all 0.2s linear 0s;
 }
-.peoples li .unread {
+.peoples .dialogs-list__item .unread {
     position: absolute;
     font-size: 12px;
     font-weight: 700;
@@ -1312,11 +1312,11 @@ form .lookingForAJob {
     justify-content: center;
     color: rgb(183 183 183);
 }
-.peoples li:hover {
+.peoples .dialogs-list__item:hover {
     background: rgba(255, 255, 255, 0.1);
 }
 
-.peoples li figure {
+.peoples .dialogs-list__item figure {
     display: inline-block;
     margin-bottom: 0;
     max-width: 45px;
@@ -1334,7 +1334,7 @@ form .lookingForAJob {
     overflow-y: auto;
     overflow-x: hidden;
 }
-.sidebar .peoples li:last-child {
+.sidebar .peoples .dialogs-list__item:last-child {
     border-bottom: none;
 }
 .people-name {
@@ -1390,7 +1390,7 @@ form .lookingForAJob {
     right: -20px;
 }
 
-.peoples li span.status {
+.peoples .dialogs-list__item span.status {
     left: 0;
 }
 
@@ -1423,6 +1423,14 @@ form .lookingForAJob {
     display: flex;
     flex-direction: column;
     /*justify-content: end;*/
+    background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url("../img/chat-bg.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.chatArea {
+    position: relative;
+    height: 100vh;
 }
 
 .peoples-mesg-box ul li {
@@ -1475,7 +1483,7 @@ form .lookingForAJob {
     max-width: 50%;
 }
 .peoples-mesg-box ul li p .text {
-    /*max-width: 50%;*/
+    overflow-wrap: break-word;
 }
 .peoples-mesg-box ul li p::after {
     top: 6px;
@@ -1548,8 +1556,8 @@ form .lookingForAJob {
     overflow-y: auto;
     resize: none;
     display: inline-block;
-    width: -webkit-fill-available;
-    margin-right: 20px;
+    flex-grow: 6;
+    margin-right: 0.5vw;
     border-radius: 50px;
     padding: 12px 15px 8px 15px;
     background: #fff;
@@ -1654,7 +1662,7 @@ form .lookingForAJob {
 .followers > li figure img,
 .invition figure img,
 .nearly-pepls > figure img,
-.peoples li figure img,
+.peoples .dialogs-list__item figure img,
 .conversation-head > figure img,
 .peoples-mesg-box ul li  figure img,
 .your-page > figure img,
@@ -2263,15 +2271,56 @@ aside.sidebar.full-style {
     display: flex;
     align-items: center;
     justify-content: center;
-    position: absolute;
-    left: 0px;
 }
-.chatArea {
-    background-image: url("../img/chatBg.jpg");
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 100vh;
+.preloader.shown {
+    display: flex;
+}
+.preloader.hidden {
+    display: none;
+}
+.preloader.small {
+    width: 100%;
+    height: 100px;
+    padding: 20px 0;
+}
+.loader {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    position: relative;
+    animation: rotate 1s linear infinite
+}
+.loader.large {
+    width: 70px;
+    height: 70px;
+}
+.loader.small {
+    width: 25px;
+    height: 25px;
+}
+.loader::before , .loader::after {
+    content: "";
+    box-sizing: border-box;
+    position: absolute;
+    inset: 0px;
+    border-radius: 50%;
+    border: 5px solid #FFF;
+    animation: prixClipFix 2s linear infinite ;
+}
+.loader::after{
+    transform: rotate3d(90, 90, 0, 180deg );
+    border-color: #5790DF;
+}
+
+@keyframes rotate {
+    0%   {transform: rotate(0deg)}
+    100%   {transform: rotate(360deg)}
+}
+
+@keyframes prixClipFix {
+    0%   {clip-path:polygon(50% 50%,0 0,0 0,0 0,0 0,0 0)}
+    50%  {clip-path:polygon(50% 50%,0 0,100% 0,100% 0,100% 0,100% 0)}
+    75%, 100%  {clip-path:polygon(50% 50%,0 0,100% 0,100% 100%,100% 100%,100% 100%)}
 }
 .user-nav {
     position: relative;
@@ -2625,4 +2674,12 @@ span.text a {
 }
 .small-subtitle .text {
     margin-right: 7px;
+}
+.scroll-bottom {
+    position: absolute;
+    right: 30px;
+    bottom: 8vh;
+    cursor: pointer;
+    background: #fff;
+    border-radius: 30%;
 }

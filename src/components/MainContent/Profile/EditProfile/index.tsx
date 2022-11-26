@@ -9,8 +9,8 @@ import {createUpdatedProfile} from "./utils";
 import EditProfileForm from "./EditProfileForm";
 import {connect, ConnectedProps} from "react-redux";
 import {RootState} from "../../../../redux/redux-store";
-import {updateProfile} from "../../../../redux/reducers/profileReducer/middleware";
-import {setProfileEditMode, setSocialMediaEditMode} from "../../../../redux/reducers/profileReducer/actions";
+import {updateProfile} from "../../../../redux/reducers/profile-reducer/middleware";
+import {setProfileEditMode, setSocialMediaEditMode} from "../../../../redux/reducers/profile-reducer/actions";
 
 interface Props extends EditProfileConnectedProps {
     updateProfile: (updatedProfile: EditProfilePutRequestData) => void

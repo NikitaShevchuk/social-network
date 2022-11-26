@@ -1,8 +1,8 @@
 import React, {FC} from "react";
 import {connect, ConnectedProps} from "react-redux";
 import Login from "./Login";
-import {loginThunk} from "../../redux/reducers/authReducer/middleware";
-import {setDialogs} from "../../redux/reducers/messagesReducer/middleware";
+import {loginThunk} from "../../redux/reducers/auth-reducer/middleware";
+import {setDialogs} from "../../redux/reducers/dialogs-reducer/middleware";
 import {modifyHeaders} from "../../services";
 
 export interface FormValues {

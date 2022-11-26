@@ -15,13 +15,17 @@ const NewMessage: FC<{sendMessage: (formData: any) => void}> = ({sendMessage}) =
             form.reset()
         }
     }
+    const handleClick = (form: FormApi<NewMessageForm>) => {
+        form.submit()
+        form.reset()
+    }
     return (
         <div className="message-text-container">
             <Form
                 onSubmit={sendMessage}
                 render={
                     ({handleSubmit, submitting, pristine, form}) => (
-                        <form onSubmit={handleSubmit}>
+                        <form className='add-message-form' onSubmit={handleSubmit}>
                             <Field
                                 onKeyDown={
                                     (e: React.KeyboardEvent) => sendMessageOnEnter(e, form)
@@ -30,7 +34,10 @@ const NewMessage: FC<{sendMessage: (formData: any) => void}> = ({sendMessage}) =
                                 component='textarea'
                                 placeholder='Text a message'
                             />
-                            <button disabled={submitting || pristine}>
+                            <button
+                                disabled={submitting || pristine}
+                                onClick={() => handleClick(form)}
+                            >
                                 <img src={send} alt=""/>
                             </button>
                         </form>

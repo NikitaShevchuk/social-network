@@ -2,7 +2,7 @@ import {IinitialState} from "../../../../types/UsersTypes";
 import usersReducer from "../index";
 import {usersActions} from "../actions";
 import {DefaultResponse, ResultCodes} from "../../../../services";
-import {followUser} from "../middleware";
+import {followUser, unfollowUser} from "../middleware";
 import {usersService} from "../../../../services/usersService";
 
 let state: IinitialState;
@@ -58,16 +58,15 @@ test('unfollow action', () => {
 
 // Thunks test
 
-jest.mock("../../../../services/services")
+jest.mock("../../../../services/usersService")
 
 const result: DefaultResponse = {
     resultCode: ResultCodes.Success,
-    messages: ['mess'],
+    messages: [],
     data: {}
 }
 
-// @ts-ignore
-usersService.follow.mockReturnValue(Promise.resolve(result))
+
 
 test('follow thunk', async () => {
 
@@ -75,7 +74,22 @@ test('follow thunk', async () => {
 
     const dispatchMock = jest.fn()
     const getStateMock = jest.fn()
+    // @ts-ignore
+    usersService.follow.mockReturnValue(Promise.resolve(result))
+    await thunk(dispatchMock, getStateMock, {})
 
+    expect(dispatchMock).toBeCalledTimes(3)
+})
+
+
+test('unfollow thunk', async () => {
+
+    const thunk = unfollowUser(1)
+
+    const dispatchMock = jest.fn()
+    const getStateMock = jest.fn()
+    // @ts-ignore
+    usersService.unfollow.mockReturnValue(Promise.resolve(result))
     await thunk(dispatchMock, getStateMock, {})
 
     expect(dispatchMock).toBeCalledTimes(3)

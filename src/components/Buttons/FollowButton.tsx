@@ -1,7 +1,7 @@
 import React, {FC} from 'react';
 import {RootState} from "../../redux/redux-store";
 import {connect, ConnectedProps} from "react-redux";
-import {followUser, unfollowUser} from "../../redux/reducers/usersReducer/middleware";
+import {followUser, unfollowUser} from "../../redux/reducers/users-reducer/middleware";
 
 interface Props extends FollowButtonConnectedProps {
     userId: number

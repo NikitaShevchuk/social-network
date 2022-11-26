@@ -51,32 +51,32 @@ const initialState: AuthInitialState = {
 
 const authReducer = (state = initialState, action: AuthActionsTypes): AuthInitialState => {
     switch (action.type) {
-        case "authReducer/SET_USER_DATA":
+        case "auth-reducer/SET_USER_DATA":
             return {
                 ...state,
                 userData: action.userData
             }
-        case 'authReducer/SET_USER_PHOTO':
+        case 'auth-reducer/SET_USER_PHOTO':
             return {
                 ...state,
                 profileImg: action.userPhoto
             }
-        case 'authReducer/TOGGLE_IS_AUTHORIZED':
+        case 'auth-reducer/TOGGLE_IS_AUTHORIZED':
             return {
                 ...state,
                 isAuthorized: action.toggle
             }
-        case 'authReducer/LOGIN':
+        case 'auth-reducer/LOGIN':
             return {
                 ...state,
                 successLogin: action.isLoggedIn
             }
-        case 'authReducer/LOGIN_FAILED':
+        case 'auth-reducer/LOGIN_FAILED':
             return {
                 ...state,
                 loginFailed: action.loginErrorText
             }
-        case 'authReducer/LOGOUT':
+        case 'auth-reducer/LOGOUT':
             return {
                 ...state,
                 isAuthorized: false,
@@ -84,17 +84,17 @@ const authReducer = (state = initialState, action: AuthActionsTypes): AuthInitia
                 userData: {id: 0, login: null, email: null},
                 profileImg: null
             }
-        case 'authReducer/GET_CAPTCHA':
+        case 'auth-reducer/GET_CAPTCHA':
             return {
                 ...state,
                 captcha: action.captcha
             }
-        case 'authReducer/SET_CLIENT_STATUS':
+        case 'auth-reducer/SET_CLIENT_STATUS':
             return {
                 ...state,
                 clientStatus: action.clientStatus
             }
-        case "authReducer/SET_CLIENT_PROFILE":
+        case "auth-reducer/SET_CLIENT_PROFILE":
             return {
                 ...state,
                 clientProfile: action.clientProfile
