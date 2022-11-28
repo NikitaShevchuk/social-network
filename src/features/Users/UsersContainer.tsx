@@ -4,21 +4,28 @@ import {connect, ConnectedProps} from "react-redux"
 import {fetchUsers, getUsers, searchUsers} from "../../redux/reducers/users-reducer/middleware"
 import {RootState} from "../../redux/redux-store"
 import {
-    getCurrentPage, getIsFetching, getPageSize,
-    getTotalCount, usersSelector
+    getCurrentPage, getDisableWhileRequest, getIsFetching, getPageSize, getTotalCount, usersSelector
 } from "../../redux/selectors/usersSelector"
 import {SearchDialogsFormValues} from "../../components/MainContent/Messages/Dialogs/DialogsSearchForm"
 import {isElementScrolledToBottom} from "../../common/helpers/isElementScrolledToBottom";
+import { getDialog } from "../../redux/reducers/dialogs-reducer/middleware"
 
-interface Props extends UsersConnectedProps {
+
+
+export interface UsersContainerProps extends UsersConnectedProps {
     setSearchMode?: (searchMode: boolean) => void
-    // if component used in 'new dialog' window
-    getDialog?: (id: number) => void
+    startDialogOnClick: boolean
 }
 
-const UsersPageAPI: FC<Props> = (props) => {
+
+const UsersPageContainer: FC<UsersContainerProps> = (props) => {
+
     const [pageCounter, setPageCounter] = useState(2)
     const searchIsEmpty = useRef<boolean>(true)
+    useEffect(() => {
+        props.getUsers(1, props.pageSize)
+    }, [])
+
     const loadUsers = (e: React.UIEvent<HTMLDivElement>) => {
         const target = e.currentTarget
         const scrolledToBottom: boolean = isElementScrolledToBottom(target)
@@ -32,9 +39,7 @@ const UsersPageAPI: FC<Props> = (props) => {
         if (!searchIsEmpty.current) props.searchUsers(formData.searchBody)
         else props.getUsers(1, props.pageSize);
     }
-    useEffect(() => {
-        props.getUsers(1, props.pageSize)
-    }, [])
+
     return (
         <Users
             {...props}
@@ -46,6 +51,7 @@ const UsersPageAPI: FC<Props> = (props) => {
 
 const mapStateToProps = (state: RootState) => ({
     users: usersSelector(state),
+    disabledButtons: getDisableWhileRequest(state),
     pageSize: getPageSize(state),
     totalCount: getTotalCount(state),
     currentPage: getCurrentPage(state),
@@ -56,9 +62,9 @@ const mapStateToProps = (state: RootState) => ({
 
 const connector = connect(
     mapStateToProps,
-    {getUsers, searchUsers, fetchUsers}
+    {getUsers, searchUsers, fetchUsers, getDialog}
 )
 
-const UsersContainer = connector(UsersPageAPI);
+const UsersContainer = connector(UsersPageContainer);
 export default UsersContainer;
 export type UsersConnectedProps = ConnectedProps<typeof connector>

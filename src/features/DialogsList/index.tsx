@@ -9,9 +9,15 @@ import FetchError from "../../common/FetchError";
 import DialogsPreloader from "../../preloaders/DialogsPreloader";
 import MultiplyPreloader from "../../preloaders";
 import LoginButton from "../../components/Buttons/LoginButton";
+import PerfectScrollbar from 'react-perfect-scrollbar'
 
-const DialogsList: FC<DialogsListConnectedProps> = ({
-    dialogs, setDialogs, isAuthorized, dialogsIsLoading, dialogsError
+interface Props extends DialogsListConnectedProps {
+    className?: string
+}
+
+const DialogsList: FC<Props> = ({
+    dialogs, setDialogs, isAuthorized,
+    dialogsIsLoading, dialogsError, className
 }) => {
     useEffect(() => {
         if(isAuthorized) setDialogs()
@@ -22,35 +28,40 @@ const DialogsList: FC<DialogsListConnectedProps> = ({
             <LoginButton />
         </div>
     )
-    return <>
-        {/* Error */}
-        {dialogsError && !dialogsIsLoading &&
-            <FetchError
-                refetch={setDialogs}
-                errorText="Can't load dialogs"
-            />
-        }
-
-        {/* Is loading */}
-        <MultiplyPreloader
-            itemsNumber={7}
-            isLoading={dialogsIsLoading}
+    return (
+        <PerfectScrollbar
+            component='ul'
+            className={`peoples ${className ? className : ''}`}
         >
-            <DialogsPreloader />
-        </MultiplyPreloader>
+            {/* Error */}
+            {dialogsError && !dialogsIsLoading &&
+                <FetchError
+                    refetch={setDialogs}
+                    errorText="Can't load dialogs"
+                />
+            }
 
-        {/* No dialogs */}
-        {!dialogs[0] && !dialogsIsLoading && !dialogsError &&
-            <NoData
-                text='You do not have any messages yet'
-                linkText='Start new dialog'
-                href='/messages'
-            />
-        }
+            {/* Is loading */}
+            <MultiplyPreloader
+                itemsNumber={7}
+                isLoading={dialogsIsLoading}
+            >
+                <DialogsPreloader />
+            </MultiplyPreloader>
 
-        {/* Show dialogs */}
-        {!dialogsIsLoading && !dialogsError && dialogs}
-    </>
+            {/* No dialogs */}
+            {!dialogs[0] && !dialogsIsLoading && !dialogsError &&
+                <NoData
+                    text='You do not have any messages yet'
+                    linkText='Start new dialog'
+                    href='/messages'
+                />
+            }
+
+            {/* Show dialogs */}
+            {!dialogsIsLoading && !dialogsError && dialogs}
+        </PerfectScrollbar>
+    )
 }
 
 const mapStateToProps = (state: RootState) => ({

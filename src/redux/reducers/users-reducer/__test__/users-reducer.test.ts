@@ -1,3 +1,4 @@
+// @ts-nocheck
 import {IinitialState} from "../../../../types/UsersTypes";
 import usersReducer from "../index";
 import {usersActions} from "../actions";
@@ -74,7 +75,6 @@ test('follow thunk', async () => {
 
     const dispatchMock = jest.fn()
     const getStateMock = jest.fn()
-    // @ts-ignore
     usersService.follow.mockReturnValue(Promise.resolve(result))
     await thunk(dispatchMock, getStateMock, {})
 
@@ -88,7 +88,6 @@ test('unfollow thunk', async () => {
 
     const dispatchMock = jest.fn()
     const getStateMock = jest.fn()
-    // @ts-ignore
     usersService.unfollow.mockReturnValue(Promise.resolve(result))
     await thunk(dispatchMock, getStateMock, {})
 

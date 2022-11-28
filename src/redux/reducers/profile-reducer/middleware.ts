@@ -7,6 +7,7 @@ import {AsyncThunk} from "../../Models";
 import {appActions} from "../app-reducer/actions";
 import {EditProfilePutRequestData} from "../../../types/ProfileTypes";
 
+
 export const loadProfile = (id: number): AsyncThunk => async (dispatch) => {
     dispatch(profileActions.setIsProfileLoading(true))
     try {
@@ -24,6 +25,7 @@ export const loadProfile = (id: number): AsyncThunk => async (dispatch) => {
     dispatch(profileActions.setIsProfileLoading(false))
 }
 
+
 export const getMyProfileFromState = (): AsyncThunk => (dispatch, getState) => {
     dispatch(profileActions.setIsProfileLoading(true))
     const myProfileFromState = getState().auth.clientProfile
@@ -31,9 +33,10 @@ export const getMyProfileFromState = (): AsyncThunk => (dispatch, getState) => {
     dispatch(profileActions.setIsProfileLoading(false))
 }
 
+
 export const followUser = (id: number): AsyncThunk => async (dispatch) => {
+    dispatch(profileActions.disableButton())
     try {
-        dispatch(profileActions.disableButton())
         const response = await usersService.follow(id)
         if (response.resultCode === ResultCodes.Success) {
             dispatch(profileActions.followUserProfile())
@@ -44,7 +47,9 @@ export const followUser = (id: number): AsyncThunk => async (dispatch) => {
     } catch {
         dispatch(appActions.addError('Network error'))
     }
+    dispatch(profileActions.ableButton())
 }
+
 
 export const unfollowUser = (id: number): AsyncThunk => async (dispatch) => {
     try {
@@ -61,11 +66,11 @@ export const unfollowUser = (id: number): AsyncThunk => async (dispatch) => {
     }
 }
 
+
 export const updatePhoto = (photo: File | null): AsyncThunk => async (dispatch) => {
+    dispatch(profileActions.isPhotoUpdating(true))
     try {
-        dispatch(profileActions.isPhotoUpdating(true))
         const response = await profileService.uploadPhoto(photo);
-        dispatch(profileActions.isPhotoUpdating(false))
         if (response.resultCode === ResultCodes.Success) {
             dispatch(authActions.setUserPhoto(response.data.photos.large))
             dispatch(profileActions.photoUploadedSuccessfully(response.data.photos))
@@ -78,15 +83,15 @@ export const updatePhoto = (photo: File | null): AsyncThunk => async (dispatch) 
     } catch {
         dispatch(appActions.addError('Network error'))
     }
+    dispatch(profileActions.isPhotoUpdating(false))
 }
+
 
 export const updateProfile = (updatedProfile: EditProfilePutRequestData): AsyncThunk => async (dispatch) => {
     try {
         const profile = await profileService.updateProfile(updatedProfile);
         if (profile.resultCode === ResultCodes.Success) {
-            dispatch(
-                profileActions.setUpdatedProfile(updatedProfile)
-            )
+            dispatch(profileActions.setUpdatedProfile(updatedProfile))
         } else if (profile.resultCode === ResultCodes.Error) {
             dispatch(profileActions.addLocalError(profile.messages[0]))
             setTimeout(() => {

@@ -14,6 +14,9 @@ p {
     line-height: 26px;
     color: #8c8b8b;
 }
+ul {
+    padding-left: 0;
+}
 a {
     color: rgb(247, 249, 249);
 }
@@ -139,7 +142,9 @@ a:hover.vk {
     color: orange;
 }
 
-
+.ps__rail-y {
+    z-index: 100;
+}
 
 .log-reg-area .checkbox label,
 .form-radio label {
@@ -546,7 +551,7 @@ button.add-butn.transparent:hover {
 /*--- sidebar widgets ---*/
 
 .widget__wrapper {
-    padding: 0 15px;
+    padding: 0 0 0 15px;
     border-radius: 30px;
     background: #242424;
     margin: 20px;
@@ -622,11 +627,11 @@ button.add-butn.transparent:hover {
     margin-bottom: 0;
 }
 
-.sidebar .widget .naves a.active {
+.active {
     background: rgba(255, 255, 255, 0.2);
 }
 
-.sidebar .widget .naves a svg {
+.sidebar .widget .naves a svg, .sidebar .widget .naves a img {
     color: rgb(247, 249, 249);
     display: inline-block;
     font-size: 16px;
@@ -1120,16 +1125,14 @@ li.google {
     display: inline-block;
     list-style: outside none none;
     margin-bottom: 0;
-    padding-left: 0;
+    max-width: 100%;
     width: 100%;
-    height: 92vh;
-    overflow-x: hidden;
-    overflow-y: scroll;
+    height: 92vh!important;
 }
 .nearby-contct .whiteBg {
     margin-right: 20px;
 }
-.nearby-contct > div {
+.nearby-contct > .opacity-animation {
     display: flex;
     justify-content: space-between;
     padding-right: 20px;
@@ -1273,6 +1276,11 @@ form .lookingForAJob {
     max-width: 35%;
     height: 100vh;
 }
+.messages-page-dialogs {
+    width: auto;
+    max-width: 100%;
+    max-height: 87.5vh;
+}
 .dialogs-list {
     max-height: 87.7vh;
     overflow-y: auto;
@@ -1282,7 +1290,7 @@ form .lookingForAJob {
     cursor: pointer;
     display: flex;
     align-items: center;
-    padding: 18px;
+    padding: 15px;
     width: 100%;
     position: relative;
     transition: all 0.2s linear 0s;
@@ -1305,7 +1313,7 @@ form .lookingForAJob {
 .last-activity {
     position: absolute;
     font-size: 13px;
-    right: 18px;
+    right: 15px;
     top: 20px;
     display: flex;
     align-items: center;
@@ -1331,8 +1339,9 @@ form .lookingForAJob {
     height: auto;
     border: none;
     max-height: 82vh;
-    overflow-y: auto;
-    overflow-x: hidden;
+    /*overflow-y: auto;*/
+    /*overflow-x: hidden;*/
+    padding-right: 15px;
 }
 .sidebar .peoples .dialogs-list__item:last-child {
     border-bottom: none;
@@ -1415,7 +1424,6 @@ form .lookingForAJob {
 .peoples-mesg-box ul.chatting-area {
     list-style: outside none none;
     margin-bottom: 0;
-    padding: 10px 0px;
     width: 100%;
     position: relative;
     overflow-x: hidden;
@@ -1427,6 +1435,7 @@ form .lookingForAJob {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    padding: 10px 5px;
 }
 .chatArea {
     position: relative;
@@ -2262,6 +2271,7 @@ aside.sidebar.full-style {
     width: 100vw;
     height: 100vh;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 }
@@ -2503,7 +2513,7 @@ aside.sidebar.full-style {
 .sidebarHeader {
     font-size: 20px;
     font-weight: 700;
-    padding: 30px 20px;
+    padding: 30px 15px;
 }
 .peoples .sidebarHeader {
     padding: 20px 20px 0 20px;

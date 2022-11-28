@@ -24,10 +24,6 @@ export const usersService = {
         const response = await defaultInstance.delete(`follow/${id}`)
         return response.data as DefaultResponse
     },
-    async auth() {
-        console.warn('Use profileService object')
-        return profileService.auth();
-    },
     async isFollowing(id: number) {
         const response = await defaultInstance.get(`follow/${id}`)
         return response.data as boolean

@@ -50,6 +50,8 @@ export const loadMessages = (): AsyncThunk => async (dispatch, getState)=> {
 
 
 const isLastMessageIdEqual = (messages: Message[], messagesInResponse: Message[]): boolean => {
+    // return true (messages are equal) because there is no messages in both response and state
+    if (!messages[0] || !messagesInResponse[0]) return true
     const lastIdInResponse = messagesInResponse[messagesInResponse.length - 1].id
     const lastIdInState = messages[messages.length - 1].id
     return lastIdInResponse === lastIdInState

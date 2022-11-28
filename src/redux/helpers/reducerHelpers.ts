@@ -10,5 +10,5 @@ export const changeById = (users: User[] | [], id: number, propertyToChange: {fo
     })
 }
 export const filterDialogsByName = (dialogs: DialogWithMessage[], userName: string) => {
-    return dialogs.filter( d => d.userName.includes(userName))
+    return dialogs.filter( dialog => dialog.userName.includes(userName))
 }

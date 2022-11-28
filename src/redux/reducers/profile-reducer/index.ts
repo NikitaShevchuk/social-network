@@ -51,6 +51,11 @@ const profileReducer = (state = profileInitialState, action: ProfileActionsTypes
                 profile: action.profile,
                 contactsArray: mapToContactsArray(action.profile.contacts)
             }
+        case 'profile-reducer/SET_STATUS':
+            return {
+                ...state,
+                status: action.status
+            }
         case 'profile-reducer/FOLLOW_USER':
             return {
                 ...state,
@@ -84,14 +89,7 @@ const profileReducer = (state = profileInitialState, action: ProfileActionsTypes
         case 'profile-reducer/UPDATE_PROFILE':
             return {
                 ...state,
-                profile: {
-                    ...state.profile,
-                    fullName: action.profile.fullName,
-                    lookingForAJob: action.profile.lookingForAJob,
-                    lookingForAJobDescription: action.profile.lookingForAJobDescription,
-                    contacts: action.profile.contacts,
-                    aboutMe: action.profile.aboutMe
-                },
+                profile: {...state.profile, ...action.profile},
                 contactsArray: mapToContactsArray(action.profile.contacts)
             }
         case 'profile-reducer/ADD_LOCAL_ERROR':

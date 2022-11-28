@@ -1,3 +1,4 @@
+// @ts-nocheck
 import {Dialog, DialogsInitialState} from "../../../../types/MessagesTypes";
 import {DialogsActionsType} from "../actions";
 import dialogsReducer, {dialogsInitialState} from "../index";
@@ -69,16 +70,13 @@ beforeEach(() => {
     dispatch = (action: DialogsActionsType) => {
         state = dialogsReducer(state, action)
     }
-    // @ts-ignore
     dialogsService.requireDialogs.mockReturnValue(Promise.resolve(response))
-    // @ts-ignore
     dialogsService.requireLastMessage.mockReturnValue(Promise.resolve(lastMessageResponse))
 })
 
 test('setDialogs thunk should set dialogs with last message to state', async () => {
     const setDialogsThunk = setDialogs()
-    // @ts-ignore
     await setDialogsThunk(dispatch, getState, {})
     // setDialogs thunk adds last message to every dialog
-    expect(state.dialogs).toEqual([{...response, lastMessage: lastMessageResponse.items[0]}])
+    expect(state.dialogs).toEqual([{...response[0], lastMessage: lastMessageResponse.items[0]}])
 })

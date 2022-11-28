@@ -40,7 +40,7 @@ export const loginThunk = (formData: any): AsyncThunk => async (dispatch) => {
         const data = await profileService.login(formData)
         if (data.resultCode === ResultCodes.Success) {
             dispatch(authActions.login(true));
-            dispatch(authorize());
+            await Promise.all([dispatch(authorize())]);
         } else if (data.resultCode === ResultCodes.Error) {
             dispatch(authActions.loginError(data.messages[0]))
         } else if (data.resultCode === ResultCodes.CaptchaError) {

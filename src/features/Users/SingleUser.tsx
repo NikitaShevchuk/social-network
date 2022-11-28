@@ -7,21 +7,22 @@ import MessageButton from "../../components/Buttons/MessageButton";
 
 interface Props {
     setSearchMode?: (searchMode: boolean) => void
-    getDialog?: (id: number) => void
+    getDialog: (id: number) => void
+    startDialogOnClick: boolean
     user: User
     disableWhileRequest: number[]
 }
 
 const SingleUser = memo<Props>(({
-    getDialog, setSearchMode, disableWhileRequest, user
+    getDialog, setSearchMode, disableWhileRequest, user, startDialogOnClick
 }) => {
     const [isButtonDisabled, toggleIsButtonDisabled] = useState(false)
     const [link, setLink] = useState('')
 
     useEffect( () => {
-        if (getDialog) setLink(`/messages/${user.id}/`)
+        if (startDialogOnClick) setLink(`/messages/${user.id}/`)
         else setLink(`/profile/${user.id}`)
-    }, [getDialog, user.id] )
+    }, [startDialogOnClick, user.id] )
     useEffect(() => {
         toggleIsButtonDisabled(
             disableWhileRequest.some((item: number) => item === user.id)
@@ -29,7 +30,7 @@ const SingleUser = memo<Props>(({
     }, [disableWhileRequest, user.id])
 
     const navLinkClickHandler = () => {
-        if (getDialog) {
+        if (startDialogOnClick) {
             getDialog(user.id)
             if (setSearchMode) setSearchMode(false)
         }
@@ -53,7 +54,7 @@ const SingleUser = memo<Props>(({
                     <span>{user.status}</span>
                 </div>
             </NavLink>
-            <MessageButton userId={user.id} />
+            {!startDialogOnClick && <MessageButton userId={user.id}/>}
             <FollowButton
                 userId={user.id}
                 disabled={isButtonDisabled}

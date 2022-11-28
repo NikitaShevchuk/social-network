@@ -6,13 +6,13 @@ export interface AppInitialState {
     appError: string | null
     errors: string[]
 }
-const initialState: AppInitialState = {
+export const appInitialState: AppInitialState = {
     isInitialized: false,
     appError: null,
     errors: []
 }
 
-const appReducer = (state = initialState, action: AppActionTypes): AppInitialState => {
+const appReducer = (state = appInitialState, action: AppActionTypes): AppInitialState => {
     switch (action.type) {
         case 'app-reducer/INITIALIZE_APP':
             return {

@@ -27,9 +27,7 @@ export const profileActions = {
 }
 
 export const {
-    setProfileEditMode, setUpdatedProfile, followUserProfile, unfollowUserProfile, setUserId, setIsMyProfile,
-    addLocalError, photoUploadedSuccessfully, isPhotoUpdating, disableButton, ableButton, setStatus, setProfile,
-    addProfileFetchError, setIsProfileLoading, removeProfileFetchError, setSocialMediaEditMode
+    setProfileEditMode, setUserId, setIsMyProfile, setSocialMediaEditMode
 } = profileActions
 
 export type ProfileActionsTypes = InferActionsTypes<typeof profileActions>

@@ -3,6 +3,7 @@ import '../../common/assets/css/color.css';
 import '../../common/assets/css/fonts.css';
 import '../../common/assets/css/style.css';
 import '../../common/assets/css/main.min.css';
+import 'react-perfect-scrollbar/dist/css/styles.css';
 import LeftSidebar from "../LeftSidebar";
 import {initializeApp, tryToReconnect} from "../../redux/reducers/app-reducer/middleware";
 import Preloader from "../../preloaders/Preloader";
@@ -20,7 +21,8 @@ const App: FC<AppConnectedProps> = ({initializeApp, initialized, isAuthorized, a
         window.addEventListener("unhandledrejection", handleRejection);
     }, [])
     if (appError) return (
-        <div className='globalPreloader'><Preloader/><br/>
+        <div className='globalPreloader'>
+            <span className="loader"></span>
             <div className="appError">{appError}</div>
         </div>
     )

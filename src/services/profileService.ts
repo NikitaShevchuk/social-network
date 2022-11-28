@@ -5,8 +5,8 @@ import {FormValues} from "../components/Login/LoginContainer";
 import {Photos} from "../types/Photos";
 
 
-interface LoginResponse extends Response { data: UserData }
-interface PhotosResponse extends Response { data: { photos: Photos } }
+export interface LoginResponse extends Response { data: UserData }
+export interface PhotosResponse extends Response { data: { photos: Photos } }
 
 export const profileService = {
     async getProfile(id: number) {

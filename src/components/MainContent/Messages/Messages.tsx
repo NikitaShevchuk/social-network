@@ -1,4 +1,4 @@
-import React, {FC, useRef} from "react";
+import React, {FC, useRef, useState} from "react";
 import {useParams} from "react-router-dom";
 import Preloader from "../../../preloaders/Preloader";
 import {MessagesPropsType} from "./MessagesContainer";
@@ -7,6 +7,7 @@ import ConversationHead from "./ConversationHead";
 import {useFetchMessages, useScrollChat} from "./hooks";
 import {NewMessageFormData} from "../../../types/MessagesTypes";
 import arrow from '../../../common/assets/img/icons/down-arrow.png'
+import PerfectScrollbar from "react-perfect-scrollbar";
 
 
 const Messages: FC<MessagesPropsType> = ({
@@ -14,21 +15,22 @@ const Messages: FC<MessagesPropsType> = ({
 }) => {
     const userId = Number(useParams().userId);
     const sendMessage = (formData: NewMessageFormData) => sendNewMessage(formData)
-    const chatRef = useRef<HTMLUListElement | null>(null)
+    const [chatRef, setChatRef] = useState<HTMLElement | null >(null)
     const scrolledOnChatLoad = useRef<boolean>(false)
-
     useFetchMessages(messages, chatRef, scrolledOnChatLoad, status)
     const {
         handleScrollClick, handleScroll, showScrollButton
-    } = useScrollChat(loadMoreMessages,chatRef, scrolledOnChatLoad)
+    } = useScrollChat(loadMoreMessages, chatRef, scrolledOnChatLoad)
+    const getChatRef = (chatRef: HTMLElement) => setChatRef(chatRef)
     return (
         <div className="peoples-mesg-box">
             {userId &&
                 <div className='chatArea opacity-animation'>
                     <ConversationHead/>
-                    <ul
+                    <PerfectScrollbar
                         className="chatting-area"
-                        ref={chatRef}
+                        component='ul'
+                        containerRef={getChatRef}
                         onScroll={handleScroll}
                     >
                         <Preloader
@@ -44,7 +46,7 @@ const Messages: FC<MessagesPropsType> = ({
                                 </div>
                               )
                         }
-                    </ul>
+                    </PerfectScrollbar>
                     {showScrollButton &&
                         <img
                             src={arrow} alt=""
@@ -63,3 +65,4 @@ const Messages: FC<MessagesPropsType> = ({
 }
 
 export default Messages
+

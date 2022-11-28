@@ -6,7 +6,7 @@ const RightSidebar = () => {
     return <aside className="sidebar right static">
         <div className="widget__wrapper">
             <div className="sidebarHeader">Last messages</div>
-            <ul className="peoples"><DialogsList /></ul>
+            <DialogsList />
             <Link to='/messages' className="dialog-header link see-all">
                 See all
             </Link>

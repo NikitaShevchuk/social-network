@@ -3,7 +3,7 @@ import UsersContainer from "../../features/Users/UsersContainer";
 
 const MainPage: FC = () => {
     return <div className="central-meta">
-        <UsersContainer />
+        <UsersContainer startDialogOnClick={false} />
     </div>
 };
 

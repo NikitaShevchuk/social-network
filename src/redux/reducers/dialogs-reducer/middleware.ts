@@ -2,7 +2,6 @@ import {AsyncThunk} from "../../Models";
 import {dialogsService} from "../../../services/dialogsService";
 import {DialogWithMessage} from "../../../types/MessagesTypes";
 import {addLastMessageToDialog} from "../messages-reducer/helpers";
-import {ResultCodes} from "../../../services";
 import {appActions} from "../app-reducer/actions";
 import {dialogsActions} from "./actions";
 
@@ -29,9 +28,7 @@ export const setDialogs = (): AsyncThunk => async (dispatch, getState)=> {
 export const getDialog = (id: number): AsyncThunk => async (dispatch)=> {
     try {
         const dialogResponse = await dialogsService.startDialog(id)
-        if (dialogResponse.resultCode === ResultCodes.Success) {
-            dispatch(setDialogs())
-        } else appActions.addError(dialogResponse.messages[0])
+        dispatch(setDialogs())
     } catch {
         appActions.addError("Can't start a dialog")
     }

@@ -2,7 +2,7 @@ import {AuthActionsTypes} from "./actions";
 import {UserData} from "../../../types/AuthTypes";
 import {Profile} from "../../../types/ProfileTypes";
 
-interface AuthInitialState {
+export interface AuthInitialState {
     userData: UserData
     profileImg: string | null
     clientStatus: string | null
@@ -15,7 +15,7 @@ interface AuthInitialState {
     clientProfile: Profile
 }
 
-const initialState: AuthInitialState = {
+export const authInitialState: AuthInitialState = {
     userData: {
         id: 0,
         login: null,
@@ -49,7 +49,7 @@ const initialState: AuthInitialState = {
     }
 }
 
-const authReducer = (state = initialState, action: AuthActionsTypes): AuthInitialState => {
+const authReducer = (state = authInitialState, action: AuthActionsTypes): AuthInitialState => {
     switch (action.type) {
         case "auth-reducer/SET_USER_DATA":
             return {

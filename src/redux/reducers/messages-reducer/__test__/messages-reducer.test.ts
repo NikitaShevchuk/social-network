@@ -1,3 +1,4 @@
+// @ts-nocheck
 import {MessagesInitialState} from "../../../../types/MessagesTypes";
 import {dialogsService, MessagesResponse} from "../../../../services/dialogsService";
 import {fetchMessages, loadMessages, loadMoreMessages, sendNewMessage} from "../middleware";
@@ -120,9 +121,7 @@ test('Fetch messages thunk should add new messages to state with no repeat of me
     const oldState = JSON.parse(JSON.stringify(state))
     const fetchMessagesThunk = fetchMessages()
 
-    // @ts-ignore
     dialogsService.requireMessages.mockReturnValue(Promise.resolve(response))
-    // @ts-ignore
     await fetchMessagesThunk(dispatch, getState, {})
 
     // the second message in response have same ID as first message in state, so it won't be dispatched to state
@@ -131,9 +130,7 @@ test('Fetch messages thunk should add new messages to state with no repeat of me
 
 test('Load messages should add messages to state', async () => {
     const loadMessagesThunk = loadMessages()
-    // @ts-ignore
     dialogsService.requireMessages.mockReturnValue(Promise.resolve(response))
-    // @ts-ignore
     await loadMessagesThunk(dispatch, getState, {})
     expect(state.messages).toEqual(response.items)
     expect(state.status.isLoading).toEqual(false)
@@ -145,11 +142,8 @@ test('Load messages should add messages to state', async () => {
 test('Thunk for loading more messages should add more messages to state', async () => {
     const oldState = JSON.parse(JSON.stringify(state))
     const loadMoreMessageThunk = loadMoreMessages()
-    // @ts-ignore
     dialogsService.requireLastMessage.mockReturnValue(Promise.resolve(response))
-    // @ts-ignore
     dialogsService.requireMessages.mockReturnValue(Promise.resolve(response))
-    // @ts-ignore
     await loadMoreMessageThunk(dispatch, getState, {})
     expect(state.messages).toEqual([...response.items, ...oldState.messages])
     expect(state.status.isFetching).toEqual(false)
@@ -162,11 +156,9 @@ test('sendMessage thunk should add new message to state', async () => {
     const testMessageFormData = {body: 'new test message'}
     const sendNewMessageThunk = sendNewMessage(testMessageFormData)
     response.items[0].body = testMessageFormData.body
-    // @ts-ignore
     dialogsService.sendMessage.mockReturnValue(Promise.resolve(
         {resultCode: ResultCodes.Success, data: {message: response.items[0]}})
     )
-    // @ts-ignore
     await sendNewMessageThunk(dispatch, getState, {})
     expect(state.messages).toEqual([...oldState.messages, response.items[0]])
 })
