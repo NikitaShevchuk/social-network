@@ -1,5 +1,5 @@
 import React, {FC} from 'react';
-import style from "../Profile.module.css";
+import style from "../Profile.module.scss";
 import Preloader from "../../../../preloaders/Preloader";
 import UserPhoto from "../../../../common/UserPhoto";
 import EditProfilePhoto from "../EditProfile/EditProfilePhoto";
@@ -21,8 +21,8 @@ const ProfileHeader: FC<Props> = ({
         if (inputFiles) updatePhoto(inputFiles)
     }
     return (
-        <div className="profile-header">
-            <div className="user-avatar">
+        <div className={style.profileHeader}>
+            <div className={style.userAvatar}>
                 <figure className={figureClassName}>
                     {photoIsUpdating
                         ? <Preloader/>

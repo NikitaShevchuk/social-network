@@ -70,6 +70,7 @@
     "@types/lodash.debounce": "^4.0.7",
     "gh-pages": "^4.0.0",
     "husky": "^8.0.0",
+    "sass": "^1.56.1",
     "ts-loader": "^9.3.1"
   }
 }

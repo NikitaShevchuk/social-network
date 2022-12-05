@@ -1,7 +1,7 @@
 import React, {FC, forwardRef, LegacyRef, useState} from 'react';
 import {AnyObject} from "react-final-form";
 import ProfileStatusContainer from "../../../../common/ProfileStatus/ProfileStatusContainer";
-import style from "../Profile.module.css";
+import style from "../Profile.module.scss";
 import classNames from "classnames";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {useGetFields} from "./utils";

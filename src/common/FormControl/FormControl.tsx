@@ -8,12 +8,12 @@ interface Props {
         touched: boolean
         dirty: boolean
     }
-    inputType: string
+    type: string
     input: any
     label: string | null
 }
 
-export const Input: FC<Props> = ({meta,inputType, input, label}) => {
+export const Input: FC<Props> = ({meta,type, input, label}) => {
 
     const hasError = meta.error && meta.touched
     const labelClassName = meta.dirty ? style.activeLabel : ''
@@ -25,8 +25,8 @@ export const Input: FC<Props> = ({meta,inputType, input, label}) => {
         <div className="form-group">
             <input
                 {...input}
-                type={inputType}
-                className={activeInput}
+                type={type}
+                className={classNames('border', activeInput)}
             />
             {hasError &&
                 <div className={style.errorInfo}>

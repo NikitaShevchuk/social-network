@@ -1,8 +1,9 @@
 import React, {FC, memo} from 'react';
-import style from "./Profile.module.css";
+import style from "./Profile.module.scss";
 import ProfileStatusContainer from "../../../common/ProfileStatus/ProfileStatusContainer";
 import {Profile} from "../../../types/ProfileTypes";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import classNames from 'classnames';
 
 export interface Props {
     isMyProfile: boolean
@@ -13,10 +14,11 @@ export interface Props {
 const ProfileInfo: FC<Props> = memo(({
     profile, isMyProfile, profileEditMode
 }) => {
-    const profileBlockClassName = profileEditMode ? 'profile-data hidden' : 'profile-data shown'
     const jobBlockClassName = profile.lookingForAJob ? style.green : style.red
     return (
-        <div className={profileBlockClassName}>
+        <div className={classNames(
+            style.profileData, profileEditMode ? style.hidden : style.shown
+        )}>
             <div className="admin-name timeline-info__row">
                 <h5>{profile.fullName}</h5>
                 <ProfileStatusContainer

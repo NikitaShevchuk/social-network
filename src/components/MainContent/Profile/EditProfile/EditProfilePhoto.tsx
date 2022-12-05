@@ -1,4 +1,5 @@
 import React, {FC, memo} from 'react';
+import style from '../Profile.module.scss'
 
 interface Props {
     onPhotoUpload: (e: React.ChangeEvent<HTMLInputElement>) => void
@@ -6,12 +7,12 @@ interface Props {
 
 const EditProfilePhoto: FC<Props> = memo(({onPhotoUpload}) => {
     return (
-        <form className="edit-phto">
-            <i className="fa fa-edit"/>
-            <label className="fileContainer">
+        <form className={style.editPhoto}>
+            <label className={style.fileContainer}>
                 Edit profile photo
                 <input
                     onChange={onPhotoUpload}
+                    className={style.fileInput}
                     type="file"
                     accept=".jpg, .jpeg, .png"
                 />

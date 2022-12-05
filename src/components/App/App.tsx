@@ -1,9 +1,6 @@
 import React, {FC, useEffect} from "react";
-import '../../common/assets/css/color.css';
-import '../../common/assets/css/fonts.css';
-import '../../common/assets/css/style.css';
-import '../../common/assets/css/main.min.css';
 import 'react-perfect-scrollbar/dist/css/styles.css';
+import '../../common/assets/css/index.css'
 import LeftSidebar from "../LeftSidebar";
 import {initializeApp, tryToReconnect} from "../../redux/reducers/app-reducer/middleware";
 import Preloader from "../../preloaders/Preloader";
@@ -11,6 +8,7 @@ import {connect, ConnectedProps} from "react-redux";
 import {RootState} from "../../redux/redux-store";
 import ErrorsDisplay from "../Errors";
 import AppRoutes from "./AppRoutes";
+import AppError from './AppError';
 
 const App: FC<AppConnectedProps> = ({initializeApp, initialized, isAuthorized, appError, tryToReconnect}) => {
     const handleRejection = (event: { reason: { code: string } }) => {
@@ -20,15 +18,13 @@ const App: FC<AppConnectedProps> = ({initializeApp, initialized, isAuthorized, a
         initializeApp()
         window.addEventListener("unhandledrejection", handleRejection);
     }, [])
-    if (appError) return (
-        <div className='globalPreloader'>
-            <span className="loader"></span>
-            <div className="appError">{appError}</div>
-        </div>
-    )
+
+    if (appError) return <AppError appError={appError} />
+
     if (!initialized) return (
         <div className='globalPreloader'><Preloader/></div>
     )
+
     return (
         <div className="container">
             <ErrorsDisplay />
@@ -37,7 +33,7 @@ const App: FC<AppConnectedProps> = ({initializeApp, initialized, isAuthorized, a
                 <AppRoutes isAuthorized={isAuthorized} />
             </div>
         </div>
-    );
+    )
 
 }
 
