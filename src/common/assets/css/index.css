@@ -9,6 +9,7 @@ html {
     -ms-text-size-adjust: 100%;
     -ms-overflow-style: scrollbar;
     -webkit-tap-highlight-color: transparent;
+    font-size: 1rem;
 }
 
 @-ms-viewport {
@@ -52,7 +53,7 @@ b {
 }
 
 small {
-    font-size: 80%;
+    font-size: 8.0rem
 }
 
 a {
@@ -170,31 +171,31 @@ textarea {
 }
 
 .h1,h1 {
-    font-size: 2.5rem;
+    font-size: 2..rem;
 }
 
 .h2,h2 {
-    font-size: 2rem;
+    font-size: 2.rrem;
 }
 
 .h3,h3 {
-    font-size: 1.75rem;
+    font-size: 1..rem;
 }
 
 .h4,h4 {
-    font-size: 1.5rem;
+    font-size: 1..rem;
 }
 
 .h5,h5 {
-    font-size: 1.25rem;
+    font-size: 1..rem;
 }
 
 .h6,h6 {
-    font-size: 1rem;
+    font-size: 1.rrem;
 }
 
 .small,small {
-    font-size: 80%;
+    font-size: 0.8rem;
     font-weight: 400;
 }
 
@@ -222,22 +223,10 @@ textarea {
 
 .container {
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 1.5rem;
+    padding-left: 1.5rem;
     margin-right: auto;
     margin-left: auto;
-}
-
-@media (min-width: 576px) {
-    .container {
-        max-width: 540px;
-    }
-}
-
-@media (min-width: 768px) {
-    .container {
-        max-width: 720px;
-    }
 }
 
 @media (min-width: 992px) {
@@ -258,8 +247,8 @@ textarea {
     display: flex;
     -ms-flex-wrap: wrap;
     flex-wrap: wrap;
-    margin-right: -15px;
-    margin-left: -15px;
+    margin-right: -1.5rem;
+    margin-left: -1.5rem;
 }
 
 .form-text {
@@ -428,7 +417,7 @@ a.text-light:focus,a.text-light:hover {
 }
 
 input.border:focus {
-    box-shadow: 0px 10px 20px -13px rgb(255 255 255 / 35%);
+    box-shadow: 0px 1rem 2rem -13px rgb(255 255 255 / 35%);
 }
 
 input.border:hover {
@@ -437,15 +426,15 @@ input.border:hover {
 
 input.border {
     width: 100%;
-    height: 50px;
     border-radius: 5px;
     box-shadow: none;
     border: 1px solid #ced6e0;
     transition: all 0.3s ease-in-out;
-    font-size: 18px;
-    padding: 5px 15px;
+    font-size: 1.8rem;
+    line-height: 18px;
+    color: #fff;
+    padding: 0.6rem 1.5rem;
     background: none;
-    color: #1a3b5d;
     font-family: "Source Sans Pro", sans-serif;
 }
 
@@ -461,7 +450,7 @@ body {
 }
 
 p {
-    font-size: 14px;
+    font-size: 1.4rem;
     line-height: 26px;
     color: #8c8b8b;
 }
@@ -530,26 +519,26 @@ a:hover.youtube {
 }
 
 .form-group {
-    margin-bottom: 30px;
-    margin-top: 30px;
+    margin-bottom: 3rem;
+    margin-top: 3rem;
     display: inline-block;
     width: 100%;
 }
 
 .main-logo {
-    margin: 40px 0px 40px 20px;
+    margin: 40px 0px 40px 2rem;
     display: flex;
     align-items: center;
 }
 
 .main-logo__image {
-    max-width: 30px;
+    max-width: 3rem;
 }
 
 .main-logo__text {
-    font-size: 16px;
+    font-size: 1.6rem;
     font-weight: 900;
-    margin-left: 10px;
+    margin-left: 1rem;
 }
 
 /*--- timeline area ---*/
@@ -601,7 +590,7 @@ a:hover.youtube {
 
 .timeline-info {
     width: 100%;
-    padding: 0 20px;
+    padding: 0 2rem;
     position: relative;
     background: #181818;
 }
@@ -609,15 +598,14 @@ a:hover.youtube {
 .bg {
     display: flex;
     padding: 25.5% 0 0 0;
-    background: url("../img/profileCover.jpg") center top no-repeat;
-    background-size: 100%;
+    background: linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(253,29,29,1) 50%, rgba(252,176,69,1) 100%);
 }
 
 .timeline-info .timeline-info__container {
     display: flex;
     list-style: outside none none;
     width: 100%;
-    padding: 20px 20px 0 20px;
+    padding: 2rem 2rem 0 2rem;
     position: relative;
 }
 
@@ -641,7 +629,7 @@ a:hover.youtube {
 
 .timeline-info .timeline-info__container .timeline-info__row {
     display: inline-block;
-    margin-right: 20px;
+    margin-right: 2rem;
     position: relative;
 }
 
@@ -655,15 +643,15 @@ form .timeline-info__row:last-child {
 }
 
 .lookingForAJobDescription {
-    font-size: 16px;
+    font-size: 1.6rem;
     line-height: 16px;
     display: block;
     color: rgb(255 255 255);
-    margin-bottom: 15px;
+    margin-bottom: 1.5rem;
 }
 
 .lookingForAJobDescription-edit {
-    margin-bottom: 30px;
+    margin-bottom: 3rem;
 }
 
 .lookingForAJobDescription-edit textarea {
@@ -679,7 +667,7 @@ button.add-butn.white {
     background: transparent;
     border: 1px solid #fff;
     transition: all .3s ease-in-out;
-    margin-left: 10px;
+    margin-left: 1rem;
 }
 
 button.add-butn.white:hover {
@@ -689,7 +677,7 @@ button.add-butn.white:hover {
 button.add-butn.transparent {
     background: transparent;
     border: 2px solid #fff;
-    padding: 8px 30px 12px 30px;
+    padding: 0.8rem 3rem 1.2rem 3rem;
 }
 
 button.add-butn.transparent:hover {
@@ -700,12 +688,12 @@ button.add-butn.transparent:hover {
 
 .timeline-info .timeline-info__container .timeline-info__row a {
     display: inline-block;
-    font-size: 14px;
-    margin-right: 30px;
+    font-size: 1.4rem;
+    margin-right: 3rem;
     position: relative;
     line-height: initial;
     text-transform: capitalize;
-    padding-bottom: 3px;
+    padding-bottom: .3rem;
     font-weight: 400;
 }
 
@@ -732,8 +720,8 @@ button.add-butn.transparent:hover {
 
 .admin-name .status__wrapper input,
 .admin-name .status__wrapper span {
-    font-size: 13px;
-    line-height: 15px;
+    font-size: 1.3rem;
+    line-height: 1.5rem;
     display: flex;
     right: 0;
     color: rgba(183, 183, 183, .8);
@@ -747,14 +735,14 @@ button.add-butn.transparent:hover {
 }
 
 .admin-name .status__wrapper input {
-    bottom: -10px;
+    bottom: -1rem;
 }
 
 .status__wrapper input {
     background: transparent;
     border: 2px solid rgba(255,255,255, .2);
-    max-width: 130px;
-    border-radius: 20px;
+    max-width: 13rem;
+    border-radius: 2rem;
     color: #fff;
 }
 
@@ -762,8 +750,8 @@ button.add-butn.transparent:hover {
     color: rgb(247, 249, 249);
     background: transparent;
     border: 2px solid #303030;
-    padding: 2px 15px;
-    border-radius: 10px;
+    padding: .2rem 1.5rem;
+    border-radius: 1rem;
     left: -3px;
 }
 
@@ -777,21 +765,21 @@ button.add-butn.transparent:hover {
 
 .admin-name h5 {
     display: inline-block;
-    font-size: 24px;
+    font-size: 2.4rem;
     font-weight: 700;
     margin-bottom: 0;
-    padding-bottom: 15px;
-    padding-top: 10px;
+    padding-bottom: 1.5rem;
+    padding-top: 1rem;
     display: block;
 }
 
 .edit-profile-buttons {
-    margin-top: 20px;
+    margin-top: 2rem;
 }
 
 .edit-profile-form .admin-name h5 {
-    padding-bottom: 30px;
-    margin-bottom: 20px;
+    padding-bottom: 3rem;
+    margin-bottom: 2rem;
 }
 
 .timeline-info .timeline-info__container .timeline-info__row a::after {
@@ -821,7 +809,7 @@ button.add-butn.transparent:hover {
     bottom: 100px;
     color: #fff;
     left: 275px;
-    padding: 5px 20px;
+    padding: .5rem 2rem;
     position: absolute;
     z-index: 9;
     border-radius: 3px;
@@ -836,7 +824,7 @@ button.add-butn.transparent:hover {
 
 .fileContainer {
     color: #d8d8d8;
-    font-size: 11px;
+    font-size: 1.1rem;
     margin: 0 0 0 5px;
     position: relative;
     text-transform: capitalize;
@@ -877,7 +865,7 @@ button.add-butn.transparent:hover {
     visibility: hidden;
     width: 100%;
     transition: all 0.3s linear 0s;
-    padding: 5px;
+    padding: .5rem;
     text-align: center;
     background: rgba(0, 0, 0, .7);
     border: none;
@@ -896,10 +884,10 @@ button.add-butn.transparent:hover {
 /*--- sidebar widgets ---*/
 
 .widget__wrapper {
-    padding: 0 0 0 15px;
-    border-radius: 30px;
+    padding: 0 0 0 1.5rem;
+    border-radius: 3rem;
     background: #242424;
-    margin: 20px;
+    margin: 2rem;
     position: relative;
     display: flex;
     justify-content: space-between;
@@ -908,7 +896,7 @@ button.add-butn.transparent:hover {
 }
 
 .widget__wrapper .dialog-header.see-all {
-    padding: 20px 20px;
+    padding: 2rem 2rem;
 }
 
 .sidebar {
@@ -939,10 +927,10 @@ button.add-butn.transparent:hover {
     background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
     color: #424242;
     display: inline-block;
-    font-size: 15px;
+    font-size: 1.5rem;
     font-weight: bold;
-    margin-bottom: 30px;
-    padding: 20px 20px 10px;
+    margin-bottom: 3rem;
+    padding: 2rem 2rem 1rem;
     position: relative;
     text-transform: uppercase;
     width: 100%;
@@ -952,7 +940,7 @@ button.add-butn.transparent:hover {
     bottom: 0;
     content: "";
     height: 2px;
-    left: 20px;
+    left: 2rem;
     position: absolute;
     width: 20%;
 }
@@ -961,7 +949,7 @@ button.add-butn.transparent:hover {
     display: flex;
     align-items: center;
     position: relative;
-    padding: 15px 25px 15px 20px;
+    padding: 1.5rem 2.5rem 1.5rem 2rem;
     transition: all .3s ease-in-out;
     border-radius: 50px;
     width: max-content;
@@ -984,7 +972,7 @@ button.add-butn.transparent:hover {
 .sidebar .widget .naves a svg,.sidebar .widget .naves a img {
     color: rgb(247, 249, 249);
     display: inline-block;
-    font-size: 16px;
+    font-size: 1.6rem;
     margin-bottom: 2px;
     margin-right: 7px;
     font-weight: 700;
@@ -995,7 +983,7 @@ button.add-butn.transparent:hover {
 }
 
 .sidebar .widget .naves a span {
-    font-size: 21px;
+    font-size: 2.1rem;
     text-transform: capitalize;
     display: inline-block;
     position: relative;
@@ -1008,7 +996,7 @@ button.add-butn.transparent:hover {
     transform: translate(-50%, -50%);
     left: 50%;
     color: #fff;
-    font-size: 25px;
+    font-size: 2.5rem;
 }
 
 .sidebar .widget naves {
@@ -1018,9 +1006,9 @@ button.add-butn.transparent:hover {
 
 .sidebar .widget naves a svg {
     display: inline-block;
-    font-size: 20px;
+    font-size: 2.0rem;
     vertical-align: baseline;
-    margin-right: 10px;
+    margin-right: 1rem;
 }
 
 .central-meta {
@@ -1041,7 +1029,7 @@ button.add-butn.transparent:hover {
 .new-postbox {
     display: inline-block;
     width: 100%;
-    padding: 0 0 20px 0;
+    padding: 0 0 2rem 0;
 }
 
 .new-postbox > figure {
@@ -1077,7 +1065,7 @@ button.add-butn.transparent:hover {
     display: flex;
     justify-content: space-between;
     width: 100%;
-    padding: 20px 0 0 10px;
+    padding: 2rem 0 0 1rem;
 }
 
 .attachments .add-butn {
@@ -1085,13 +1073,13 @@ button.add-butn.transparent:hover {
 }
 
 .attachments .icons svg {
-    margin-right: 10px;
+    margin-right: 1rem;
 }
 
 textarea {
     border: 1px solid #eeeeee;
     border-radius: 6px 6px 0 0;
-    padding: 10px 0;
+    padding: 1rem 0;
     width: 100%;
     border-bottom: 0;
 }
@@ -1099,15 +1087,15 @@ textarea {
 form button {
     border: medium none;
     color: #fff;
-    font-size: 13px;
+    font-size: 1.3rem;
     font-weight: 600;
-    padding: 3px 10px;
+    padding: .3rem 1rem;
 }
 
 .attachments .fileContainer [type="file"] {
     right: 6px;
     top: -18px;
-    width: 20px;
+    width: 2rem;
 }
 
 .friend-info {
@@ -1125,7 +1113,7 @@ form button {
 
 .friend-name {
     display: inline-block;
-    padding-left: 10px;
+    padding-left: 1rem;
     vertical-align: middle;
     width: 90%;
 }
@@ -1134,21 +1122,21 @@ form button {
     float: left;
     font-weight: 700;
     width: 100%;
-    font-size: 18px;
+    font-size: 1.8rem;
     text-decoration: none;
 }
 
 .friend-name > span {
     color: #999;
     float: left;
-    font-size: 12px;
+    font-size: 1.2rem;
     text-transform: capitalize;
     width: 100%;
 }
 
 .post-meta {
     float: left;
-    margin-top: 15px;
+    margin-top: 1.5rem;
     width: 100%;
 }
 
@@ -1164,12 +1152,12 @@ form button {
 }
 
 .description > p {
-    margin-bottom: 20px;
+    margin-bottom: 2rem;
 }
 
 .description > span {
     color: #2a2a2a;
-    font-size: 18px;
+    font-size: 1.8rem;
     font-weight: 600;
     line-height: 28px;
     display: inline-block;
@@ -1184,7 +1172,7 @@ form button {
 
 .we-video-info {
     float: left;
-    padding: 15px 0 10px;
+    padding: 1.5rem 0 1rem;
     width: 100%;
     position: relative;
     z-index: 0;
@@ -1199,41 +1187,41 @@ form button {
 }
 
 .profile-buttons {
-    padding-top: 20px;
+    padding-top: 2rem;
 }
 
 .profile-buttons .whiteBg {
-    margin-left: 10px;
+    margin-left: 1rem;
 }
 
 .additional-profile-info {
     position: absolute;
-    right: 20px;
-    top: 135px;
+    right: 2rem;
+    top: 15%;
     display: flex;
 }
 
 .additional-profile-info .whiteBg {
-    margin-left: 10px;
+    margin-left: 1rem;
 }
 
 .social-media {
     display: flex;
     background: rgba(0,0,0,0.6);
-    padding: 10px 20px 10px 20px;
+    padding: 1rem 2rem 1rem 2rem;
     align-items: center;
-    border-radius: 20px;
+    border-radius: 2rem;
     line-height: initial;
-    margin-right: 10px;
+    margin-right: 1rem;
     position: relative;
 }
 
 .social-media .form-group {
-    margin: 15px 0;
+    margin: 1.5rem 0;
 }
 
 .social-media__element {
-    margin-right: 10px;
+    margin-right: 1rem;
     cursor: pointer;
     z-index: 99;
     transition: all .2s ease-in-out;
@@ -1249,12 +1237,12 @@ form button {
 
 .we-video-info > ul li {
     display: inline-block;
-    font-size: 13px;
+    font-size: 1.3rem;
     margin-right: 40px;
 }
 
 .we-video-info > ul li span {
-    font-size: 16px;
+    font-size: 1.6rem;
     font-weight: 400;
     margin-right: 3px;
     position: relative;
@@ -1267,11 +1255,11 @@ form button {
 }
 
 .we-video-info > ul li span ins {
-    font-size: 11px;
-    left: 20px;
+    font-size: 1.1rem;
+    left: 2rem;
     position: absolute;
     text-decoration: none;
-    top: -10px;
+    top: -1rem;
 }
 
 .we-video-info > ul li span.like {
@@ -1287,7 +1275,7 @@ form button {
 /*--- search friend widget ---*/
 
 #people-list {
-    margin-top: 20px;
+    margin-top: 2rem;
     max-height: 450px;
     position: relative;
 }
@@ -1306,7 +1294,7 @@ span.status {
     bottom: 0;
     display: inline-block;
     height: 12px;
-    padding: 2px;
+    padding: .2rem;
     position: absolute;
     right: 0;
     width: 12px;
@@ -1352,13 +1340,13 @@ li.twitter {
 }
 
 .nearby-contct .whiteBg {
-    margin-right: 20px;
+    margin-right: 2rem;
 }
 
 .nearby-contct > .opacity-animation {
     display: flex;
     justify-content: space-between;
-    padding-right: 20px;
+    padding-right: 2rem;
     position: relative;
     width: 100%;
     transition: all 0.15s linear 0s;
@@ -1386,7 +1374,7 @@ li.twitter {
     display: flex;
     align-items: center;
     width: 100%;
-    padding: 20px;
+    padding: 2rem;
 }
 
 .nearly-pepls > figure {
@@ -1405,21 +1393,21 @@ li.twitter {
 }
 
 .messages .add-butn {
-    padding: 7px 25px;
-    font-size: 13px;
+    padding: .7rem 2.5rem;
+    font-size: 1.3rem;
 }
 
 .messages .pepl-info > h4 {
-    font-size: 15px;
+    font-size: 1.5rem;
 }
 
 .messages .pepl-info > span {
-    font-size: 12px;
+    font-size: 1.2rem;
 }
 
 .pepl-info {
     display: inline-block;
-    padding-left: 15px;
+    padding-left: 1.5rem;
     position: relative;
     vertical-align: middle;
     width: 88%;
@@ -1427,7 +1415,7 @@ li.twitter {
 
 .pepl-info > h4 {
     display: inline-block;
-    font-size: 16px;
+    font-size: 1.6rem;
     font-weight: 600;
     text-transform: capitalize;
     margin-bottom: 0;
@@ -1435,22 +1423,22 @@ li.twitter {
 
 .add-butn {
     color: #fff;
-    font-size: 13px;
+    font-size: 1.3rem;
     line-height: initial;
-    padding: 10px 30px;
+    padding: 1rem 3rem;
     max-height: 35px;
     margin: auto;
     bottom: 0;
     border: none;
     font-weight: 500;
-    border-radius: 20px;
+    border-radius: 2rem;
     box-shadow: none;
     background: #5790DF;
     transition: all .3s ease-in-out;
 }
 
 .add-butn:hover {
-    box-shadow: 0px 0px 20px rgba(87, 144, 223, 0.5);
+    box-shadow: 0px 0px 2rem rgba(87, 144, 223, 0.5);
     transition: all .3s ease-in-out;
     color: #e0e0e0;
 }
@@ -1472,14 +1460,14 @@ li.twitter {
 
 .pepl-info > span {
     float: left;
-    font-size: 13px;
+    font-size: 1.3rem;
     text-transform: capitalize;
     width: 100%;
     line-height: initial;
 }
 
 .lookingForAJob {
-    padding: 20px 0 10px 0;
+    padding: 2rem 0 1rem 0;
     line-height: 14px;
 }
 
@@ -1507,7 +1495,7 @@ form .lookingForAJob {
 }
 
 .messages-page-dialogs {
-    width: auto;
+    width: 100%;
     max-width: 100%;
     max-height: 87.5vh;
 }
@@ -1522,7 +1510,7 @@ form .lookingForAJob {
     cursor: pointer;
     display: flex;
     align-items: center;
-    padding: 15px;
+    padding: 1.5rem;
     width: 100%;
     position: relative;
     transition: all 0.2s linear 0s;
@@ -1530,9 +1518,9 @@ form .lookingForAJob {
 
 .last-activity {
     position: absolute;
-    font-size: 13px;
-    right: 15px;
-    top: 20px;
+    font-size: 1.3rem;
+    right: 1.5rem;
+    top: 2rem;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1561,7 +1549,7 @@ form .lookingForAJob {
     max-height: 82vh;
     /*overflow-y: auto;*/
     /*overflow-x: hidden;*/
-    padding-right: 15px;
+    padding-right: 1.5rem;
 }
 
 .sidebar .peoples .dialogs-list__item:last-child {
@@ -1570,17 +1558,17 @@ form .lookingForAJob {
 
 .people-name {
     display: inline-flex;
-    margin-left: 15px;
+    margin-left: 1.5rem;
     flex-direction: column;
     width: 66%;
 }
 
 .dialog-header {
     display: inline-block;
-    font-size: 15px;
+    font-size: 1.5rem;
     text-transform: capitalize;
     font-weight: 700;
-    line-height: 15px;
+    line-height: 1.5rem;
     max-width: 85%;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -1600,7 +1588,7 @@ form .lookingForAJob {
 
 .people-name > .dialog-message-text {
     display: inline-block;
-    font-size: 14px;
+    font-size: 1.4rem;
     text-transform: capitalize;
     font-weight: 400;
     line-height: 14px;
@@ -1617,11 +1605,11 @@ form .lookingForAJob {
     border-radius: 3px;
     color: #fff;
     display: inline-block;
-    font-size: 11px;
+    font-size: 1.1rem;
     line-height: initial;
-    padding: 0 5px;
+    padding: 0 .5rem;
     position: relative;
-    right: -20px;
+    right: -2rem;
 }
 
 .peoples .dialogs-list__item span.status {
@@ -1651,7 +1639,7 @@ form .lookingForAJob {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    padding: 10px 5px;
+    padding: 1rem .5rem;
 }
 
 .chatArea {
@@ -1663,7 +1651,7 @@ form .lookingForAJob {
     display: inline-flex;
     align-items: flex-end;
     width: 100%;
-    margin-bottom: 10px;
+    margin-bottom: 1rem;
     animation: message;
     animation-duration: .3s;
 }
@@ -1682,21 +1670,21 @@ form .lookingForAJob {
 
 .message-added-time {
     position: absolute;
-    right: 10px;
+    right: 1rem;
     bottom: 12px;
-    font-size: 9px;
+    font-size: 9.prem;
     color: rgb(225 225 225);
 }
 
 .peoples-mesg-box ul li.you p .message-added-time {
     right: initial;
-    left: 10px;
+    left: 1rem;
     bottom: 14px;
 }
 
 .peoples-mesg-box ul li figure {
     display: inline-block;
-    margin: 0px 10px;
+    margin: 0px 1rem;
     max-width: 32px;
     min-width: 32px;
     width: 32px;
@@ -1705,7 +1693,7 @@ form .lookingForAJob {
 
 .peoples-mesg-box ul li p {
     display: inline-block;
-    font-size: 15px;
+    font-size: 1.5rem;
     line-height: initial;
     margin-bottom: 0;
     vertical-align: top;
@@ -1725,8 +1713,8 @@ form .lookingForAJob {
 
 .peoples-mesg-box ul li.you p {
     background: #E6EEFA;
-    border-radius: 30px 30px 30px 0px;
-    padding: 12px 18px 12px 40px;
+    border-radius: 3rem 3rem 3rem 0px;
+    padding: 1.2rem 1.8rem 1.2rem 4rem;
     color: #181818;
 }
 
@@ -1743,14 +1731,14 @@ form .lookingForAJob {
     text-align: left;
     background: #5790DF;
     color: #fff;
-    border-radius: 30px 30px 0px 30px;
-    padding: 12px 40px 12px 18px;
+    border-radius: 3rem 3rem 0px 3rem;
+    padding: 1.2rem 4rem 1.2rem 1.8rem;
     position: relative;
 }
 
 .conversation-head {
     display: inline-block;
-    padding: 10px 20px;
+    padding: 1rem 2rem;
     width: 100%;
     background: #181818;
 }
@@ -1767,17 +1755,17 @@ form .lookingForAJob {
     display: inline-block;
     font-weight: bold;
     line-height: initial;
-    margin-left: 10px;
+    margin-left: 1rem;
     text-transform: capitalize;
     vertical-align: middle;
     width: 83%;
-    font-size: 18px;
+    font-size: 1.8rem;
 }
 
 .conversation-head > span svg {
     color: #838383;
     display: inline-block;
-    font-size: 12px;
+    font-size: 1.2rem;
     font-weight: normal;
     line-height: initial;
     width: 100%;
@@ -1786,7 +1774,7 @@ form .lookingForAJob {
 .message-text-container textarea {
     box-sizing: content-box;
     color: #000;
-    height: 20px;
+    height: 2rem;
     overflow-x: hidden;
     overflow-y: auto;
     resize: none;
@@ -1794,10 +1782,10 @@ form .lookingForAJob {
     flex-grow: 6;
     margin-right: 0.5vw;
     border-radius: 50px;
-    padding: 12px 15px 8px 15px;
+    padding: 1.2rem 1.5rem .8rem 1.5rem;
     background: #fff;
     border: none;
-    line-height: 15px;
+    line-height: 1.5rem;
 }
 
 .message-text-container textarea #placeholder {
@@ -1810,17 +1798,17 @@ form .lookingForAJob {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 10px 20px;
+    padding: 1rem 2rem;
 }
 
 .message-text-container form button {
     border-radius: 100%;
-    height: 30px;
+    height: 3rem;
     padding: 0;
     text-align: center;
     background: transparent;
     color: rgb(247, 249, 249);
-    font-size: 20px;
+    font-size: 2.0rem;
 }
 
 .message-text-container form button img {
@@ -1830,14 +1818,14 @@ form .lookingForAJob {
 
 .messages-additional-icons {
     background: #fff;
-    border-radius: 20px;
+    border-radius: 2rem;
     height: 40px;
     display: flex;
     align-items: center;
     justify-content: center;
     margin-right: 5px;
-    font-size: 17px;
-    padding: 0 10px;
+    font-size: 1.7rem;
+    padding: 0 1rem;
 }
 
 .messages-additional-icons svg {
@@ -1862,7 +1850,7 @@ form .lookingForAJob {
 }
 
 .text-box > textarea {
-    font-size: 14px;
+    font-size: 1.4rem;
     height: 50px;
     line-height: 27px;
     border-radius: 0;
@@ -1879,13 +1867,12 @@ form .lookingForAJob {
 
 .search-users {
     background: rgba(255, 255, 255, 0.1);
-    border-radius: 20px;
-    font-size: 15px;
-    padding: 11px 30px 9px 30px;
-    margin: 20px 10px;
+    border-radius: 2rem;
+    font-size: 1.5rem;
+    padding: 1.1rem 3rem .9rem 3rem;
+    margin: 2rem 1rem;
     display: flex;
     align-items: center;
-    max-height: 4vh;
     color: rgb(247, 249, 249);
 }
 
@@ -1897,18 +1884,18 @@ form .lookingForAJob {
     background: none;
     border: none;
     color: rgb(247, 249, 249);
-    font-size: 18px;
+    font-size: 1.8rem;
 }
 
 .search-users svg {
-    margin-right: 15px;
-    padding-bottom: 5px;
+    margin-right: 1.5rem;
+    padding-bottom: .5rem;
 }
 
 .message-list {
     list-style: outside none none;
     margin: 0;
-    padding: 0 30px;
+    padding: 0 3rem;
     width: 100%;
     max-height: 690px;
     position: relative;
@@ -1918,8 +1905,8 @@ form .lookingForAJob {
 .message-list > li {
     border-bottom: 1px solid #e8ecec;
     float: left;
-    padding-bottom: 22px;
-    padding-top: 22px;
+    padding-bottom: 2.2rem;
+    padding-top: 2.2rem;
     width: 100%;
 }
 
@@ -1940,7 +1927,7 @@ form .lookingForAJob {
 .message-list > li > a {
     color: #afafaf;
     display: inline-block;
-    font-size: 13px;
+    font-size: 1.3rem;
     margin-left: 40px;
 }
 
@@ -1948,12 +1935,9 @@ form .lookingForAJob {
     color: #676767;
 }
 
-.form-group input.form-file,.form-group input:focus,.form-group input:valid,.form-group select,.form-group textarea.form-file,.form-group textarea:focus,.form-group textarea:valid {
-    color: #2a2a2a;
-}
 
 .row.widget-page {
-    padding: 0 80px;
+    padding: 0 8rem;
 }
 
 .row.widget-page aside.sidebar {
@@ -1994,9 +1978,9 @@ form .lookingForAJob {
 
 .logout-meta > h2 {
     display: inline-block;
-    font-size: 36px;
+    font-size: 3.6rem;
     font-weight: 300;
-    margin-bottom: 20px;
+    margin-bottom: 2rem;
     text-transform: uppercase;
     width: 100%;
 }
@@ -2022,6 +2006,18 @@ form .lookingForAJob {
 
 /*--- full sidebar --*/
 
+.globalPreloader{
+    flex-direction:column;
+    height:100vh;
+    position:fixed;
+    width:100vw
+}
+.globalPreloader,.preloader{
+    align-items:center;
+    display:flex;
+    justify-content:center
+}
+
 .preloader {
     width: 100%;
     height: 100%;
@@ -2041,7 +2037,7 @@ form .lookingForAJob {
 .preloader.small {
     width: 100%;
     height: 100px;
-    padding: 20px 0;
+    padding: 2rem 0;
 }
 
 .loader {
@@ -2103,22 +2099,22 @@ form .lookingForAJob {
 .user-nav .add-butn {
     display: block;
     text-align: center;
-    margin: 0 20px 20px 20px;
+    margin: 0 2rem 2rem 2rem;
 }
 
 .user-nav__info {
     display: flex;
     align-items: center;
     justify-content: space-around;
-    font-size: 15px;
+    font-size: 1.5rem;
     font-weight: 700;
     cursor: pointer;
     max-height: 70px;
-    padding: 10px 0px;
-    border-radius: 30px;
+    padding: 1rem 0;
+    border-radius: 3rem;
     transition: all .3s ease-in-out;
-    margin-bottom: 10px;
-    padding-right: 10px;
+    margin-bottom: 1rem;
+    padding-right: 1rem;
 }
 
 .user-nav__info:hover {
@@ -2127,17 +2123,20 @@ form .lookingForAJob {
 
 .user-img img {
     height: 50px;
+    min-height: 50px;
+    width: 50px;
+    min-width: 50px;
     border-radius: 50px;
 }
 
 .user-name .status {
     color: rgb(183 183 183);
-    font-size: 14px;
+    font-size: 1.4rem;
     font-weight: 400;
 }
 
 .user-name .name {
-    max-width: 115px;
+    max-width: 11.5rem;
     white-space: nowrap;
     text-overflow: ellipsis;
 }
@@ -2152,14 +2151,14 @@ form .lookingForAJob {
 }
 
 .user-nav__info .user-img {
-    margin-right: 15px;
+    margin-right: 1.5rem;
 }
 
 .open-subnav {
     display: flex;
     align-items: center;
-    font-size: 21px;
-    margin-bottom: 10px;
+    font-size: 2.1rem;
+    margin-bottom: 1rem;
 }
 
 .user-nav__subnav {
@@ -2170,9 +2169,9 @@ form .lookingForAJob {
     width: 100%;
     justify-content: space-around;
     display: flex;
-    box-shadow: rgba(136, 153, 166, 0.2) 0px 0px 15px, rgba(136, 153, 166, 0.15) 0px 0px 3px 1px;
+    box-shadow: rgba(136, 153, 166, 0.2) 0px 0px 1.5rem, rgba(136, 153, 166, 0.15) 0px 0px 3px 1px;
     align-items: center;
-    border-radius: 30px;
+    border-radius: 3rem;
     flex-direction: column;
     opacity: 0;
     overflow: hidden;
@@ -2182,21 +2181,31 @@ form .lookingForAJob {
     bottom: 100%;
     opacity: 1;
     background: #181818;
+    z-index: 99;
+}
+
+.user-nav__subnav-element span {
+    max-width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    display: block;
+    position: relative;
+    text-overflow: ellipsis;
 }
 
 .user-nav__subnav-element {
     display: flex;
     justify-content: space-between;
-    font-size: 13px;
+    font-size: 1.3rem;
     font-weight: 700;
     cursor: pointer;
     width: 100%;
     transition: all .3s ease-in-out;
-    padding: 15px 25px;
+    padding: 1.5rem 2.5rem;
 }
 
 .user-nav__subnav-element:first-child {
-    padding-top: 20px;
+    padding-top: 2rem;
     opacity: 0.3;
 }
 
@@ -2205,7 +2214,7 @@ form .lookingForAJob {
 }
 
 .user-nav__subnav-element:last-child {
-    padding-bottom: 25px;
+    padding-bottom: 2.5rem;
 }
 
 .user-nav__subnav-element:hover {
@@ -2225,7 +2234,7 @@ form .lookingForAJob {
 }
 
 .loadMore {
-    padding: 20px 20px;
+    padding: 2rem 2rem;
     max-height: 63.5vh;
     overflow-y: scroll;
 }
@@ -2254,7 +2263,7 @@ form .lookingForAJob {
 
 .edit-social-media {
     cursor: pointer;
-    padding-left: 10px;
+    padding-left: 1rem;
     border-left: 2px solid rgba(255, 255, 255, .5);
 }
 
@@ -2264,13 +2273,13 @@ form .lookingForAJob {
 }
 
 .sidebarHeader {
-    font-size: 20px;
+    font-size: 2.0rem;
     font-weight: 700;
-    padding: 30px 15px;
+    padding: 3rem 1.5rem;
 }
 
 .peoples .sidebarHeader {
-    padding: 20px 20px 0 20px;
+    padding: 2rem 2rem 0 2rem;
     display: flex;
     justify-content: space-between;
     max-height: 4vh;
@@ -2286,7 +2295,7 @@ form .lookingForAJob {
 }
 
 .form-group svg {
-    margin-left: 10px;
+    margin-left: 1rem;
 }
 
 @-webkit-keyframes fx {
@@ -2321,12 +2330,12 @@ span.text a {
 }
 
 .small-subtitle {
-    font-size: 14px;
+    font-size: 1.4rem;
     line-height: 1rem;
     color: rgba(255, 255, 255, 0.7);
     display: flex;
     align-items: center;
-    margin-bottom: 15px;
+    margin-bottom: 1.5rem;
 }
 
 .small-subtitle svg {
@@ -2335,4 +2344,220 @@ span.text a {
 
 .small-subtitle .text {
     margin-right: 7px;
+}
+
+.hidden {
+    position: absolute;
+    top: -100vh;
+    opacity: 0;
+    width: 80%;
+}
+
+.shown {
+    position: static;
+    top: initial;
+    opacity: 1;
+    width: 100%;
+}
+
+.gray-bg {
+    width: 100%;
+}
+
+.profile-header {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    max-height: 100px;
+}
+
+.fetch-error {
+    width: 100%;
+    height: 30vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.fetch-error .text {
+    margin-right: 7px;
+}
+
+.mesages-lists > form {
+    left: 50%;
+    max-width: 92%;
+    position: absolute;
+    top: 40px;
+    transform: translate(-50%);
+    width: 100%;
+}
+
+.loader.large {
+    width: 70px;
+    height: 70px;
+}
+
+.local-error {
+    background: #c00;
+    border-radius: 2rem;
+    padding: 1.5rem 3rem;
+    position: absolute;
+    z-index: 99;
+    margin: 0 2rem;
+    width: 37%;
+    animation-name: error;
+    animation-duration: .4s;
+    animation-timing-function: ease-in-out;
+    animation-delay: 0s;
+    animation-iteration-count: 1;
+    animation-direction: normal;
+    animation-fill-mode: both;
+    animation-play-state: running;
+}
+
+.captcha {
+    margin-top: 2rem;
+}
+
+.notAuthorized {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 2rem;
+}
+.notAuthorized .add-butn {
+    margin: 2rem 0 0 0;
+}
+.sidebar .widget .notAuthorized .add-butn:hover {
+    background: #5790DF;
+}
+
+.mr-20 {
+    margin-right: 2rem;
+}
+.additionalLinks {
+    display: flex;
+    justify-content: space-between;
+    padding: 2rem 0;
+}
+.editing-info {
+    padding: 0 2rem;
+}
+
+.modalWindow__wrapper {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(2px);
+    z-index: 999;
+}
+.modalWindow {
+    width: 50vw;
+    height: 60vh;
+    background: #181818;
+    box-shadow: rgba(136, 153, 166, 0.2) 0px 0px 1.5rem, rgba(136, 153, 166, 0.15) 0px 0px 3px 1px;
+    border-radius: 2rem;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+}
+.modalWindow img {
+    max-width: 80%;
+    margin-bottom: 3rem;
+}
+.modalWindow a {
+    text-decoration: underline;
+}
+.close {
+    position: absolute;
+    right: 3rem;
+    top: 2rem;
+    color: #fff;
+}
+.close path {
+    fill: #fff;
+}
+.apiKey {
+    margin-left: 2rem;
+    display: inline-block;
+    transition: all .2s ease-in-out;
+    cursor: pointer;
+}
+.apiKey:hover {
+    text-decoration: underline;
+    opacity: 0.7;
+}
+.apiKey svg {
+    margin-left: 1rem;
+}
+.dot {
+    width: 1.5rem;
+    height: 1.5rem;
+    border: 2px solid white;
+    border-radius: 50%;
+    float: left;
+    margin: 0 7px;
+    transform: scale(0);
+    -webkit-animation: fx 1000ms ease infinite 0ms;
+    animation: fx 1000ms ease infinite 0ms;
+}
+.dot:nth-child(2) {
+    -webkit-animation: fx 1000ms ease infinite 300ms;
+    animation: fx 1000ms ease infinite 300ms;
+}
+.dot:nth-child(3) {
+    -webkit-animation: fx 1000ms ease infinite 600ms;
+    animation: fx 1000ms ease infinite 600ms;
+}
+
+.appError {
+    padding-top: 10rem;
+}
+
+.errors-component {
+    position: fixed;
+    top: 2rem;
+    left: 0;
+    right: 0;
+    margin: auto;
+    padding: 2rem 2rem 1rem 2rem;
+    width: 80vw;
+    max-width: 80vw;
+    border-radius: 2rem;
+    background: #ff595a;
+    z-index: 100000;
+    text-align: center;
+    justify-content: center;
+}
+.errors-component__single-error {
+    font-size: 1.6rem;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+.errors-component__close-icon {
+    position: absolute;
+    right: 2rem;
+    max-height: 2rem;
+    top: 0;
+    bottom: 0;
+    cursor: pointer;
+    margin: auto;
+}
+
+.scroll-bottom {
+    position: absolute;
+    right: 3rem;
+    bottom: 8vh;
+    cursor: pointer;
+    background: #fff;
+    border-radius: 30%;
 }

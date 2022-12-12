@@ -4,7 +4,7 @@ import UserNavContainer from "./Widgets/UserNav/UserNavContainer";
 
 
 const LeftSidebar: FC = memo(() => {
-    return <aside className="sidebar static">
+    return <aside className="sidebar left static">
         <div className="widget">
             <Menu />
             <UserNavContainer  />

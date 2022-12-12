@@ -4,17 +4,23 @@ import {required} from "../../common/helpers/validators";
 import {isSearchFieldEmpty} from "../../common/FormControl/formHelpers";
 import {FormApi} from "final-form";
 import {SearchDialogsFormValues} from "../../components/MainContent/Messages/Dialogs/DialogsSearchForm";
+import debounce from 'lodash.debounce';
+
+type GetUsersFuncType = (currentPage: number, pageSize: number) => Promise<void>
 
 interface Props {
     handleSubmit: () => void
     form: FormApi<SearchDialogsFormValues>
-    getUsers: (currentPage: number, pageSize: number) => Promise<void>
+    getUsers: GetUsersFuncType
     pageSize: number
 }
 
 const SearchFrom = memo<Props>(({handleSubmit, form, getUsers, pageSize}) => {
+    const getUsersWithDebounce = React.useCallback( 
+        debounce((currentPage: number, pageSize: number) => {getUsers(currentPage, pageSize)}, 300),
+    [])
     const keyUpHandler = (e: KeyboardEvent) => {
-        isSearchFieldEmpty(e, form, getUsers, 1, pageSize)
+        isSearchFieldEmpty(e, form, getUsersWithDebounce, 1, pageSize)
         form.submit()
     }
     return (

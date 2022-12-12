@@ -8,11 +8,11 @@ interface Props {
 
 const MultiplyPreloader: FC<Props> = ({children, itemsNumber, isLoading}) => {
     return (
-        <span className='opacity-animation'>
+        <div>
             {isLoading && Array.from(Array(itemsNumber)).map(
                 () => children
             )}
-        </span>
+        </div>
     );
 };
 

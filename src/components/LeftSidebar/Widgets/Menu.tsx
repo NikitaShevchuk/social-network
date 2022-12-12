@@ -7,11 +7,12 @@ import {getMenuItems} from "./menuItems";
 const Menu = () => {
     const location = useLocation().pathname
     return (
-        <div className="naves">
+        <nav className="naves">
             <div className="main-logo">
                 <img className='main-logo__image' src={logoImage} alt=''/>
                 <div className="main-logo__text">Social-network</div>
             </div>
+                <div className="naves-links">
             {getMenuItems(location).map( menuItem => (
                 <NavLink key={menuItem.name} to={menuItem.link}>
                     {menuItem.name === 'Home' && location !== '/'
@@ -21,7 +22,8 @@ const Menu = () => {
                     <span> {menuItem.name} </span>
                 </NavLink>
             ))}
-        </div>
+            </div>
+        </nav>
     );
 };
 

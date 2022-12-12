@@ -1,6 +1,7 @@
 import React, {FC, useEffect} from "react";
 import 'react-perfect-scrollbar/dist/css/styles.css';
 import '../../common/assets/css/index.css'
+import '../../common/assets/css/responsive.scss'
 import LeftSidebar from "../LeftSidebar";
 import {initializeApp, tryToReconnect} from "../../redux/reducers/app-reducer/middleware";
 import Preloader from "../../preloaders/Preloader";
@@ -28,7 +29,7 @@ const App: FC<AppConnectedProps> = ({initializeApp, initialized, isAuthorized, a
     return (
         <div className="container">
             <ErrorsDisplay />
-            <div className="row">
+            <div className="row main-wrapper">
                 <LeftSidebar/>
                 <AppRoutes isAuthorized={isAuthorized} />
             </div>
