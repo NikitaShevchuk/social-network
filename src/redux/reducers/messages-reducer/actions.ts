@@ -1,7 +1,8 @@
-import {DialogWithMessage, Message} from "../../../types/MessagesTypes";
+import {Message} from "../../../types/MessagesTypes";
 import {InferActionsTypes} from "../../redux-store";
 
 export const messagesActions = {
+    
     setDialogUserId: (userId: number) => ({type: 'messages-reducer/SET_DIALOG_USER_ID', userId} as const),
     setMoreMessages: (messages: Message[]) => ({type: 'messages-reducer/SET_MORE_MESSAGES', messages} as const),
     setMessages: (messages: Message[]) => ({type: 'messages-reducer/SET_MESSAGES', messages} as const),

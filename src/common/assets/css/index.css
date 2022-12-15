@@ -9,7 +9,7 @@ html {
     -ms-text-size-adjust: 100%;
     -ms-overflow-style: scrollbar;
     -webkit-tap-highlight-color: transparent;
-    font-size: 1rem;
+    font-size: 10px;
 }
 
 @-ms-viewport {
@@ -533,6 +533,7 @@ a:hover.youtube {
 
 .main-logo__image {
     max-width: 3rem;
+    display: block;
 }
 
 .main-logo__text {
@@ -945,7 +946,7 @@ button.add-butn.transparent:hover {
     width: 20%;
 }
 
-.sidebar .widget .naves a {
+.sidebar .widget .naves .naves-links__item {
     display: flex;
     align-items: center;
     position: relative;
@@ -955,13 +956,13 @@ button.add-butn.transparent:hover {
     width: max-content;
 }
 
-.sidebar .widget .naves a:hover {
+.sidebar .widget .naves .naves-links__item:hover {
     transition: all .3s ease-in-out;
     background: rgba(255, 255, 255, 0.1);
     color: rgb(247, 249, 249);
 }
 
-.sidebar .widget .naves a:last-child {
+.sidebar .widget .naves .naves-links__item:last-child {
     margin-bottom: 0;
 }
 
@@ -969,7 +970,7 @@ button.add-butn.transparent:hover {
     background: rgba(255, 255, 255, 0.2);
 }
 
-.sidebar .widget .naves a svg,.sidebar .widget .naves a img {
+.sidebar .widget .naves svg,.sidebar .widget .naves .naves-links__item img {
     color: rgb(247, 249, 249);
     display: inline-block;
     font-size: 1.6rem;
@@ -982,7 +983,7 @@ button.add-butn.transparent:hover {
     white-space: nowrap;
 }
 
-.sidebar .widget .naves a span {
+.sidebar .widget .naves .naves-links__item span {
     font-size: 2.1rem;
     text-transform: capitalize;
     display: inline-block;
@@ -990,7 +991,7 @@ button.add-butn.transparent:hover {
     font-weight: 500;
 }
 
-.sidebar .widget .naves a span svg {
+.sidebar .widget .naves .naves-links__item span svg {
     position: absolute;
     top: 50%;
     transform: translate(-50%, -50%);
@@ -1414,11 +1415,15 @@ li.twitter {
 }
 
 .pepl-info > h4 {
-    display: inline-block;
     font-size: 1.6rem;
     font-weight: 600;
     text-transform: capitalize;
     margin-bottom: 0;
+    display: block;
+    position: relative;
+    text-overflow: ellipsis;
+    max-width: 93%;
+    overflow: hidden;
 }
 
 .add-butn {
@@ -1564,15 +1569,16 @@ form .lookingForAJob {
 }
 
 .dialog-header {
-    display: inline-block;
     font-size: 1.5rem;
     text-transform: capitalize;
     font-weight: 700;
     line-height: 1.5rem;
-    max-width: 85%;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    max-width: 60%;
     white-space: nowrap;
+    overflow: hidden;
+    display: block;
+    position: relative;
+    text-overflow: ellipsis;
 }
 
 .link {
@@ -1889,7 +1895,6 @@ form .lookingForAJob {
 
 .search-users svg {
     margin-right: 1.5rem;
-    padding-bottom: .5rem;
 }
 
 .message-list {
@@ -2159,6 +2164,7 @@ form .lookingForAJob {
     align-items: center;
     font-size: 2.1rem;
     margin-bottom: 1rem;
+    margin-left: 1rem;
 }
 
 .user-nav__subnav {

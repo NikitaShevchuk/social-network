@@ -12,9 +12,9 @@ const UserNav = memo<UserNavConnectedProps>(({
     profileImg, userData, isAuthorized, logoutThunk
 }) => {
     const toggleSubnav = useRef<HTMLDivElement | null>(null);
-    const [subnav, changeSubnav] = useState<boolean>(false);
-    useOnClickOutside(toggleSubnav, changeSubnav, subnav)
-    const handleNavClick = () => isAuthorized && changeSubnav(!subnav)
+    const [isSubnavOpened, setIsSubnavOpened] = useState<boolean>(false);
+    useOnClickOutside(toggleSubnav, setIsSubnavOpened, isSubnavOpened)
+    const handleNavClick = () => isAuthorized && setIsSubnavOpened(!isSubnavOpened)
 
     if (!isAuthorized) return (
         <div className="user-nav">
@@ -41,7 +41,7 @@ const UserNav = memo<UserNavConnectedProps>(({
                 </div>
                 <Subnav
                     logout={logoutThunk}
-                    subnav={subnav}
+                    isSubnavOpened={isSubnavOpened}
                     userData={userData}
                 />
         </div>

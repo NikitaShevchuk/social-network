@@ -5,13 +5,13 @@ import {UserData} from "../../../../types/AuthTypes";
 
 interface Props {
     logout: () => void
-    subnav: boolean
+    isSubnavOpened: boolean
     userData: UserData
 }
 
-const Subnav: FC<Props> = memo(({logout, subnav, userData}) => {
+const Subnav: FC<Props> = memo(({logout, isSubnavOpened, userData}) => {
     return (
-        <div className={`user-nav__subnav ${ subnav ? 'active' : '' }`}>
+        <div className={`user-nav__subnav ${ isSubnavOpened ? 'active' : '' }`}>
             <div className="user-nav__subnav-element" onClick={logout} >
                 <FontAwesomeIcon icon={faPlus} />
                 <span className='logout'>Add another account</span>

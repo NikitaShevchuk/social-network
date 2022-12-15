@@ -8,57 +8,76 @@
     .main-wrapper {
         flex-direction: column-reverse;
     }
-    .sidebar.right {
-        max-width: none;
-        display: none;
-    }
     .container {
         max-width: 100%;
     }
     .central-meta {
         max-width: 100%;
-        max-height: 87vh;
+        height: 90vh;
         overflow: hidden;
+        flex: initial;
     }
-    .sidebar.left {
-        max-width: 100%;
-        height: 13vh;
-        padding: 1rem 2rem;
-        box-shadow: rgba(136, 153, 166, 0.2) 0px 0px 1.5rem,
-         rgba(136, 153, 166, 0.15) 0px 0px 3px 1px;
-        & .widget {
-            flex-direction: row;
+    .sidebar {
+        &.right {
+            max-width: none;
+            display: none;
         }
+        &.left {
+            max-width: 100%;
+            height: 10vh;
+            padding: 1rem 2rem;
+            box-shadow: rgba(136, 153, 166, 0.2) 0px 0px 1.5rem,
+             rgba(136, 153, 166, 0.15) 0px 0px 3px 1px;
+            & .widget {
+                flex-direction: row;
+            }
+            flex: initial;
+        }
+    }
+    .nearly-pepls > figure { 
+        max-width: 40px;
+        min-width: 40px;
+        width: 40px;
     }
     .naves {
         display: flex;
         align-items: center;
-        flex-grow: 9;
-        justify-content: space-between;
+        &-links {
+            display: flex;
+        }
     }
     .main-logo {
-        margin: 0 20px 0 0;
+        margin: 0 3rem 0 0;
+        width: 27px;
+        &__text {
+            display: none;
+        }
     }
     .user-nav {
-        flex-grow: 3;
         &__info {
-            padding: 1rem 2rem;
+            padding: 1rem 1.5rem;
         }
     }
     .nearby-contct {
         max-height: 76vh;
     }
-    .sidebar .widget .naves a {
+    .sidebar .widget .naves .naves-links__item {
         margin-right: 1rem;
     
     }
-    .naves-links {
-        display: flex;
+    .user-img img {
+        width: 35px;
+        min-width: 35px;
+        height: 35px;
+        min-height: 35px;
     }
 }
 
 @media (max-width: 767px) {
-    .sidebar .widget .naves a {
+    html {
+        font-size: 8px;
+    }
+    .sidebar .widget .naves .naves-links__item {
         padding: 1.5rem 2rem;
         & span {
             display: none;
@@ -67,5 +86,14 @@
             margin: 0;
             height: 20px;
         }
+    }
+}
+
+@media (max-width: 441px) {
+    .main-logo {
+        display: none;
+    }
+    .nearly-pepls {
+        width: 49%;
     }
 }
