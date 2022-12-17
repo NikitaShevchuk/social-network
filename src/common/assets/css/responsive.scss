@@ -89,11 +89,21 @@
     }
 }
 
-@media (max-width: 441px) {
+@media (max-width: 500px) {
     .main-logo {
         display: none;
     }
     .nearly-pepls {
         width: 49%;
+    }
+    .user-nav .user-name {
+        display: none;
+    }
+    .user-nav__subnav {
+        width: 200%;
+        left: -100%;
+    }
+    .user-nav__subnav.active {
+        bottom: 140%;
     }
 }
