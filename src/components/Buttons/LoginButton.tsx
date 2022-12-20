@@ -3,7 +3,12 @@ import {NavLink} from "react-router-dom";
 
 const LoginButton = () => {
     return (
-        <NavLink to='/login' className="add-butn">login</NavLink>
+        <NavLink
+            to='/login'
+            className="add-butn"
+        >
+            Login / Auth
+        </NavLink>
     );
 };
 

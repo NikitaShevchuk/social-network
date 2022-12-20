@@ -12,10 +12,6 @@ html {
     font-size: 10px;
 }
 
-@-ms-viewport {
-    width: device-width;
-}
-
 aside,dialog,figure,header,main,nav {
     display: block;
 }
@@ -89,10 +85,15 @@ svg:not(:root) {
     overflow: hidden;
 }
 
-label {
+.control-label {
     display: inline-block;
+    line-height: 1.75rem;
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    font-size: 1.4rem;
+    transition: all .3s ease-in-out;
 }
-
 button {
     border-radius: 0;
 }
@@ -171,27 +172,27 @@ textarea {
 }
 
 .h1,h1 {
-    font-size: 2..rem;
+    font-size: 2rem;
 }
 
 .h2,h2 {
-    font-size: 2.rrem;
+    font-size: 2rem;
 }
 
 .h3,h3 {
-    font-size: 1..rem;
+    font-size: 1rem;
 }
 
 .h4,h4 {
-    font-size: 1..rem;
+    font-size: 1rem;
 }
 
 .h5,h5 {
-    font-size: 1..rem;
+    font-size: 1rem;
 }
 
 .h6,h6 {
-    font-size: 1.rrem;
+    font-size: 1rem;
 }
 
 .small,small {
@@ -440,6 +441,7 @@ input.border {
 
 body {
     font-family: 'Inter', sans-serif;
+    font-size: 1.5rem;
     width: 100%;
     margin: 0;
     padding: 0;
@@ -519,12 +521,14 @@ a:hover.youtube {
 }
 
 .form-group {
-    margin-bottom: 3rem;
-    margin-top: 3rem;
+    margin-bottom: 5.5rem;
     display: inline-block;
     width: 100%;
+    position: relative;
 }
-
+form .form-group:first-child {
+    margin-top: 3rem;
+}
 .main-logo {
     margin: 40px 0px 40px 2rem;
     display: flex;
@@ -1678,7 +1682,7 @@ form .lookingForAJob {
     position: absolute;
     right: 1rem;
     bottom: 12px;
-    font-size: 9.prem;
+    font-size: .9rem;
     color: rgb(225 225 225);
 }
 

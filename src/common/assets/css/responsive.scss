@@ -1,3 +1,7 @@
+.sidebar .widget .naves .naves-links__item.inbox {
+    display: none;
+}
+
 @media (max-width: 1199px) {
     html {
         font-size: 9px;
@@ -5,6 +9,9 @@
 }
 
 @media (max-width: 992px) {
+    .sidebar .widget .naves .naves-links__item.inbox {
+        display: block;
+    }
     .main-wrapper {
         flex-direction: column-reverse;
     }

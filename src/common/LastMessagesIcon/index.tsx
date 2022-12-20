@@ -4,7 +4,7 @@ import {faInbox} from '@fortawesome/free-solid-svg-icons/faInbox'
 
 const LastMessagesIcon = () => {
     return (
-        <div className='naves-links__item'> 
+        <div className='naves-links__item inbox'>
             <FontAwesomeIcon icon={faInbox} />  
         </div>
     )

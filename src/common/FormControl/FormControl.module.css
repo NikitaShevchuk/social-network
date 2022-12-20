@@ -1,10 +1,11 @@
 .errorInfo {
     color: #f94444;
     position: absolute;
-    right: 5px;
-    bottom: 5px;
-    font-size: 15px;
-    padding-left: 5px;
+    right: 2rem;
+    top: 0;
+    margin: auto;
+    bottom: 0;
+    max-height: 18px;
 }
 .errorSelect::before {
     background: #f94444!important;
@@ -15,8 +16,9 @@
 }
 .activeLabel {
     color: #088dcd;
-    font-size: .8rem;
-    top: -1rem;
+    font-size: 1.7rem;
+    font-weight: bold;
+    bottom: 45px;
     left: 0;
 }
 .activeInput {
