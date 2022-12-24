@@ -195,6 +195,13 @@ textarea {
     font-size: 1rem;
 }
 
+.flex {
+    display: flex;
+    align-items: center;
+}
+.between {
+    justify-content: space-between;
+}
 .small,small {
     font-size: 0.8rem;
     font-weight: 400;
@@ -521,13 +528,14 @@ a:hover.youtube {
 }
 
 .form-group {
-    margin-bottom: 5.5rem;
+    margin-bottom: 2.5rem;
+    margin-top: 2.5rem;
     display: inline-block;
-    width: 100%;
+    flex: 1;
     position: relative;
 }
-form .form-group:first-child {
-    margin-top: 3rem;
+.flex .form-group:first-child {
+    margin-right: 20px;
 }
 .main-logo {
     margin: 40px 0px 40px 2rem;
@@ -1434,7 +1442,7 @@ li.twitter {
     color: #fff;
     font-size: 1.3rem;
     line-height: initial;
-    padding: 1rem 3rem;
+    padding: 1rem 4rem;
     max-height: 35px;
     margin: auto;
     bottom: 0;
@@ -2287,7 +2295,9 @@ form .lookingForAJob {
     font-weight: 700;
     padding: 3rem 1.5rem;
 }
-
+.sidebarHeader.flex {
+    padding: 3rem 3rem;   
+}
 .peoples .sidebarHeader {
     padding: 2rem 2rem 0 2rem;
     display: flex;
@@ -2356,14 +2366,14 @@ span.text a {
     margin-right: 7px;
 }
 
-.hidden {
+#root .hidden {
     position: absolute;
     top: -100vh;
     opacity: 0;
     width: 80%;
 }
 
-.shown {
+#root .shown {
     position: static;
     top: initial;
     opacity: 1;
@@ -2443,17 +2453,22 @@ span.text a {
 .sidebar .widget .notAuthorized .add-butn:hover {
     background: #5790DF;
 }
-
 .mr-20 {
     margin-right: 2rem;
 }
+.mt-20 {
+    margin-top: 20px;
+}
 .additionalLinks {
     display: flex;
-    justify-content: space-between;
     padding: 2rem 0;
 }
+.registration-link {
+    margin-left: 20px;
+    text-decoration: underline;
+}
 .editing-info {
-    padding: 0 2rem;
+    padding: 0 3rem;
 }
 
 .modalWindow__wrapper {
@@ -2469,16 +2484,19 @@ span.text a {
     z-index: 999;
 }
 .modalWindow {
-    width: 50vw;
-    height: 60vh;
+    width: auto;
+    height: auto;
     background: #181818;
-    box-shadow: rgba(136, 153, 166, 0.2) 0px 0px 1.5rem, rgba(136, 153, 166, 0.15) 0px 0px 3px 1px;
+    box-shadow: 
+     rgba(136, 153, 166, 0.2) 0px 0px 1.5rem,
+     rgba(136, 153, 166, 0.15) 0px 0px 3px 1px;
     border-radius: 2rem;
     display: flex;
     align-items: center;
     flex-direction: column;
     justify-content: center;
     position: relative;
+    padding: 4rem 2rem;
 }
 .modalWindow img {
     max-width: 80%;
@@ -2492,12 +2510,12 @@ span.text a {
     right: 3rem;
     top: 2rem;
     color: #fff;
+    cursor: pointer;
 }
 .close path {
     fill: #fff;
 }
 .apiKey {
-    margin-left: 2rem;
     display: inline-block;
     transition: all .2s ease-in-out;
     cursor: pointer;

@@ -1,42 +1,52 @@
-import React, {FC} from "react";
-import {connect, ConnectedProps} from "react-redux";
+import React, { FC } from "react";
+import { connect, ConnectedProps } from "react-redux";
 import Login from "./Login";
-import {loginThunk} from "../../redux/reducers/auth-reducer/middleware";
-import {setDialogs} from "../../redux/reducers/dialogs-reducer/middleware";
-import {modifyHeaders} from "../../services";
+import { loginThunk } from "../../redux/reducers/auth-reducer/middleware";
+import { setDialogs } from "../../redux/reducers/dialogs-reducer/middleware";
+import { modifyHeaders } from "../../services";
+import { faInfoCircle } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export interface FormValues {
-    email: string
-    password: string
-    cookie: string
-    rememberMe: boolean
+    email: string;
+    password: string;
+    cookie: string;
+    rememberMe: boolean;
 }
 
 const LoginApi: FC<LoginProps> = (props) => {
     const submitForm = (formValues: FormValues) => {
-        props.loginThunk(formValues)
+        props.loginThunk(formValues);
         // temporary solution
-        localStorage.setItem('apiKey', formValues.cookie);
-        modifyHeaders()
-    }
-    return <div className="central-meta">
-        <h4 className="sidebarHeader">Login</h4>
-        <div className="editing-info">
-            <Login
-                loginFailed={props.loginFailed}
-                captcha={props.captcha}
-                submitForm={submitForm}
-            />
+        localStorage.setItem("apiKey", formValues.cookie);
+        modifyHeaders();
+    };
+    return (
+        <div className="central-meta">
+            <h4 className="sidebarHeader flex between">
+                LOGIN
+                <div className="apiKey">
+                    Use test account
+                    <FontAwesomeIcon icon={faInfoCircle} />
+                </div>
+            </h4>
+            <div className="editing-info">
+                <Login
+                    loginFailed={props.loginFailed}
+                    captcha={props.captcha}
+                    submitForm={submitForm}
+                />
+            </div>
         </div>
-    </div>
-}
+    );
+};
 
 const mapStateToProps = (state: any) => ({
     loginFailed: state.auth.loginFailed,
-    captcha: state.auth.captcha
-})
+    captcha: state.auth.captcha,
+});
 
-const connector = connect(mapStateToProps, {loginThunk, setDialogs})
-const LoginContainer = connector(LoginApi)
+const connector = connect(mapStateToProps, { loginThunk, setDialogs });
+const LoginContainer = connector(LoginApi);
 export default LoginContainer;
-export type LoginProps = ConnectedProps<typeof connector>
+export type LoginProps = ConnectedProps<typeof connector>;
