@@ -4,8 +4,6 @@ import Login from "./Login";
 import { loginThunk } from "../../redux/reducers/auth-reducer/middleware";
 import { setDialogs } from "../../redux/reducers/dialogs-reducer/middleware";
 import { modifyHeaders } from "../../services";
-import { faInfoCircle } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export interface FormValues {
     email: string;
@@ -22,22 +20,11 @@ const LoginApi: FC<LoginProps> = (props) => {
         modifyHeaders();
     };
     return (
-        <div className="central-meta">
-            <h4 className="sidebarHeader flex between">
-                LOGIN
-                <div className="apiKey">
-                    Use test account
-                    <FontAwesomeIcon icon={faInfoCircle} />
-                </div>
-            </h4>
-            <div className="editing-info">
-                <Login
-                    loginFailed={props.loginFailed}
-                    captcha={props.captcha}
-                    submitForm={submitForm}
-                />
-            </div>
-        </div>
+        <Login
+            loginFailed={props.loginFailed}
+            captcha={props.captcha}
+            submitForm={submitForm}
+        />
     );
 };
 

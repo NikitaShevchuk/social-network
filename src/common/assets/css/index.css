@@ -1,4 +1,6 @@
-*,::after,::before {
+*,
+::after,
+::before {
     box-sizing: border-box;
 }
 
@@ -12,7 +14,12 @@ html {
     font-size: 10px;
 }
 
-aside,dialog,figure,header,main,nav {
+aside,
+dialog,
+figure,
+header,
+main,
+nav {
     display: block;
 }
 
@@ -20,7 +27,12 @@ aside,dialog,figure,header,main,nav {
     outline: 0 !important;
 }
 
-h1,h2,h3,h4,h5,h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     margin-top: 0;
     margin-bottom: 0.5rem;
 }
@@ -49,7 +61,7 @@ b {
 }
 
 small {
-    font-size: 8.0rem
+    font-size: 8rem;
 }
 
 a {
@@ -63,7 +75,8 @@ a:not([href]):not([tabindex]) {
     text-decoration: none;
 }
 
-a:not([href]):not([tabindex]):focus,a:not([href]):not([tabindex]):hover {
+a:not([href]):not([tabindex]):focus,
+a:not([href]):not([tabindex]):hover {
     color: inherit;
     text-decoration: none;
 }
@@ -92,7 +105,7 @@ svg:not(:root) {
     bottom: 10px;
     left: 10px;
     font-size: 1.4rem;
-    transition: all .3s ease-in-out;
+    transition: all 0.3s ease-in-out;
 }
 button {
     border-radius: 0;
@@ -103,14 +116,17 @@ button:focus {
     outline: 5px auto -webkit-focus-ring-color;
 }
 
-button,input,textarea {
+button,
+input,
+textarea {
     margin: 0;
     font-family: inherit;
     font-size: inherit;
     line-height: inherit;
 }
 
-button,input {
+button,
+input {
     overflow: visible;
 }
 
@@ -118,21 +134,31 @@ button {
     text-transform: none;
 }
 
-[type="reset"],[type="submit"],button,html [type="button"] {
+[type="reset"],
+[type="submit"],
+button,
+html [type="button"] {
     -webkit-appearance: button;
 }
 
-[type="button"]::-moz-focus-inner,[type="reset"]::-moz-focus-inner,[type="submit"]::-moz-focus-inner,button::-moz-focus-inner {
+[type="button"]::-moz-focus-inner,
+[type="reset"]::-moz-focus-inner,
+[type="submit"]::-moz-focus-inner,
+button::-moz-focus-inner {
     padding: 0;
     border-style: none;
 }
 
-input[type="checkbox"],input[type="radio"] {
+input[type="checkbox"],
+input[type="radio"] {
     box-sizing: border-box;
     padding: 0;
 }
 
-input[type="date"],input[type="datetime-local"],input[type="month"],input[type="time"] {
+input[type="date"],
+input[type="datetime-local"],
+input[type="month"],
+input[type="time"] {
     -webkit-appearance: listbox;
 }
 
@@ -141,7 +167,8 @@ textarea {
     resize: vertical;
 }
 
-[type="number"]::-webkit-inner-spin-button,[type="number"]::-webkit-outer-spin-button {
+[type="number"]::-webkit-inner-spin-button,
+[type="number"]::-webkit-outer-spin-button {
     height: auto;
 }
 
@@ -150,7 +177,8 @@ textarea {
     -webkit-appearance: none;
 }
 
-[type="search"]::-webkit-search-cancel-button,[type="search"]::-webkit-search-decoration {
+[type="search"]::-webkit-search-cancel-button,
+[type="search"]::-webkit-search-decoration {
     -webkit-appearance: none;
 }
 
@@ -163,7 +191,18 @@ textarea {
     display: none !important;
 }
 
-.h1,.h2,.h3,.h4,.h5,.h6,h1,h2,h3,h4,h5,h6 {
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     margin-bottom: 0.5rem;
     font-family: inherit;
     font-weight: 500;
@@ -171,27 +210,33 @@ textarea {
     color: inherit;
 }
 
-.h1,h1 {
+.h1,
+h1 {
     font-size: 2rem;
 }
 
-.h2,h2 {
+.h2,
+h2 {
     font-size: 2rem;
 }
 
-.h3,h3 {
+.h3,
+h3 {
     font-size: 1rem;
 }
 
-.h4,h4 {
+.h4,
+h4 {
     font-size: 1rem;
 }
 
-.h5,h5 {
+.h5,
+h5 {
     font-size: 1rem;
 }
 
-.h6,h6 {
+.h6,
+h6 {
     font-size: 1rem;
 }
 
@@ -202,7 +247,15 @@ textarea {
 .between {
     justify-content: space-between;
 }
-.small,small {
+.center {
+    justify-content: center;
+}
+.column {
+    flex-direction: column;
+}
+
+.small,
+small {
     font-size: 0.8rem;
     font-weight: 400;
 }
@@ -323,7 +376,8 @@ textarea {
     padding: 0.5rem 1rem;
 }
 
-.nav-link:focus,.nav-link:hover {
+.nav-link:focus,
+.nav-link:hover {
     text-decoration: none;
 }
 
@@ -392,7 +446,8 @@ textarea {
     color: #007bff !important;
 }
 
-a.text-primary:focus,a.text-primary:hover {
+a.text-primary:focus,
+a.text-primary:hover {
     color: #0062cc !important;
 }
 
@@ -400,7 +455,8 @@ a.text-primary:focus,a.text-primary:hover {
     color: #6c757d !important;
 }
 
-a.text-secondary:focus,a.text-secondary:hover {
+a.text-secondary:focus,
+a.text-secondary:hover {
     color: #545b62 !important;
 }
 
@@ -408,7 +464,8 @@ a.text-secondary:focus,a.text-secondary:hover {
     color: #17a2b8 !important;
 }
 
-a.text-info:focus,a.text-info:hover {
+a.text-info:focus,
+a.text-info:hover {
     color: #117a8b !important;
 }
 
@@ -416,7 +473,8 @@ a.text-info:focus,a.text-info:hover {
     color: #f8f9fa !important;
 }
 
-a.text-light:focus,a.text-light:hover {
+a.text-light:focus,
+a.text-light:hover {
     color: #dae0e5 !important;
 }
 
@@ -447,7 +505,7 @@ input.border {
 }
 
 body {
-    font-family: 'Inter', sans-serif;
+    font-family: "Inter", sans-serif;
     font-size: 1.5rem;
     width: 100%;
     margin: 0;
@@ -472,7 +530,10 @@ a {
     color: rgb(247, 249, 249);
 }
 
-a,a:hover,a:focus,a:active {
+a,
+a:hover,
+a:focus,
+a:active {
     color: inherit;
     outline: none;
     -webkit-text-decoration: none;
@@ -482,7 +543,10 @@ a,a:hover,a:focus,a:active {
     text-decoration: none;
 }
 
-input:focus,textarea:focus,select:focus,button:focus {
+input:focus,
+textarea:focus,
+select:focus,
+button:focus {
     outline: none;
 }
 
@@ -495,7 +559,9 @@ img {
     text-align: center;
 }
 
-[type="submit"],button,html [type="button"] {
+[type="submit"],
+button,
+html [type="button"] {
     cursor: pointer;
 }
 
@@ -611,7 +677,12 @@ a:hover.youtube {
 .bg {
     display: flex;
     padding: 25.5% 0 0 0;
-    background: linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(253,29,29,1) 50%, rgba(252,176,69,1) 100%);
+    background: linear-gradient(
+        90deg,
+        rgba(131, 58, 180, 1) 0%,
+        rgba(253, 29, 29, 1) 50%,
+        rgba(252, 176, 69, 1) 100%
+    );
 }
 
 .timeline-info .timeline-info__container {
@@ -637,7 +708,7 @@ a:hover.youtube {
 }
 
 .timeline-info__container form .profile-status {
-    top: 45%!important;
+    top: 45% !important;
 }
 
 .timeline-info .timeline-info__container .timeline-info__row {
@@ -671,7 +742,7 @@ form .timeline-info__row:last-child {
     background: inherit;
     border: none;
     color: #fff;
-    border-bottom: .0625rem solid #e1e8ed;
+    border-bottom: 0.0625rem solid #e1e8ed;
     height: auto;
 }
 
@@ -679,12 +750,12 @@ button.add-butn.white {
     height: 35px;
     background: transparent;
     border: 1px solid #fff;
-    transition: all .3s ease-in-out;
+    transition: all 0.3s ease-in-out;
     margin-left: 1rem;
 }
 
 button.add-butn.white:hover {
-    background: rgba(255,255,255, 0.2);
+    background: rgba(255, 255, 255, 0.2);
 }
 
 button.add-butn.transparent {
@@ -706,7 +777,7 @@ button.add-butn.transparent:hover {
     position: relative;
     line-height: initial;
     text-transform: capitalize;
-    padding-bottom: .3rem;
+    padding-bottom: 0.3rem;
     font-weight: 400;
 }
 
@@ -737,7 +808,7 @@ button.add-butn.transparent:hover {
     line-height: 1.5rem;
     display: flex;
     right: 0;
-    color: rgba(183, 183, 183, .8);
+    color: rgba(183, 183, 183, 0.8);
     cursor: pointer;
     position: absolute;
     align-items: center;
@@ -753,17 +824,19 @@ button.add-butn.transparent:hover {
 
 .status__wrapper input {
     background: transparent;
-    border: 2px solid rgba(255,255,255, .2);
+    border: 2px solid rgba(255, 255, 255, 0.2);
     max-width: 13rem;
     border-radius: 2rem;
     color: #fff;
 }
 
-.profile-status input,.admin-name .status__wrapper input,.status__wrapper .status input {
+.profile-status input,
+.admin-name .status__wrapper input,
+.status__wrapper .status input {
     color: rgb(247, 249, 249);
     background: transparent;
     border: 2px solid #303030;
-    padding: .2rem 1.5rem;
+    padding: 0.2rem 1.5rem;
     border-radius: 1rem;
     left: -3px;
 }
@@ -822,7 +895,7 @@ button.add-butn.transparent:hover {
     bottom: 100px;
     color: #fff;
     left: 275px;
-    padding: .5rem 2rem;
+    padding: 0.5rem 2rem;
     position: absolute;
     z-index: 9;
     border-radius: 3px;
@@ -849,7 +922,7 @@ button.add-butn.transparent:hover {
     justify-content: center;
 }
 
-.fileContainer [type=file] {
+.fileContainer [type="file"] {
     cursor: pointer;
     display: block;
     filter: alpha(opacity=0);
@@ -878,9 +951,9 @@ button.add-butn.transparent:hover {
     visibility: hidden;
     width: 100%;
     transition: all 0.3s linear 0s;
-    padding: .5rem;
+    padding: 0.5rem;
     text-align: center;
-    background: rgba(0, 0, 0, .7);
+    background: rgba(0, 0, 0, 0.7);
     border: none;
     color: inherit;
     height: 100%;
@@ -963,13 +1036,13 @@ button.add-butn.transparent:hover {
     align-items: center;
     position: relative;
     padding: 1.5rem 2.5rem 1.5rem 2rem;
-    transition: all .3s ease-in-out;
+    transition: all 0.3s ease-in-out;
     border-radius: 50px;
     width: max-content;
 }
 
 .sidebar .widget .naves .naves-links__item:hover {
-    transition: all .3s ease-in-out;
+    transition: all 0.3s ease-in-out;
     background: rgba(255, 255, 255, 0.1);
     color: rgb(247, 249, 249);
 }
@@ -982,7 +1055,8 @@ button.add-butn.transparent:hover {
     background: rgba(255, 255, 255, 0.2);
 }
 
-.sidebar .widget .naves svg,.sidebar .widget .naves .naves-links__item img {
+.sidebar .widget .naves svg,
+.sidebar .widget .naves .naves-links__item img {
     color: rgb(247, 249, 249);
     display: inline-block;
     font-size: 1.6rem;
@@ -1019,7 +1093,7 @@ button.add-butn.transparent:hover {
 
 .sidebar .widget naves a svg {
     display: inline-block;
-    font-size: 2.0rem;
+    font-size: 2rem;
     vertical-align: baseline;
     margin-right: 1rem;
 }
@@ -1102,7 +1176,7 @@ form button {
     color: #fff;
     font-size: 1.3rem;
     font-weight: 600;
-    padding: .3rem 1rem;
+    padding: 0.3rem 1rem;
 }
 
 .attachments .fileContainer [type="file"] {
@@ -1220,7 +1294,7 @@ form button {
 
 .social-media {
     display: flex;
-    background: rgba(0,0,0,0.6);
+    background: rgba(0, 0, 0, 0.6);
     padding: 1rem 2rem 1rem 2rem;
     align-items: center;
     border-radius: 2rem;
@@ -1237,7 +1311,7 @@ form button {
     margin-right: 1rem;
     cursor: pointer;
     z-index: 99;
-    transition: all .2s ease-in-out;
+    transition: all 0.2s ease-in-out;
 }
 
 .social-media__element:last-child {
@@ -1281,7 +1355,14 @@ form button {
     transition: all 0.2s linear 0s;
 }
 
-.we-video-info > ul li span.like:hover .we-video-info > ul li span.dislike:hover {
+.we-video-info
+    > ul
+    li
+    span.like:hover
+    .we-video-info
+    > ul
+    li
+    span.dislike:hover {
     trnsform: scale(1.1);
 }
 
@@ -1307,7 +1388,7 @@ span.status {
     bottom: 0;
     display: inline-block;
     height: 12px;
-    padding: .2rem;
+    padding: 0.2rem;
     position: absolute;
     right: 0;
     width: 12px;
@@ -1349,7 +1430,7 @@ li.twitter {
     margin-bottom: 0;
     max-width: 100%;
     width: 100%;
-    height: 92vh!important;
+    height: 92vh !important;
 }
 
 .nearby-contct .whiteBg {
@@ -1406,7 +1487,7 @@ li.twitter {
 }
 
 .messages .add-butn {
-    padding: .7rem 2.5rem;
+    padding: 0.7rem 2.5rem;
     font-size: 1.3rem;
 }
 
@@ -1444,19 +1525,19 @@ li.twitter {
     line-height: initial;
     padding: 1rem 4rem;
     max-height: 35px;
-    margin: auto;
+    margin: auto 0;
     bottom: 0;
     border: none;
     font-weight: 500;
     border-radius: 2rem;
     box-shadow: none;
-    background: #5790DF;
-    transition: all .3s ease-in-out;
+    background: #5790df;
+    transition: all 0.3s ease-in-out;
 }
 
 .add-butn:hover {
     box-shadow: 0px 0px 2rem rgba(87, 144, 223, 0.5);
-    transition: all .3s ease-in-out;
+    transition: all 0.3s ease-in-out;
     color: #e0e0e0;
 }
 
@@ -1595,7 +1676,7 @@ form .lookingForAJob {
 
 .link {
     color: rgb(87 144 223 / 70%);
-    transition: all .3s ease-in-out;
+    transition: all 0.3s ease-in-out;
     text-decoration: underline;
     cursor: pointer;
 }
@@ -1625,7 +1706,7 @@ form .lookingForAJob {
     display: inline-block;
     font-size: 1.1rem;
     line-height: initial;
-    padding: 0 .5rem;
+    padding: 0 0.5rem;
     position: relative;
     right: -2rem;
 }
@@ -1653,11 +1734,12 @@ form .lookingForAJob {
     display: flex;
     flex-direction: column;
     /*justify-content: end;*/
-    background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url("../img/chat-bg.png");
+    background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
+        url("../img/chat-bg.png");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    padding: 1rem .5rem;
+    padding: 1rem 0.5rem;
 }
 
 .chatArea {
@@ -1671,7 +1753,7 @@ form .lookingForAJob {
     width: 100%;
     margin-bottom: 1rem;
     animation: message;
-    animation-duration: .3s;
+    animation-duration: 0.3s;
 }
 
 @keyframes message {
@@ -1690,7 +1772,7 @@ form .lookingForAJob {
     position: absolute;
     right: 1rem;
     bottom: 12px;
-    font-size: .9rem;
+    font-size: 0.9rem;
     color: rgb(225 225 225);
 }
 
@@ -1726,11 +1808,11 @@ form .lookingForAJob {
 
 .peoples-mesg-box ul li p::after {
     top: 6px;
-    border-right-color: rgba(202, 239, 142, .65);
+    border-right-color: rgba(202, 239, 142, 0.65);
 }
 
 .peoples-mesg-box ul li.you p {
-    background: #E6EEFA;
+    background: #e6eefa;
     border-radius: 3rem 3rem 3rem 0px;
     padding: 1.2rem 1.8rem 1.2rem 4rem;
     color: #181818;
@@ -1747,7 +1829,7 @@ form .lookingForAJob {
 
 .peoples-mesg-box ul li.me p {
     text-align: left;
-    background: #5790DF;
+    background: #5790df;
     color: #fff;
     border-radius: 3rem 3rem 0px 3rem;
     padding: 1.2rem 4rem 1.2rem 1.8rem;
@@ -1800,7 +1882,7 @@ form .lookingForAJob {
     flex-grow: 6;
     margin-right: 0.5vw;
     border-radius: 50px;
-    padding: 1.2rem 1.5rem .8rem 1.5rem;
+    padding: 1.2rem 1.5rem 0.8rem 1.5rem;
     background: #fff;
     border: none;
     line-height: 1.5rem;
@@ -1826,7 +1908,7 @@ form .lookingForAJob {
     text-align: center;
     background: transparent;
     color: rgb(247, 249, 249);
-    font-size: 2.0rem;
+    font-size: 2rem;
 }
 
 .message-text-container form button img {
@@ -1857,7 +1939,13 @@ form .lookingForAJob {
 
 /*--- 100% radius images ---*/
 
-#people-list figure img,.new-postbox > figure img,.friend-info > figure img,.nearly-pepls > figure img,.peoples .dialogs-list__item figure img,.conversation-head > figure img,.peoples-mesg-box ul li  figure img {
+#people-list figure img,
+.new-postbox > figure img,
+.friend-info > figure img,
+.nearly-pepls > figure img,
+.peoples .dialogs-list__item figure img,
+.conversation-head > figure img,
+.peoples-mesg-box ul li figure img {
     border-radius: 100%;
 }
 
@@ -1887,7 +1975,7 @@ form .lookingForAJob {
     background: rgba(255, 255, 255, 0.1);
     border-radius: 2rem;
     font-size: 1.5rem;
-    padding: 1.1rem 3rem .9rem 3rem;
+    padding: 1.1rem 3rem 0.9rem 3rem;
     margin: 2rem 1rem;
     display: flex;
     align-items: center;
@@ -1951,7 +2039,6 @@ form .lookingForAJob {
 .checkbox label {
     color: #676767;
 }
-
 
 .row.widget-page {
     padding: 0 8rem;
@@ -2023,16 +2110,17 @@ form .lookingForAJob {
 
 /*--- full sidebar --*/
 
-.globalPreloader{
-    flex-direction:column;
-    height:100vh;
-    position:fixed;
-    width:100vw
+.globalPreloader {
+    flex-direction: column;
+    height: 100vh;
+    position: fixed;
+    width: 100vw;
 }
-.globalPreloader,.preloader{
-    align-items:center;
-    display:flex;
-    justify-content:center
+.globalPreloader,
+.preloader {
+    align-items: center;
+    display: flex;
+    justify-content: center;
 }
 
 .preloader {
@@ -2070,19 +2158,20 @@ form .lookingForAJob {
     height: 25px;
 }
 
-.loader::before,.loader::after {
+.loader::before,
+.loader::after {
     content: "";
     box-sizing: border-box;
     position: absolute;
     inset: 0px;
     border-radius: 50%;
-    border: 5px solid #FFF;
+    border: 5px solid #fff;
     animation: prixClipFix 2s linear infinite;
 }
 
 .loader::after {
-    transform: rotate3d(90, 90, 0, 180deg );
-    border-color: #5790DF;
+    transform: rotate3d(90, 90, 0, 180deg);
+    border-color: #5790df;
 }
 
 @keyframes rotate {
@@ -2097,15 +2186,23 @@ form .lookingForAJob {
 
 @keyframes prixClipFix {
     0% {
-        clip-path: polygon(50% 50%,0 0,0 0,0 0,0 0,0 0);
+        clip-path: polygon(50% 50%, 0 0, 0 0, 0 0, 0 0, 0 0);
     }
 
     50% {
-        clip-path: polygon(50% 50%,0 0,100% 0,100% 0,100% 0,100% 0);
+        clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 0, 100% 0, 100% 0);
     }
 
-    75%, 100% {
-        clip-path: polygon(50% 50%,0 0,100% 0,100% 100%,100% 100%,100% 100%);
+    75%,
+    100% {
+        clip-path: polygon(
+            50% 50%,
+            0 0,
+            100% 0,
+            100% 100%,
+            100% 100%,
+            100% 100%
+        );
     }
 }
 
@@ -2129,7 +2226,7 @@ form .lookingForAJob {
     max-height: 70px;
     padding: 1rem 0;
     border-radius: 3rem;
-    transition: all .3s ease-in-out;
+    transition: all 0.3s ease-in-out;
     margin-bottom: 1rem;
     padding-right: 1rem;
 }
@@ -2182,12 +2279,13 @@ form .lookingForAJob {
 .user-nav__subnav {
     position: absolute;
     bottom: -200%;
-    transition: all .2s ease-in-out;
+    transition: all 0.2s ease-in-out;
     min-height: 70px;
     width: 100%;
     justify-content: space-around;
     display: flex;
-    box-shadow: rgba(136, 153, 166, 0.2) 0px 0px 1.5rem, rgba(136, 153, 166, 0.15) 0px 0px 3px 1px;
+    box-shadow: rgba(136, 153, 166, 0.2) 0px 0px 1.5rem,
+        rgba(136, 153, 166, 0.15) 0px 0px 3px 1px;
     align-items: center;
     border-radius: 3rem;
     flex-direction: column;
@@ -2218,7 +2316,7 @@ form .lookingForAJob {
     font-weight: 700;
     cursor: pointer;
     width: 100%;
-    transition: all .3s ease-in-out;
+    transition: all 0.3s ease-in-out;
     padding: 1.5rem 2.5rem;
 }
 
@@ -2259,14 +2357,14 @@ form .lookingForAJob {
 
 .opacity-animation {
     animation-name: opacityAnimation;
-    animation-duration: .3s;
+    animation-duration: 0.3s;
     animation-timing-function: ease-in-out;
     animation-delay: 0s;
     animation-iteration-count: 1;
     animation-direction: normal;
     animation-fill-mode: both;
     animation-play-state: running;
-    transition: opacity .3s ease-in-out;
+    transition: opacity 0.3s ease-in-out;
 }
 
 @keyframes opacityAnimation {
@@ -2282,7 +2380,7 @@ form .lookingForAJob {
 .edit-social-media {
     cursor: pointer;
     padding-left: 1rem;
-    border-left: 2px solid rgba(255, 255, 255, .5);
+    border-left: 2px solid rgba(255, 255, 255, 0.5);
 }
 
 .edit-profile-form input[name="fullName"] {
@@ -2291,12 +2389,12 @@ form .lookingForAJob {
 }
 
 .sidebarHeader {
-    font-size: 2.0rem;
+    font-size: 2rem;
     font-weight: 700;
     padding: 3rem 1.5rem;
 }
 .sidebarHeader.flex {
-    padding: 3rem 3rem;   
+    padding: 4rem 4rem;
 }
 .peoples .sidebarHeader {
     padding: 2rem 2rem 0 2rem;
@@ -2307,7 +2405,7 @@ form .lookingForAJob {
 
 .peoples .sidebarHeader svg {
     cursor: pointer;
-    transition: all .2s ease-in-out;
+    transition: all 0.2s ease-in-out;
 }
 
 .peoples .sidebarHeader svg:hover {
@@ -2425,7 +2523,7 @@ span.text a {
     margin: 0 2rem;
     width: 37%;
     animation-name: error;
-    animation-duration: .4s;
+    animation-duration: 0.4s;
     animation-timing-function: ease-in-out;
     animation-delay: 0s;
     animation-iteration-count: 1;
@@ -2451,7 +2549,7 @@ span.text a {
     margin: 2rem 0 0 0;
 }
 .sidebar .widget .notAuthorized .add-butn:hover {
-    background: #5790DF;
+    background: #5790df;
 }
 .mr-20 {
     margin-right: 2rem;
@@ -2468,7 +2566,7 @@ span.text a {
     text-decoration: underline;
 }
 .editing-info {
-    padding: 0 3rem;
+    padding: 0 4rem;
 }
 
 .modalWindow__wrapper {
@@ -2487,16 +2585,15 @@ span.text a {
     width: auto;
     height: auto;
     background: #181818;
-    box-shadow: 
-     rgba(136, 153, 166, 0.2) 0px 0px 1.5rem,
-     rgba(136, 153, 166, 0.15) 0px 0px 3px 1px;
+    box-shadow: rgba(136, 153, 166, 0.2) 0px 0px 1.5rem,
+        rgba(136, 153, 166, 0.15) 0px 0px 3px 1px;
     border-radius: 2rem;
     display: flex;
     align-items: center;
     flex-direction: column;
     justify-content: center;
     position: relative;
-    padding: 4rem 2rem;
+    padding: 5rem 5rem;
 }
 .modalWindow img {
     max-width: 80%;
@@ -2504,6 +2601,9 @@ span.text a {
 }
 .modalWindow a {
     text-decoration: underline;
+}
+.confirmation-modal .text {
+    margin: 2rem 0 6rem 0;
 }
 .close {
     position: absolute;
@@ -2517,7 +2617,7 @@ span.text a {
 }
 .apiKey {
     display: inline-block;
-    transition: all .2s ease-in-out;
+    transition: all 0.2s ease-in-out;
     cursor: pointer;
 }
 .apiKey:hover {

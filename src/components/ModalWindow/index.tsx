@@ -9,21 +9,38 @@ interface Props {
     body?: string | JSX.Element;
     image?: string;
     modalRef: React.MutableRefObject<any> | null;
+    onEnterKey?: () => void;
 }
 
-const LoginModal: FC<Props> = ({
+const ModalWindow: FC<Props> = ({
     setIsModalWindowShown,
     isModalWindowShown,
     body,
     image,
     modalRef,
+    onEnterKey,
 }) => {
     const handleModalClose = () => setIsModalWindowShown(false);
-    useOnClickOutside(modalRef, setIsModalWindowShown);
+    const handleKeyDown = (e: React.KeyboardEvent) => {
+        if (e.key === "Escape") handleModalClose();
+        if (e.key === "Enter") onEnterKey && onEnterKey();
+    };
+
+    const wrapperRef = useRef<HTMLDivElement | null>(null);
+    useEffect(() => {
+        if (isModalWindowShown) {
+            wrapperRef.current && wrapperRef.current.focus();
+        }
+    }, [isModalWindowShown]);
+
     const modalWrapperClassName = isModalWindowShown ? "" : "hidden";
+    useOnClickOutside(modalRef, setIsModalWindowShown);
     return (
         <div
-            className={`modalWindow__wrapper opacity-animation ${modalWrapperClassName}`}
+            onKeyDown={handleKeyDown}
+            ref={wrapperRef}
+            tabIndex={0}
+            className={`modalWindow__wrapper ${modalWrapperClassName}`}
         >
             <div className="modalWindow">
                 <FontAwesomeIcon
@@ -39,4 +56,4 @@ const LoginModal: FC<Props> = ({
     );
 };
 
-export default LoginModal;
+export default ModalWindow;

@@ -1,11 +1,9 @@
 import { FormRenderProps } from "react-final-form";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faQuestionCircle } from "@fortawesome/free-solid-svg-icons";
 import React from "react";
 import { Captcha } from "../Login";
 import { FormValues } from "../LoginContainer";
 import { useGetFields } from "./fields";
-import ApiKeyModal from "../ApiKeyModal";
+import ApiKeyModal from "../modals/ApiKeyModal";
 
 const REGISTRATION_LINK = "https://social-network.samuraijs.com/signUp";
 

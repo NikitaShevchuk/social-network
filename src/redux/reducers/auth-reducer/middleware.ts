@@ -1,3 +1,4 @@
+import { FormValues } from './../../../components/Login/LoginContainer';
 import {ResultCodes} from "../../../services";
 import {authActions} from "./actions";
 import {appActions} from "../app-reducer/actions";
@@ -35,7 +36,7 @@ export const authorize = (): AsyncThunk => async (dispatch) => {
     }
 }
 
-export const loginThunk = (formData: any): AsyncThunk => async (dispatch) => {
+export const loginThunk = (formData: FormValues): AsyncThunk => async (dispatch) => {
     try {
         const data = await profileService.login(formData)
         if (data.resultCode === ResultCodes.Success) {
