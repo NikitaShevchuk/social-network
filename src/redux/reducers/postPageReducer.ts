@@ -4,12 +4,7 @@ let initState = {
     posts: [
         {
             id: 1,
-            postText: 'text',
-            likesCount: 0
-        },
-        {
-            id: 2,
-            postText: 'second post',
+            postText: 'This is a test post body. You will be able to add posts later.',
             likesCount: 0
         }
     ]

@@ -17,6 +17,6 @@ export const minLengthCreator = (minLength: number): ValidatorType => (value: st
 }
 
 export const isLink: ValidatorType = (value) => {
-    const valueIsValid = value !== null && value !== undefined && value !== '' && value.includes('https://')
+    const valueIsValid = (value !== null && value !== undefined && value.includes('https://')) || value !== ''
     return valueIsValid ? undefined : 'Please enter valid link'
 }

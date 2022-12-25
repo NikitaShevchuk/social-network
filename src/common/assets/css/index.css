@@ -600,6 +600,9 @@ a:hover.youtube {
     flex: 1;
     position: relative;
 }
+.links-form .form-group {
+    width: 100%;
+}
 .flex .form-group:first-child {
     margin-right: 20px;
 }
@@ -683,6 +686,8 @@ a:hover.youtube {
         rgba(253, 29, 29, 1) 50%,
         rgba(252, 176, 69, 1) 100%
     );
+    position: relative;
+    margin-bottom: 3rem;
 }
 
 .timeline-info .timeline-info__container {
@@ -1206,7 +1211,6 @@ form button {
 }
 
 .friend-name > ins {
-    float: left;
     font-weight: 700;
     width: 100%;
     font-size: 1.8rem;
@@ -1215,26 +1219,25 @@ form button {
 
 .friend-name > span {
     color: #999;
-    float: left;
     font-size: 1.2rem;
     text-transform: capitalize;
     width: 100%;
+    padding-left: 1rem;
 }
-
+.user-post {
+    margin-top: 3rem;
+}
 .post-meta {
-    float: left;
     margin-top: 1.5rem;
     width: 100%;
 }
 
 .post-meta > img {
-    float: left;
     width: 100%;
 }
 
 .description {
-    float: left;
-    margin-top: 12px;
+    margin-top: 2rem;
     width: 100%;
 }
 
@@ -1258,7 +1261,6 @@ form button {
 /*-- sharing post area ----*/
 
 .we-video-info {
-    float: left;
     padding: 1.5rem 0 1rem;
     width: 100%;
     position: relative;
@@ -1266,7 +1268,6 @@ form button {
 }
 
 .we-video-info > ul {
-    float: left;
     width: 100%;
     line-height: 27px;
     padding-left: 0;
@@ -1284,7 +1285,7 @@ form button {
 .additional-profile-info {
     position: absolute;
     right: 2rem;
-    top: 15%;
+    top: 140px;
     display: flex;
 }
 
@@ -1302,7 +1303,9 @@ form button {
     margin-right: 1rem;
     position: relative;
 }
-
+.social-media span {
+    padding-right: 10px;
+}
 .social-media .form-group {
     margin: 1.5rem 0;
 }
@@ -1557,7 +1560,6 @@ li.twitter {
 }
 
 .pepl-info > span {
-    float: left;
     font-size: 1.3rem;
     text-transform: capitalize;
     width: 100%;
@@ -2009,18 +2011,15 @@ form .lookingForAJob {
 
 .message-list > li {
     border-bottom: 1px solid #e8ecec;
-    float: left;
     padding-bottom: 2.2rem;
     padding-top: 2.2rem;
     width: 100%;
 }
 
 .message-list > li > .select-message {
-    float: left;
 }
 
 .message-list > li > p {
-    float: left;
     margin: 5px 0 0;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -2351,7 +2350,7 @@ form .lookingForAJob {
 
 .loadMore {
     padding: 2rem 2rem;
-    max-height: 63.5vh;
+    max-height: 50vh;
     overflow-y: scroll;
 }
 
@@ -2632,7 +2631,6 @@ span.text a {
     height: 1.5rem;
     border: 2px solid white;
     border-radius: 50%;
-    float: left;
     margin: 0 7px;
     transform: scale(0);
     -webkit-animation: fx 1000ms ease infinite 0ms;

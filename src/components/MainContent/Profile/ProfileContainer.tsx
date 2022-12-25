@@ -1,30 +1,34 @@
-import React, {FC, useEffect} from 'react';
+import React, { FC, useEffect } from "react";
 import Profile from "./Profile";
-import {RootState} from "../../../redux/redux-store";
-import {connect, ConnectedProps} from "react-redux";
-import {getMyProfileFromState, loadProfile} from "../../../redux/reducers/profile-reducer/middleware";
-import {setIsMyProfile, setUserId} from "../../../redux/reducers/profile-reducer/actions";
-import {useParams} from "react-router-dom";
+import { RootState } from "../../../redux/redux-store";
+import { connect, ConnectedProps } from "react-redux";
+import {
+    getMyProfileFromState,
+    loadProfile,
+} from "../../../redux/reducers/profile-reducer/middleware";
+import {
+    setIsMyProfile,
+    setUserId,
+} from "../../../redux/reducers/profile-reducer/actions";
+import { useParams } from "react-router-dom";
 
 const ProfileContainer: FC<ProfileProps> = (props) => {
-    const id = useParams().userId
+    const id = useParams().userId;
     useEffect(() => {
         // make sure that the userId won't be undefined
-        const userIdForState = id ? Number(id) : props.myId
-        props.setUserId(userIdForState)
-        const isMyProfile = userIdForState === props.myId || userIdForState === 0
+        const userIdForState = id ? Number(id) : props.myId;
+        props.setUserId(userIdForState);
+        const isMyProfile =
+            userIdForState === props.myId || userIdForState === 0;
         if (isMyProfile) {
-            props.setIsMyProfile(true)
-            props.getMyProfileFromState()
+            props.setIsMyProfile(true);
+            props.getMyProfileFromState();
+        } else {
+            props.setIsMyProfile(false);
+            props.loadProfile(userIdForState);
         }
-        else {
-            props.setIsMyProfile(false)
-            props.loadProfile(userIdForState)
-        }
-    }, [id, props.myId])
-    return (
-        <Profile {...props}/>
-    );
+    }, [id, props.myId]);
+    return <Profile {...props} />;
 };
 
 const mapStateToProps = (state: RootState) => {
@@ -36,14 +40,17 @@ const mapStateToProps = (state: RootState) => {
         profileEditMode: state.profilePage.profileEditMode,
         userId: state.profilePage.userIdParam,
         profileFetchError: state.profilePage.profileFetchError,
-        profileIsLoading: state.profilePage.profileIsLoading
-    }
-}
+        profileIsLoading: state.profilePage.profileIsLoading,
+    };
+};
 
 const connector = connect(mapStateToProps, {
-    loadProfile, setIsMyProfile, setUserId, getMyProfileFromState
-})
+    loadProfile,
+    setIsMyProfile,
+    setUserId,
+    getMyProfileFromState,
+});
 
 export default connector(ProfileContainer);
 
-export type ProfileProps = ConnectedProps<typeof connector>
+export type ProfileProps = ConnectedProps<typeof connector>;

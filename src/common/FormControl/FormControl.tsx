@@ -19,7 +19,7 @@ export const Input: FC<Props> = ({ meta, input, label }) => {
 
     const hasError = meta.error && meta.touched;
     const labelClassName =
-        meta.dirty || isInputInFocus ? style.activeLabel : "";
+        meta.dirty || isInputInFocus || input?.value ? style.activeLabel : "";
     const iconClassName = hasError ? style.errorSelect : "";
     const activeBorder = meta.dirty ? style.activeBorder : "";
     const activeInput = meta.dirty ? style.activeInput : "";
