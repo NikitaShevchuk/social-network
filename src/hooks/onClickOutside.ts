@@ -1,27 +1,39 @@
-import React, {useEffect} from "react";
+import React, {useCallback, useEffect} from "react";
 
-
-const outsideClickHandler = (
-    ref: React.MutableRefObject<any> | null,
-    callback: (toggle: boolean) => void,
-) => (e: MouseEvent): void => {
-
+const checkExceptions = (e: MouseEvent, exceptions: string[] | undefined): boolean => {
     const target = e.target as HTMLElement;
-    const shouldClose = ref?.current && !ref?.current.contains(target)
-    const modalException = target.className?.includes && target.className.includes('modalWindow__wrapper')
-    if (shouldClose || modalException) callback(false)
-
+    if (!target.className?.includes || !exceptions) return false
+    return exceptions.reduce( ( _, currentException) => {
+        return target.className.includes(currentException)
+    }, false)
 }
 
-export const useOnClickOutside = (
+const outsideClickHandler = (
+    { callback, ref, closeOnElementsClick, exceptions }: Arguments
+) => (e: MouseEvent): void => {
+    const shouldClose = (
+        !ref?.current?.contains(e.target) ||
+        !checkExceptions(e, exceptions) ||
+        checkExceptions(e, closeOnElementsClick)
+    )
+    if (shouldClose) callback(false)
+}
+
+
+interface Arguments {
     ref: React.MutableRefObject<any> | null,
     callback: (toggle: boolean) => void,
-) => {
+    // elements classNames that should trigger a listener callback
+    closeOnElementsClick?: string[], 
+    // elements classNames that should NOT trigger a listener callback
+    exceptions?: string[] 
+}
+export const useOnClickOutside = (args: Arguments) => {
+    const listener = useCallback( outsideClickHandler(args), [] )
     useEffect(() => {
-        document.addEventListener('click', outsideClickHandler(ref, callback))
+        document.addEventListener('click', listener)
         return () => {
-            // @ts-ignore
-            document.removeEventListener('click', outsideClickHandler)
+            document.removeEventListener('click', listener)
         }
     }, [])
 }

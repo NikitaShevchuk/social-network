@@ -58,6 +58,7 @@ const EditProfile: FC<Props> = memo(
                             profileEditMode={profileEditMode}
                             disableEditMode={disableEditMode}
                             socialMediaEditMode={socialMediaEditMode}
+                            setSocialMediaEditMode={setSocialMediaEditMode}
                             contactsArray={contactsArray}
                         />
                     )}

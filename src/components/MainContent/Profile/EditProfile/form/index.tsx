@@ -6,8 +6,7 @@ import classNames from "classnames";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useGetFields } from "../utils";
 import { ContactsArray } from "../../../../../types/ProfileTypes";
-import { createFieldWithInitVal } from "../../../../../common/helpers/createField";
-import { isLink } from "../../../../../common/helpers/validators";
+import Links from "./Links";
 
 type EventType =
     | Partial<
@@ -28,6 +27,7 @@ interface Props {
     isMyProfile: boolean;
     profileEditMode: boolean;
     socialMediaEditMode: boolean;
+    setSocialMediaEditMode: (isInEditMode: boolean) => void;
     disableEditMode: () => void;
     contactsArray: ContactsArray;
     ref: any;
@@ -44,6 +44,7 @@ const EditProfileForm: FC<Props> = forwardRef(
             isMyProfile,
             profileEditMode,
             socialMediaEditMode,
+            setSocialMediaEditMode,
             contactsArray,
         },
         ref
@@ -64,9 +65,7 @@ const EditProfileForm: FC<Props> = forwardRef(
         const formClassName = profileEditMode
             ? "profile-data shown"
             : "profile-data hidden";
-        const editSocialMediaClassName = socialMediaEditMode
-            ? style.additionalInfActive
-            : style.additionalInf;
+
         return (
             <form
                 className={classNames(formClassName, "edit-profile-form")}
@@ -130,28 +129,11 @@ const EditProfileForm: FC<Props> = forwardRef(
                         Cancel
                     </button>
                 </div>
-                <div
-                    className={classNames(
-                        editSocialMediaClassName,
-                        "links-form"
-                    )}
-                >
-                    {contactsArray.map((singleContact) => {
-                        const contactName = singleContact[0];
-                        const shouldReturnEmpty =
-                            contactName === "website" ||
-                            contactName === "vk" ||
-                            contactName === "mainLink";
-                        if (shouldReturnEmpty) return "";
-
-                        return createFieldWithInitVal(
-                            [isLink],
-                            singleContact[0],
-                            contactsArray.indexOf(singleContact),
-                            singleContact[1] as string
-                        );
-                    })}
-                </div>
+                <Links
+                    contactsArray={contactsArray}
+                    socialMediaEditMode={socialMediaEditMode}
+                    setSocialMediaEditMode={setSocialMediaEditMode}
+                />
             </form>
         );
     }
