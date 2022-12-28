@@ -15,15 +15,15 @@ interface Props {
 export const Input: FC<Props> = ({ meta, input, label }) => {
     const [isInputInFocus, setIsInputInFocus] = useState<boolean>(false);
     const onInputFocus = () => setIsInputInFocus(true);
-    const onInputBlur = () => setIsInputInFocus(false);
+    const onInputBlur = (e: React.FocusEvent) => {
+        setIsInputInFocus(false);
+        input.onBlur(e);
+    };
 
     const hasError = meta.error && meta.touched;
     const labelClassName =
         meta.dirty || isInputInFocus || input?.value ? style.activeLabel : "";
-    const iconClassName = hasError ? style.errorSelect : "";
-    const activeBorder = meta.dirty ? style.activeBorder : "";
-    const activeInput = meta.dirty ? style.activeInput : "";
-
+    console.log(label, meta.touched);
     return (
         <div className="form-group">
             {label && (
@@ -35,10 +35,9 @@ export const Input: FC<Props> = ({ meta, input, label }) => {
                 {...input}
                 onFocus={onInputFocus}
                 onBlur={onInputBlur}
-                className={classNames("border", activeInput)}
+                className={classNames("border", hasError ? "error" : "")}
             />
             {hasError && <div className={style.errorInfo}>{meta.error}</div>}
-            <i className={`mtrl-select ${iconClassName} ${activeBorder}`} />
         </div>
     );
 };

@@ -27,6 +27,7 @@ const ApiKeyModal: FC<Props> = ({ apiKeyField }) => {
                 image={instruction}
                 body={<ModalWindowBody />}
                 modalRef={modalRef}
+                closeOnElementsClick={["modalWindow__wrapper"]}
             />
         </div>
     );

@@ -59,6 +59,7 @@ const ConfirmModal: FC<Props> = ({
             modalRef={modalRef}
             setIsModalWindowShown={setIsModalOpened}
             onEnterKey={handleContinueClick}
+            closeOnElementsClick={["modalWindow__wrapper"]}
             body={
                 <ConfirmModalBody
                     handleCancelClick={handleCancelClick}

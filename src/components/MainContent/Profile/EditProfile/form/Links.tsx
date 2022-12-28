@@ -25,7 +25,7 @@ const Links: FC<Props> = ({
 
     useOnClickOutside({
         callback: setSocialMediaEditMode,
-        exceptions: ["social-media"],
+        exceptions: ["edit-social-media"],
         ref: formRef,
     });
 

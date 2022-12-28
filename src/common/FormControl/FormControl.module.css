@@ -7,22 +7,12 @@
     bottom: 0;
     max-height: 18px;
 }
-.errorSelect::before {
-    background: #f94444!important;
-}
-.activeBorder {
-    width: 100%;
-    left: 0;
-}
 .activeLabel {
     color: #088dcd;
     font-size: 1.7rem;
     font-weight: bold;
     bottom: 45px;
     left: 0;
-}
-.activeInput {
-    color: #fff!important;
 }
 .apiKeyModal {
     position: absolute;

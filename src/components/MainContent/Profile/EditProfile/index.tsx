@@ -5,7 +5,7 @@ import {
     EditProfilePutRequestData,
     Profile,
 } from "../../../../types/ProfileTypes";
-import { createUpdatedProfile } from "./utils";
+import { createUpdatedProfile, validateInitialValues } from "./utils";
 import EditProfileForm from "./form";
 import { connect, ConnectedProps } from "react-redux";
 import { RootState } from "../../../../redux/redux-store";
@@ -45,7 +45,7 @@ const EditProfile: FC<Props> = memo(
         return (
             <>
                 <Form
-                    initialValues={profile}
+                    initialValues={validateInitialValues(profile)}
                     onSubmit={onSubmit}
                     render={({ handleSubmit, submitting, pristine }) => (
                         <EditProfileForm

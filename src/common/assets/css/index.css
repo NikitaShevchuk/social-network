@@ -503,7 +503,9 @@ input.border {
     background: none;
     font-family: "Source Sans Pro", sans-serif;
 }
-
+input.border.error {
+    border-color: #f94444;
+}
 body {
     font-family: "Inter", sans-serif;
     font-size: 1.5rem;
@@ -672,7 +674,7 @@ a:hover.youtube {
 
 .timeline-info {
     width: 100%;
-    padding: 0 2rem;
+    padding: 0 4rem;
     position: relative;
     background: #181818;
 }
@@ -1284,7 +1286,7 @@ form button {
 
 .additional-profile-info {
     position: absolute;
-    right: 2rem;
+    right: 3rem;
     top: 140px;
     display: flex;
 }
@@ -2349,7 +2351,7 @@ form .lookingForAJob {
 }
 
 .loadMore {
-    padding: 2rem 2rem;
+    padding: 2rem 4rem;
     max-height: 50vh;
     overflow-y: scroll;
 }
@@ -2380,8 +2382,18 @@ form .lookingForAJob {
     cursor: pointer;
     padding-left: 1rem;
     border-left: 2px solid rgba(255, 255, 255, 0.5);
+    width: 30px;
+    height: 19px;
+    background-repeat: no-repeat;
+    background-position: center right;
+}
+.edit-social-media.edit-icon {
+    background-image: url("../img/icons/edit-profile.svg");
 }
 
+.edit-social-media.close-icon {
+    background-image: url("../img/icons/close.svg");
+}
 .edit-profile-form input[name="fullName"] {
     margin-bottom: 5px;
     width: auto;
@@ -2465,7 +2477,7 @@ span.text a {
 
 #root .hidden {
     position: absolute;
-    top: -100vh;
+    top: -500vh;
     opacity: 0;
     width: 80%;
 }

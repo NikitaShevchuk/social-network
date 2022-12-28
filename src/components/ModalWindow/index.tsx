@@ -10,6 +10,8 @@ interface Props {
     image?: string;
     modalRef: React.MutableRefObject<any> | null;
     onEnterKey?: () => void;
+    closeOnElementsClick?: string[];
+    exceptions?: string[];
 }
 
 const ModalWindow: FC<Props> = ({
@@ -19,6 +21,8 @@ const ModalWindow: FC<Props> = ({
     image,
     modalRef,
     onEnterKey,
+    closeOnElementsClick,
+    exceptions,
 }) => {
     const handleModalClose = () => setIsModalWindowShown(false);
     const handleKeyDown = (e: React.KeyboardEvent) => {
@@ -34,7 +38,12 @@ const ModalWindow: FC<Props> = ({
     }, [isModalWindowShown]);
 
     const modalWrapperClassName = isModalWindowShown ? "" : "hidden";
-    useOnClickOutside(modalRef, setIsModalWindowShown);
+    useOnClickOutside({
+        ref: modalRef,
+        callback: setIsModalWindowShown,
+        closeOnElementsClick,
+        exceptions,
+    });
     return (
         <div
             onKeyDown={handleKeyDown}

@@ -1,8 +1,7 @@
 import {
-    Contacts,
     ContactsArray,
     EditProfileFormValues,
-    SocialMediaName,
+    Profile,
 } from "../../../../types/ProfileTypes";
 import React, { useMemo } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -18,6 +17,7 @@ import {
     maxLength20,
     minLength4,
 } from "../../../../common/helpers/createValidators";
+import { initialProfile } from "../../../../redux/reducers/profile-reducer";
 
 export const createUpdatedProfile = (formData: EditProfileFormValues) => ({
     ...formData,
@@ -75,7 +75,11 @@ export const useGetFields = () =>
             "text",
             "fullName"
         );
-        const aboutMeField = createInput([maxLength120], "text", "aboutMe");
+        const aboutMeField = createInput(
+            [required, maxLength120],
+            "text",
+            "aboutMe"
+        );
         return {
             fullNameField,
             userIdField,
@@ -84,3 +88,16 @@ export const useGetFields = () =>
             aboutMeField,
         };
     }, []);
+
+type ProfileEntry = [keyof typeof initialProfile, any];
+export const validateInitialValues = (profile: Profile) => {
+    const resultProfile: Profile = JSON.parse(JSON.stringify(profile));
+    const profileEntries = Object.entries(profile) as ProfileEntry[];
+    profileEntries.forEach((profileEntry) => {
+        const [key, value] = profileEntry;
+        if (typeof value === "boolean") return;
+        // @ts-ignore
+        if (!value && value !== "") resultProfile[key] = "";
+    });
+    return resultProfile;
+};

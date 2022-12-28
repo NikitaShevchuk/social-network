@@ -9,9 +9,12 @@ import LoginButton from "../../../Buttons/LoginButton";
 
 const UserNav = memo<UserNavConnectedProps>(
     ({ profileImg, userData, isAuthorized, logoutThunk }) => {
-        const toggleSubnav = useRef<HTMLDivElement | null>(null);
+        const subnavRef = useRef<HTMLDivElement | null>(null);
         const [isSubnavOpened, setIsSubnavOpened] = useState<boolean>(false);
-        useOnClickOutside(toggleSubnav, setIsSubnavOpened);
+        useOnClickOutside({
+            ref: subnavRef,
+            callback: setIsSubnavOpened,
+        });
         const handleNavClick = () =>
             isAuthorized && setIsSubnavOpened(!isSubnavOpened);
 
@@ -23,7 +26,7 @@ const UserNav = memo<UserNavConnectedProps>(
             );
 
         return (
-            <div className="user-nav" ref={toggleSubnav}>
+            <div className="user-nav" ref={subnavRef}>
                 <div className="user-nav__info" onClick={handleNavClick}>
                     <div className="user-nav__info-wrapper">
                         <div className="user-img">

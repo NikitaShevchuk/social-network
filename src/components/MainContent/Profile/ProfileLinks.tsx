@@ -38,16 +38,11 @@ const ProfileLinks: FC<Props> = ({
                 )}
                 {profileEditMode && (
                     <div
-                        className="edit-social-media"
+                        className={`edit-social-media ${
+                            socialMediaEditMode ? "close-icon" : "edit-icon"
+                        }`}
                         onClick={toggleSocialMediaEditMode}
-                    >
-                        {socialMediaEditMode && (
-                            <FontAwesomeIcon icon={faClose} />
-                        )}
-                        {!socialMediaEditMode && (
-                            <FontAwesomeIcon icon={faPencilSquare} />
-                        )}
-                    </div>
+                    ></div>
                 )}
             </div>
         </div>
