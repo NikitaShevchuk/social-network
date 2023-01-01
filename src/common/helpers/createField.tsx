@@ -1,8 +1,9 @@
 import { composeValidators } from "./createValidators";
 import { ValidatorType } from "./validators";
-import { Input } from "../FormControl/FormControl";
+import { Input } from "../FormControl/Input";
 import { Field } from "react-final-form";
 import React from "react";
+import CheckBox from "../FormControl/CheckBox";
 
 type InputTypes = "password" | "email" | "text";
 
@@ -21,16 +22,20 @@ export const createInput = (
     />
 );
 
-export const createCheckBox = (name: string, labelText: string | null) => (
-    <>
-        <Field name={name} id={name} component="input" type="checkbox" />
-        {labelText && (
-            <label htmlFor={name} className="checkbox-label">
-                {labelText}
-            </label>
-        )}
-    </>
+export interface LabelText {
+    active: string;
+    inactive: string;
+}
+export const createCheckBox = (name: string, labelText?: LabelText) => (
+    <Field
+        labelText={labelText}
+        name={name}
+        id={name}
+        component={CheckBox}
+        type="checkbox"
+    />
 );
+
 export const createTextArea = (validators: ValidatorType[], name: string) => (
     <Field
         validate={composeValidators(...validators)}
@@ -38,9 +43,11 @@ export const createTextArea = (validators: ValidatorType[], name: string) => (
         component="textarea"
     />
 );
+
 export const createHiddenInput = (name: string) => (
     <Field name={name} type="hidden" component="input" />
 );
+
 export const createFieldWithInitVal = (
     validators: ValidatorType[],
     name: string,

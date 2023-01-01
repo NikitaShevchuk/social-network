@@ -6,6 +6,9 @@
     margin: auto;
     bottom: 0;
     max-height: 18px;
+    display: flex;
+    align-items: center;
+    background-color: #181818;
 }
 .activeLabel {
     color: #088dcd;

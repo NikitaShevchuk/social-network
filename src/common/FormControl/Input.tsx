@@ -1,5 +1,5 @@
 import React, { FC, useState } from "react";
-import style from "./FormControl.module.css";
+import style from "./FormControl.module.scss";
 import classNames from "classnames";
 
 interface Props {
@@ -23,7 +23,6 @@ export const Input: FC<Props> = ({ meta, input, label }) => {
     const hasError = meta.error && meta.touched;
     const labelClassName =
         meta.dirty || isInputInFocus || input?.value ? style.activeLabel : "";
-    console.log(label, meta.touched);
     return (
         <div className="form-group">
             {label && (

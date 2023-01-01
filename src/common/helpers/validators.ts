@@ -9,14 +9,14 @@ export const isEmail: ValidatorType = (value) =>
 export const maxLengthCreator =
     (maxLength: number): ValidatorType =>
     (value: string) => {
-        const valueIsValid = value?.length <= maxLength || value !== "";
+        const valueIsValid = value?.length <= maxLength;
         return valueIsValid ? undefined : `${maxLength} symbols max`;
     };
 
 export const minLengthCreator =
     (minLength: number): ValidatorType =>
     (value: string) => {
-        const valueIsValid = value?.length >= minLength || value !== ""; // TODO fix validators
+        const valueIsValid = value?.length >= minLength;
         return valueIsValid ? undefined : `${minLength} symbols min`;
     };
 

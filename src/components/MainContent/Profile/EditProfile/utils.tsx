@@ -65,7 +65,7 @@ export const useCreateIcons = (contactsArray: ContactsArray) => {
 export const useGetFields = () =>
     useMemo(() => {
         const userIdField = createHiddenInput("userId");
-        const jobCheckBox = createCheckBox("lookingForAJob", null);
+        const jobCheckBox = createCheckBox("lookingForAJob");
         const jobDescriptionField = createTextArea(
             [maxLength120],
             "lookingForAJobDescription"
