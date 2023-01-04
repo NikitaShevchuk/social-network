@@ -1,17 +1,20 @@
-import React, {FC} from 'react';
-import {RootState} from "../../redux/redux-store";
-import {connect, ConnectedProps} from "react-redux";
-import ProfileStatus from "./ProfileStatus";
-import {updStatusThunk} from "../../redux/reducers/auth-reducer/middleware";
+import React, { FC } from 'react';
+import { connect, ConnectedProps } from 'react-redux';
+import { RootState } from '../../redux/redux-store';
+import ProfileStatus from './ProfileStatus';
+import { updStatusThunk } from '../../redux/reducers/auth-reducer/middleware';
 
 export interface ProfileStatusProps extends ProfileStatusConnectedProps {
-    isMyProfile: boolean
+    isMyProfile: boolean;
 }
 
 const ProfileStatusContainer: FC<ProfileStatusProps> = ({
-    isMyProfile, status, clientStatus, updStatusThunk
+    isMyProfile,
+    status,
+    clientStatus,
+    updStatusThunk
 }) => {
-    const statusToDisplay = isMyProfile ? clientStatus : status
+    const statusToDisplay = isMyProfile ? clientStatus : status;
     return (
         <ProfileStatus
             status={statusToDisplay}
@@ -24,12 +27,9 @@ const ProfileStatusContainer: FC<ProfileStatusProps> = ({
 const mapStateToProps = (state: RootState) => ({
     status: state.profilePage.status,
     clientStatus: state.auth.clientStatus
-})
-const connector = connect(
-    mapStateToProps,
-    {
-        updStatusThunk
-    }
-)
+});
+const connector = connect(mapStateToProps, {
+    updStatusThunk
+});
 export default connector(ProfileStatusContainer);
-type ProfileStatusConnectedProps = ConnectedProps<typeof connector>
+type ProfileStatusConnectedProps = ConnectedProps<typeof connector>;

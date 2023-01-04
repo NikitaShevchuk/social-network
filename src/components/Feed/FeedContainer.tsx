@@ -1,17 +1,14 @@
-import React from "react";
-import Feed from "./Feed";
-import {addPostActionCreator} from "../../redux/reducers/postPageReducer";
-import {connect} from "react-redux";
-import {postsSelector} from '../../redux/selectors/postsReselector'
-import {RootState} from "../../redux/redux-store";
+import { connect } from 'react-redux';
+import Feed from './Feed';
+import { addPostActionCreator } from '../../redux/reducers/postPageReducer';
+import { postsSelector } from '../../redux/selectors/postsReselector';
+import { RootState } from '../../redux/redux-store';
 
-const mapStateToProps = (state: RootState) => {
-    return {
-        postList: postsSelector(state),
-        profileImg: state.auth.profileImg
-    }
-}
+const mapStateToProps = (state: RootState) => ({
+    postList: postsSelector(state),
+    profileImg: state.auth.profileImg
+});
 
-const FeedContainer = connect(mapStateToProps, {addPostActionCreator})(Feed)
+const FeedContainer = connect(mapStateToProps, { addPostActionCreator })(Feed);
 
 export default FeedContainer;

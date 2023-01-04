@@ -1,15 +1,16 @@
-import { composeValidators } from "./createValidators";
-import { ValidatorType } from "./validators";
-import { Input } from "../FormControl/Input";
-import { Field } from "react-final-form";
-import React from "react";
-import CheckBox from "../FormControl/CheckBox";
+import { Field } from 'react-final-form';
+import React from 'react';
+import { composeValidators } from './createValidators';
+import { ValidatorType } from './validators';
+import { Input } from '../FormControl/Input';
+import { CheckBoxProps } from './types';
+import CheckBox from '../FormControl/CheckBox';
 
-type InputTypes = "password" | "email" | "text";
+type InputTypes = 'password' | 'email' | 'text';
 
 export const createInput = (
     validators: ValidatorType[],
-    inputType: InputTypes = "text",
+    inputType: InputTypes = 'text',
     name: string,
     label?: string
 ) => (
@@ -17,31 +18,33 @@ export const createInput = (
         validate={composeValidators(...validators)}
         name={name}
         type={inputType}
-        label={label ? label : null}
+        label={label || null}
         component={Input}
     />
 );
 
-export interface LabelText {
+export interface LabelByState {
     active: string;
     inactive: string;
 }
-export const createCheckBox = (name: string, labelText?: LabelText) => (
+
+export const createCheckBox = (
+    name: string,
+    labelText?: string | null,
+    labelByState?: LabelByState
+) => (
     <Field
         labelText={labelText}
         name={name}
         id={name}
-        component={CheckBox}
+        render={(props: CheckBoxProps) => CheckBox(props)}
         type="checkbox"
+        labelByState={labelByState}
     />
 );
 
 export const createTextArea = (validators: ValidatorType[], name: string) => (
-    <Field
-        validate={composeValidators(...validators)}
-        name={name}
-        component="textarea"
-    />
+    <Field validate={composeValidators(...validators)} name={name} component="textarea" />
 );
 
 export const createHiddenInput = (name: string) => (

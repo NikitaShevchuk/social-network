@@ -1,22 +1,18 @@
-import React, { useCallback, useEffect } from "react";
+import React, { useCallback, useEffect } from 'react';
 
-const checkExceptions = (
-    e: MouseEvent,
-    exceptions: string[] | undefined
-): boolean => {
+const checkExceptions = (e: MouseEvent, exceptions: string[] | undefined): boolean => {
     const target = e.target as HTMLElement;
     if (!target.className?.includes || !exceptions) return false;
-    return exceptions.reduce((_, currentException) => {
-        return target.className.includes(currentException);
-    }, false);
+    return exceptions.reduce(
+        (_, currentException) => target.className.includes(currentException),
+        false
+    );
 };
 
 const outsideClickHandler =
     ({ callback, ref, closeOnElementsClick, exceptions }: Arguments) =>
     (e: MouseEvent): void => {
-        const shouldClose =
-            !checkExceptions(e, exceptions) &&
-            !ref?.current?.contains(e.target);
+        const shouldClose = !checkExceptions(e, exceptions) && !ref?.current?.contains(e.target);
         const exception = checkExceptions(e, closeOnElementsClick);
         if (shouldClose || exception) callback(false);
     };
@@ -32,9 +28,9 @@ interface Arguments {
 export const useOnClickOutside = (args: Arguments) => {
     const listener = useCallback(outsideClickHandler(args), []);
     useEffect(() => {
-        document.addEventListener("click", listener);
+        document.addEventListener('click', listener);
         return () => {
-            document.removeEventListener("click", listener);
+            document.removeEventListener('click', listener);
         };
     }, []);
 };

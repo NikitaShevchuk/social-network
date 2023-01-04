@@ -1,12 +1,12 @@
-import {DialogsInitialState, DialogWithMessage} from "../../../types/MessagesTypes";
+import { DialogsInitialState, DialogWithMessage } from '../../../types/MessagesTypes';
 
 export const setSingleConversationHead = (
-    state: DialogsInitialState, action: { id: number }
+    state: DialogsInitialState,
+    action: { id: number }
 ): DialogsInitialState => {
-
     const dialogIndex: number = state.dialogs.findIndex(
         (dialog: DialogWithMessage) => dialog.id === action.id
-    )
+    );
     if (dialogIndex !== -1) {
         return {
             ...state,
@@ -15,7 +15,7 @@ export const setSingleConversationHead = (
                 id: state.dialogs[dialogIndex]?.id,
                 userName: state.dialogs[dialogIndex]?.userName
             }
-        }
-    } else return state
-
-}
+        };
+    }
+    return state;
+};

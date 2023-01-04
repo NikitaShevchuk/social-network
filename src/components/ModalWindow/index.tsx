@@ -1,7 +1,7 @@
-import React, { FC, useEffect, useRef } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faXmark } from "@fortawesome/free-solid-svg-icons";
-import useOnClickOutside from "../../hooks/onClickOutside";
+import React, { FC, useEffect, useRef } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faXmark } from '@fortawesome/free-solid-svg-icons';
+import useOnClickOutside from '../../hooks/onClickOutside';
 
 interface Props {
     isModalWindowShown: boolean;
@@ -22,27 +22,27 @@ const ModalWindow: FC<Props> = ({
     modalRef,
     onEnterKey,
     closeOnElementsClick,
-    exceptions,
+    exceptions
 }) => {
     const handleModalClose = () => setIsModalWindowShown(false);
     const handleKeyDown = (e: React.KeyboardEvent) => {
-        if (e.key === "Escape") handleModalClose();
-        if (e.key === "Enter") onEnterKey && onEnterKey();
+        if (e.key === 'Escape') handleModalClose();
+        if (e.key === 'Enter' && onEnterKey) onEnterKey();
     };
 
     const wrapperRef = useRef<HTMLDivElement | null>(null);
     useEffect(() => {
         if (isModalWindowShown) {
-            wrapperRef.current && wrapperRef.current.focus();
+            if (wrapperRef.current) wrapperRef.current.focus();
         }
     }, [isModalWindowShown]);
 
-    const modalWrapperClassName = isModalWindowShown ? "" : "hidden";
+    const modalWrapperClassName = isModalWindowShown ? '' : 'hidden';
     useOnClickOutside({
         ref: modalRef,
         callback: setIsModalWindowShown,
         closeOnElementsClick,
-        exceptions,
+        exceptions
     });
     return (
         <div

@@ -1,21 +1,33 @@
-import React, { FC } from "react";
-import { LabelText } from "../helpers/createField";
+import React from 'react';
+import { FieldRenderProps } from 'react-final-form';
+import { LabelByState } from '../helpers/createField';
 
-interface Props {
+export interface CheckBoxProps extends FieldRenderProps<boolean, HTMLElement, string> {
     labelText?: string;
-    textByState: LabelText;
-    meta: {
-        error: string | undefined;
-        touched: boolean;
-        dirty: boolean;
-    };
-    input: any;
+    labelByState: LabelByState;
 }
 
-const CheckBox: FC<Props> = ({ labelText, input, meta, textByState }) => {
+const CheckBox = ({ labelText, input, labelByState }: CheckBoxProps) => {
     return (
         <div>
-            {labelText && <label className="checkbox-label">{labelText}</label>}
+            {labelText && (
+                <label htmlFor={input.name} className="checkbox-label">
+                    {labelText}
+                </label>
+            )}
+            {labelByState && (
+                <label
+                    htmlFor={input.name}
+                    style={{
+                        marginLeft: '5px',
+                        marginRight: '5px'
+                    }}
+                    className="checkbox-label"
+                >
+                    {input.checked ? labelByState.active : labelByState.inactive}
+                </label>
+            )}
+            <input {...input} id={input.name} />
         </div>
     );
 };

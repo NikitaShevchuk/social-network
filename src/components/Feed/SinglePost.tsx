@@ -1,5 +1,5 @@
-import React from "react";
-import profileBackground from "../../common/assets/img/profileCover.jpg";
+import React from 'react';
+import profileBackground from '../../common/assets/img/profileCover.jpg';
 
 const SinglePost = (props: any) => {
     return (
@@ -10,7 +10,7 @@ const SinglePost = (props: any) => {
                 </figure>
                 <div className="friend-name">
                     <ins>
-                        <a href="#" title="">
+                        <a href={props.userName} title="">
                             {props.userName}
                         </a>
                     </ins>

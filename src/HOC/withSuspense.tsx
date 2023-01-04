@@ -1,8 +1,7 @@
-import React, {FC, Suspense} from 'react';
-import Preloader from "../preloaders/Preloader";
-import ProfilePreloader from "../preloaders/ProfilePreloader";
+import React, { FC, Suspense } from 'react';
+import ProfilePreloader from '../preloaders/ProfilePreloader';
 
-const WithSuspense = (Component: FC<any>, preloader: JSX.Element = <Preloader/>) => {
+const WithSuspense = (Component: FC<any>) => {
     return (
         <Suspense fallback={<ProfilePreloader />}>
             <Component />

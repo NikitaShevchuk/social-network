@@ -1,11 +1,11 @@
 import React from 'react';
-import ContentLoader from 'react-content-loader'
+import ContentLoader from 'react-content-loader';
 
 const DialogsPreloader = () => {
     return (
         <ContentLoader
             speed={2}
-            width='100%'
+            width="100%"
             height={92}
             backgroundColor="#656565"
             foregroundColor="#d6d6d6"

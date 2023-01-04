@@ -1,12 +1,16 @@
-import React from "react";
-import LoginContainer from "../components/Login/LoginContainer";
-import WithSuspense from "../HOC/withSuspense";
-import RightSidebar from "../components/RightSidebar";
-import MainPage from "../components/MainContent/MainPage";
-import {Navigate} from "react-router-dom";
+import React from 'react';
+import { Navigate } from 'react-router-dom';
+import LoginContainer from '../components/Login/LoginContainer';
+import WithSuspense from '../HOC/withSuspense';
+import RightSidebar from '../components/RightSidebar';
+import MainPage from '../components/MainContent/MainPage';
 
-const ProfileContainer = React.lazy(() => import('../components/MainContent/Profile/ProfileContainer'))
-const MessagesContainer = React.lazy(() => import('../components/MainContent/Messages/MessagesContainer'))
+const ProfileContainer = React.lazy(
+    () => import('../components/MainContent/Profile/ProfileContainer')
+);
+const MessagesContainer = React.lazy(
+    () => import('../components/MainContent/Messages/MessagesContainer')
+);
 
 export interface IRoute {
     path: string;
@@ -14,36 +18,60 @@ export interface IRoute {
     exact?: boolean;
 }
 
-
 export const publicRoutes: IRoute[] = [
     {
         path: '',
-        element: <><MainPage/><RightSidebar /></>,
+        element: (
+            <>
+                <MainPage />
+                <RightSidebar />
+            </>
+        ),
         exact: true
     },
     {
         path: 'login',
-        element: <><LoginContainer/><RightSidebar /></>
+        element: (
+            <>
+                <LoginContainer />
+                <RightSidebar />
+            </>
+        )
     },
     {
         path: '*',
-        element: <Navigate to='login'/>
-    },
+        element: <Navigate to="login" />
+    }
 ];
 
 export const privateRoutes: IRoute[] = [
     {
         path: '',
-        element: <><MainPage/><RightSidebar /></>,
+        element: (
+            <>
+                <MainPage />
+                <RightSidebar />
+            </>
+        ),
         exact: true
     },
     {
         path: 'profile',
-        element: <>{WithSuspense(ProfileContainer)}<RightSidebar /></>
+        element: (
+            <>
+                {WithSuspense(ProfileContainer)}
+                <RightSidebar />
+            </>
+        )
     },
     {
         path: 'profile/:userId',
-        element: <>{WithSuspense(ProfileContainer)}<RightSidebar /></>
+        element: (
+            <>
+                {WithSuspense(ProfileContainer)}
+                <RightSidebar />
+            </>
+        )
     },
     {
         path: 'messages',
@@ -55,6 +83,6 @@ export const privateRoutes: IRoute[] = [
     },
     {
         path: '*',
-        element: <Navigate to=''/>
-    },
-]
+        element: <Navigate to="" />
+    }
+];

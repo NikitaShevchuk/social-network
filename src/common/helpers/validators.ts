@@ -1,10 +1,9 @@
 export type ValidatorType = (value: string) => string | undefined;
 
-export const required: ValidatorType = (value) =>
-    value ? undefined : "Required";
+export const required: ValidatorType = (value) => (value ? undefined : 'Required');
 
 export const isEmail: ValidatorType = (value) =>
-    value.includes("@") ? undefined : "Please enter email";
+    value.includes('@') ? undefined : 'Please enter email';
 
 export const maxLengthCreator =
     (maxLength: number): ValidatorType =>
@@ -22,7 +21,6 @@ export const minLengthCreator =
 
 export const isLink: ValidatorType = (value) => {
     const valueIsValid =
-        (value !== null && value !== undefined && value.includes("https://")) ||
-        value !== "";
-    return valueIsValid ? undefined : "Please enter valid link";
+        (value !== null && value !== undefined && value.includes('https://')) || value !== '';
+    return valueIsValid ? undefined : 'Please enter valid link';
 };

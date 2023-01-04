@@ -1,16 +1,14 @@
-import React, {FC} from 'react';
+import React, { FC } from 'react';
 
 interface Props {
-    appError: string | null
+    appError: string | null;
 }
 
-const AppError: FC<Props> = ({appError}) => {
-    return (
-        <div className='globalPreloader'>
-            <span className="loader"></span>
-            <div className="appError">{appError}</div>
-        </div>
-    );
-};
+const AppError: FC<Props> = ({ appError }) => (
+    <div className="globalPreloader">
+        <span className="loader" />
+        <div className="appError">{appError}</div>
+    </div>
+);
 
 export default AppError;

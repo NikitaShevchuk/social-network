@@ -1,9 +1,9 @@
-import React, { useRef, useState } from "react";
-import { useDispatch } from "react-redux";
-import { NavLink } from "react-router-dom";
-import { loginThunk } from "../../redux/reducers/auth-reducer/middleware";
-import { testAccountData } from "../Login/Login";
-import ConfirmModal from "../ModalWindow/ConfirmModal";
+import React, { useRef, useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { NavLink } from 'react-router-dom';
+import { loginThunk } from '../../redux/reducers/auth-reducer/middleware';
+import { testAccountData } from '../Login/Login';
+import ConfirmModal from '../ModalWindow/ConfirmModal';
 
 const LoginButton = () => {
     const dispatch = useDispatch();
@@ -16,12 +16,12 @@ const LoginButton = () => {
     const handleModalOpen = () => setIsModalOpened(true);
     const modalRef = useRef<HTMLDivElement | null>(null);
     return (
-        <div className="flex column" style={{ width: "100%" }} ref={modalRef}>
+        <div className="flex column" style={{ width: '100%' }} ref={modalRef}>
             <NavLink
                 style={{
-                    marginBottom: "1rem",
-                    width: "90%",
-                    textAlign: "center",
+                    marginBottom: '1rem',
+                    width: '90%',
+                    textAlign: 'center'
                 }}
                 to="/login"
                 className="add-butn"
@@ -29,10 +29,11 @@ const LoginButton = () => {
                 Login / Auth
             </NavLink>
             <button
+                type="button"
                 onClick={handleModalOpen}
                 className="add-butn whiteBg"
                 // TODO remove temporary inline styles
-                style={{ marginTop: "0", width: "90%" }}
+                style={{ marginTop: '0', width: '90%' }}
             >
                 Test account
             </button>

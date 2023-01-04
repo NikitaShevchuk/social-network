@@ -1,11 +1,11 @@
-import { ResultCodes } from "../../../services";
-import { profileActions } from "./actions";
-import { authActions } from "../auth-reducer/actions";
-import { profileService } from "../../../services/profileService";
-import { usersService } from "../../../services/usersService";
-import { AsyncThunk } from "../../Models";
-import { appActions } from "../app-reducer/actions";
-import { EditProfilePutRequestData } from "../../../types/ProfileTypes";
+import { ResultCodes } from '../../../services';
+import { profileActions } from './actions';
+import { authActions } from '../auth-reducer/actions';
+import { profileService } from '../../../services/profileService';
+import { usersService } from '../../../services/usersService';
+import { AsyncThunk } from '../../Models';
+import { appActions } from '../app-reducer/actions';
+import { EditProfilePutRequestData } from '../../../types/ProfileTypes';
 
 export const loadProfile =
     (id: number): AsyncThunk =>
@@ -21,7 +21,7 @@ export const loadProfile =
             dispatch(profileActions.setStatus(status));
             dispatch(profileActions.removeProfileFetchError());
         } catch {
-            dispatch(profileActions.addProfileFetchError("Can't load profile"));
+            dispatch(profileActions.addProfileFetchError(`Can't load profile`));
         }
         dispatch(profileActions.setIsProfileLoading(false));
     };
@@ -29,8 +29,9 @@ export const loadProfile =
 export const getMyProfileFromState = (): AsyncThunk => (dispatch, getState) => {
     dispatch(profileActions.setIsProfileLoading(true));
     const myProfileFromState = getState().auth.clientProfile;
-    if (myProfileFromState.userId !== 0)
+    if (myProfileFromState.userId !== 0) {
         dispatch(profileActions.setProfile(myProfileFromState));
+    }
     dispatch(profileActions.setIsProfileLoading(false));
 };
 
@@ -47,7 +48,7 @@ export const followUser =
                 dispatch(appActions.addError(response.messages[0]));
             }
         } catch {
-            dispatch(appActions.addError("Network error"));
+            dispatch(appActions.addError('Network error'));
         }
         dispatch(profileActions.ableButton());
     };
@@ -65,7 +66,7 @@ export const unfollowUser =
                 dispatch(appActions.addError(response.messages[0]));
             }
         } catch {
-            dispatch(appActions.addError("Network error"));
+            dispatch(appActions.addError('Network error'));
         }
     };
 
@@ -77,19 +78,15 @@ export const updatePhoto =
             const response = await profileService.uploadPhoto(photo);
             if (response.resultCode === ResultCodes.Success) {
                 dispatch(authActions.setUserPhoto(response.data.photos.large));
-                dispatch(
-                    profileActions.photoUploadedSuccessfully(
-                        response.data.photos
-                    )
-                );
+                dispatch(profileActions.photoUploadedSuccessfully(response.data.photos));
             } else {
                 dispatch(profileActions.addLocalError(response.messages[0]));
                 setTimeout(() => {
-                    dispatch(profileActions.addLocalError(""));
+                    dispatch(profileActions.addLocalError(''));
                 }, 5000);
             }
         } catch {
-            dispatch(appActions.addError("Network error"));
+            dispatch(appActions.addError('Network error'));
         }
         dispatch(profileActions.isPhotoUpdating(false));
     };
@@ -104,10 +101,10 @@ export const updateProfile =
             } else if (profile.resultCode === ResultCodes.Error) {
                 dispatch(profileActions.addLocalError(profile.messages[0]));
                 setTimeout(() => {
-                    dispatch(profileActions.addLocalError(""));
+                    dispatch(profileActions.addLocalError(''));
                 }, 5000);
             }
         } catch {
-            dispatch(appActions.addError("Network error"));
+            dispatch(appActions.addError('Network error'));
         }
     };

@@ -1,14 +1,18 @@
-import React, {FC} from 'react';
-import {RootState} from "../../../../redux/redux-store";
-import {connect, ConnectedProps} from "react-redux";
-import ProfileButtons from "./ProfileButtons";
-import {setProfileEditMode} from "../../../../redux/reducers/profile-reducer/actions";
+import React, { FC } from 'react';
+import { connect, ConnectedProps } from 'react-redux';
+import { RootState } from '../../../../redux/redux-store';
+import ProfileButtons from './ProfileButtons';
+import { setProfileEditMode } from '../../../../redux/reducers/profile-reducer/actions';
 
 const ProfileButtonsContainer: FC<ProfileButtonsConnectedProps> = ({
-    setProfileEditMode, isMyProfile, userId, disableWhileRequest,
-    followed, profileEditMode
+    setProfileEditMode,
+    isMyProfile,
+    userId,
+    disableWhileRequest,
+    followed,
+    profileEditMode
 }) => {
-    const enterEditMode = () => setProfileEditMode(true)
+    const enterEditMode = () => setProfileEditMode(true);
     return (
         <ProfileButtons
             isMyProfile={isMyProfile}
@@ -27,11 +31,8 @@ const mapStateToProps = (state: RootState) => ({
     isMyProfile: state.profilePage.isMyProfile,
     userId: state.profilePage.userIdParam,
     profileEditMode: state.profilePage.profileEditMode
-})
+});
 
-const connector = connect(
-    mapStateToProps,
-    {setProfileEditMode}
-)
+const connector = connect(mapStateToProps, { setProfileEditMode });
 export default connector(ProfileButtonsContainer);
-export type ProfileButtonsConnectedProps = ConnectedProps<typeof connector>
+export type ProfileButtonsConnectedProps = ConnectedProps<typeof connector>;

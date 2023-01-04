@@ -2,20 +2,20 @@ export const useGetDayByNumber = (addedAt: string) => {
     const day = new Date(addedAt).getDay();
     switch (day) {
         case 0:
-            return 'Mon'
+            return 'Mon';
         case 1:
-            return 'Thu'
+            return 'Thu';
         case 2:
-            return 'Wed'
+            return 'Wed';
         case 3:
-            return 'Thur'
+            return 'Thur';
         case 4:
-            return 'Fri'
+            return 'Fri';
         case 5:
-            return 'Sut'
+            return 'Sut';
         case 6:
-            return 'Sun'
+            return 'Sun';
         default:
-            return 'Mon'
+            return 'Mon';
     }
-}
+};

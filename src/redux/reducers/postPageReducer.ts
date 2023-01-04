@@ -1,6 +1,6 @@
 const ADD_POST = 'ADD-POST';
 
-let initState = {
+const initState = {
     posts: [
         {
             id: 1,
@@ -8,12 +8,12 @@ let initState = {
             likesCount: 0
         }
     ]
-}
+};
 
 const postPageReducer = (state = initState, action: any) => {
-    switch(action.type) {
+    switch (action.type) {
         case ADD_POST:
-            let newPost = {
+            const newPost = {
                 id: 3,
                 postText: action.newPost.postBody,
                 likesCount: 0
@@ -21,14 +21,12 @@ const postPageReducer = (state = initState, action: any) => {
             return {
                 ...state,
                 posts: [...state.posts, newPost]
-            }
+            };
         default:
             return state;
     }
-}
+};
 
-export const addPostActionCreator = (newPost: any) => {
-    return {type: ADD_POST, newPost}
-}
+export const addPostActionCreator = (newPost: any) => ({ type: ADD_POST, newPost });
 
 export default postPageReducer;

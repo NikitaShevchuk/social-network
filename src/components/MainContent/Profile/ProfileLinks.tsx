@@ -1,11 +1,9 @@
-import React, { FC } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Contacts, ContactsArray } from "../../../types/ProfileTypes";
-import { useCreateIcons } from "./EditProfile/utils";
-import { faPencilSquare, faClose } from "@fortawesome/free-solid-svg-icons";
-import { RootState } from "../../../redux/redux-store";
-import { connect, ConnectedProps } from "react-redux";
-import { setSocialMediaEditMode } from "../../../redux/reducers/profile-reducer/actions";
+import React, { FC } from 'react';
+import { connect, ConnectedProps } from 'react-redux';
+import { Contacts, ContactsArray } from '../../../types/ProfileTypes';
+import { useCreateIcons } from './EditProfile/utils';
+import { RootState } from '../../../redux/redux-store';
+import { setSocialMediaEditMode } from '../../../redux/reducers/profile-reducer/actions';
 
 interface Props extends ProfileLinksConnectedProps {
     contactsArray: ContactsArray;
@@ -18,16 +16,14 @@ const ProfileLinks: FC<Props> = ({
     profileEditMode,
     contacts,
     socialMediaEditMode,
-    setSocialMediaEditMode,
+    setSocialMediaEditMode
 }) => {
     const toggleSocialMediaEditMode = () =>
         profileEditMode && setSocialMediaEditMode(!socialMediaEditMode);
 
-    const hasAnyLink = Object.values(contacts).find(
-        (contact) => contact !== null
-    );
+    const hasAnyLink = Object.values(contacts).find((contact) => contact !== null);
     const contactIcons = useCreateIcons(contactsArray);
-    if (!hasAnyLink && !profileEditMode) return <span></span>;
+    if (!hasAnyLink && !profileEditMode) return <span />;
 
     return (
         <div className="additional-profile-info">
@@ -39,10 +35,10 @@ const ProfileLinks: FC<Props> = ({
                 {profileEditMode && (
                     <div
                         className={`edit-social-media ${
-                            socialMediaEditMode ? "close-icon" : "edit-icon"
+                            socialMediaEditMode ? 'close-icon' : 'edit-icon'
                         }`}
                         onClick={toggleSocialMediaEditMode}
-                    ></div>
+                    />
                 )}
             </div>
         </div>
@@ -51,7 +47,7 @@ const ProfileLinks: FC<Props> = ({
 
 const mapStateToProps = (state: RootState) => ({
     socialMediaEditMode: state.profilePage.socialMediaEditMode,
-    contactsArray: state.profilePage.contactsArray,
+    contactsArray: state.profilePage.contactsArray
 });
 const connector = connect(mapStateToProps, { setSocialMediaEditMode });
 export default connector(ProfileLinks);

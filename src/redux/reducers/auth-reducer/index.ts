@@ -1,18 +1,18 @@
-import {AuthActionsTypes} from "./actions";
-import {UserData} from "../../../types/AuthTypes";
-import {Profile} from "../../../types/ProfileTypes";
+import { AuthActionsTypes } from './actions';
+import { UserData } from '../../../types/AuthTypes';
+import { Profile } from '../../../types/ProfileTypes';
 
 export interface AuthInitialState {
-    userData: UserData
-    profileImg: string | null
-    clientStatus: string | null
-    isAuthorized: boolean
-    successLogin: boolean
-    loginFailed: string | null
+    userData: UserData;
+    profileImg: string | null;
+    clientStatus: string | null;
+    isAuthorized: boolean;
+    successLogin: boolean;
+    loginFailed: string | null;
     captcha: {
-        url: string | null
-    }
-    clientProfile: Profile
+        url: string | null;
+    };
+    clientProfile: Profile;
 }
 
 export const authInitialState: AuthInitialState = {
@@ -47,61 +47,64 @@ export const authInitialState: AuthInitialState = {
         userId: 0,
         lookingForAJobDescription: ''
     }
-}
+};
 
-const authReducer = (state = authInitialState, action: AuthActionsTypes): AuthInitialState => {
+const authReducer = (
+    state: AuthInitialState = authInitialState,
+    action: AuthActionsTypes
+): AuthInitialState => {
     switch (action.type) {
-        case "auth-reducer/SET_USER_DATA":
+        case 'auth-reducer/SET_USER_DATA':
             return {
                 ...state,
                 userData: action.userData
-            }
+            };
         case 'auth-reducer/SET_USER_PHOTO':
             return {
                 ...state,
                 profileImg: action.userPhoto
-            }
+            };
         case 'auth-reducer/TOGGLE_IS_AUTHORIZED':
             return {
                 ...state,
                 isAuthorized: action.toggle
-            }
+            };
         case 'auth-reducer/LOGIN':
             return {
                 ...state,
                 successLogin: action.isLoggedIn
-            }
+            };
         case 'auth-reducer/LOGIN_FAILED':
             return {
                 ...state,
                 loginFailed: action.loginErrorText
-            }
+            };
         case 'auth-reducer/LOGOUT':
             return {
                 ...state,
                 isAuthorized: false,
                 successLogin: false,
-                userData: {id: 0, login: null, email: null},
+                userData: { id: 0, login: null, email: null },
                 profileImg: null
-            }
+            };
         case 'auth-reducer/GET_CAPTCHA':
             return {
                 ...state,
                 captcha: action.captcha
-            }
+            };
         case 'auth-reducer/SET_CLIENT_STATUS':
             return {
                 ...state,
                 clientStatus: action.clientStatus
-            }
-        case "auth-reducer/SET_CLIENT_PROFILE":
+            };
+        case 'auth-reducer/SET_CLIENT_PROFILE':
             return {
                 ...state,
                 clientProfile: action.clientProfile
-            }
+            };
         default:
             return state;
     }
-}
+};
 
 export default authReducer;

@@ -1,5 +1,5 @@
-import {ThunkAction} from "redux-thunk";
-import {RootState} from "../redux-store";
-import {AnyAction} from "redux";
+import { ThunkAction } from 'redux-thunk';
+import { AnyAction } from 'redux';
+import { RootState } from '../redux-store';
 
-export type AsyncThunk = ThunkAction<void, RootState, unknown, AnyAction>
+export type AsyncThunk = ThunkAction<void, RootState, unknown, AnyAction>;

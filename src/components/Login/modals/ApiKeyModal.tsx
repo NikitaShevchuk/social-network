@@ -1,17 +1,16 @@
-import React, { FC, useRef, useState } from "react";
-import instruction from "../../../common/assets/img/instruction.png";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faQuestionCircle } from "@fortawesome/free-solid-svg-icons";
-import { ModalWindowBody } from "./ModalWindowBody";
-import ModalWindow from "../../ModalWindow";
+import React, { FC, useRef, useState } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faQuestionCircle } from '@fortawesome/free-solid-svg-icons';
+import instruction from '../../../common/assets/img/instruction.png';
+import { ModalWindowBody } from './ModalWindowBody';
+import ModalWindow from '../../ModalWindow';
 
 interface Props {
     apiKeyField: JSX.Element;
 }
 
 const ApiKeyModal: FC<Props> = ({ apiKeyField }) => {
-    const [isModalWindowShown, setIsModalWindowShown] =
-        useState<boolean>(false);
+    const [isModalWindowShown, setIsModalWindowShown] = useState<boolean>(false);
     const openModal = () => setIsModalWindowShown(true);
     const modalRef = useRef<HTMLDivElement | null>(null);
     return (
@@ -27,7 +26,7 @@ const ApiKeyModal: FC<Props> = ({ apiKeyField }) => {
                 image={instruction}
                 body={<ModalWindowBody />}
                 modalRef={modalRef}
-                closeOnElementsClick={["modalWindow__wrapper"]}
+                closeOnElementsClick={['modalWindow__wrapper']}
             />
         </div>
     );

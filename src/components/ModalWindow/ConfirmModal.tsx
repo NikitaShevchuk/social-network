@@ -1,5 +1,5 @@
-import React, { FC } from "react";
-import ModalWindow from ".";
+import React, { FC } from 'react';
+import ModalWindow from '.';
 
 interface ConfirmProps {
     handleContinueClick: () => void;
@@ -10,28 +10,20 @@ interface ConfirmProps {
 const ConfirmModalBody: FC<ConfirmProps> = ({
     handleContinueClick,
     handleCancelClick,
-    confirmationText,
-}) => {
-    return (
-        <div tabIndex={0} className="confirmation-modal">
-            <div className="text">{confirmationText}</div>
-            <div className="flex center">
-                <button
-                    className="add-butn mr-20"
-                    onClick={handleContinueClick}
-                >
-                    Continue
-                </button>
-                <button
-                    className="add-butn whiteBg"
-                    onClick={handleCancelClick}
-                >
-                    Cancel
-                </button>
-            </div>
+    confirmationText
+}) => (
+    <div className="confirmation-modal">
+        <div className="text">{confirmationText}</div>
+        <div className="flex center">
+            <button type="button" className="add-butn mr-20" onClick={handleContinueClick}>
+                Continue
+            </button>
+            <button type="button" className="add-butn whiteBg" onClick={handleCancelClick}>
+                Cancel
+            </button>
         </div>
-    );
-};
+    </div>
+);
 
 interface Props {
     executeOnConfirm: () => void;
@@ -46,7 +38,7 @@ const ConfirmModal: FC<Props> = ({
     executeOnConfirm,
     isModalOpened,
     setIsModalOpened,
-    modalRef,
+    modalRef
 }) => {
     const handleCancelClick = () => setIsModalOpened(false);
     const handleContinueClick = () => {
@@ -59,7 +51,7 @@ const ConfirmModal: FC<Props> = ({
             modalRef={modalRef}
             setIsModalWindowShown={setIsModalOpened}
             onEnterKey={handleContinueClick}
-            closeOnElementsClick={["modalWindow__wrapper"]}
+            closeOnElementsClick={['modalWindow__wrapper']}
             body={
                 <ConfirmModalBody
                     handleCancelClick={handleCancelClick}

@@ -23,7 +23,7 @@ nav {
     display: block;
 }
 
-[tabindex="-1"]:focus {
+[tabindex='-1']:focus {
     outline: 0 !important;
 }
 
@@ -134,31 +134,31 @@ button {
     text-transform: none;
 }
 
-[type="reset"],
-[type="submit"],
+[type='reset'],
+[type='submit'],
 button,
-html [type="button"] {
+html [type='button'] {
     -webkit-appearance: button;
 }
 
-[type="button"]::-moz-focus-inner,
-[type="reset"]::-moz-focus-inner,
-[type="submit"]::-moz-focus-inner,
+[type='button']::-moz-focus-inner,
+[type='reset']::-moz-focus-inner,
+[type='submit']::-moz-focus-inner,
 button::-moz-focus-inner {
     padding: 0;
     border-style: none;
 }
 
-input[type="checkbox"],
-input[type="radio"] {
+input[type='checkbox'],
+input[type='radio'] {
     box-sizing: border-box;
     padding: 0;
 }
 
-input[type="date"],
-input[type="datetime-local"],
-input[type="month"],
-input[type="time"] {
+input[type='date'],
+input[type='datetime-local'],
+input[type='month'],
+input[type='time'] {
     -webkit-appearance: listbox;
 }
 
@@ -167,18 +167,18 @@ textarea {
     resize: vertical;
 }
 
-[type="number"]::-webkit-inner-spin-button,
-[type="number"]::-webkit-outer-spin-button {
+[type='number']::-webkit-inner-spin-button,
+[type='number']::-webkit-outer-spin-button {
     height: auto;
 }
 
-[type="search"] {
+[type='search'] {
     outline-offset: -2px;
     -webkit-appearance: none;
 }
 
-[type="search"]::-webkit-search-cancel-button,
-[type="search"]::-webkit-search-decoration {
+[type='search']::-webkit-search-cancel-button,
+[type='search']::-webkit-search-decoration {
     -webkit-appearance: none;
 }
 
@@ -327,7 +327,7 @@ small {
     margin-left: -5px;
 }
 
-.form-row > [class*="col-"] {
+.form-row > [class*='col-'] {
     padding-right: 5px;
     padding-left: 5px;
 }
@@ -501,13 +501,13 @@ input.border {
     color: #fff;
     padding: 0.6rem 1.5rem;
     background: none;
-    font-family: "Source Sans Pro", sans-serif;
+    font-family: 'Source Sans Pro', sans-serif;
 }
 input.border.error {
     border-color: #f94444;
 }
 body {
-    font-family: "Inter", sans-serif;
+    font-family: 'Inter', sans-serif;
     font-size: 1.5rem;
     width: 100%;
     margin: 0;
@@ -561,9 +561,9 @@ img {
     text-align: center;
 }
 
-[type="submit"],
+[type='submit'],
 button,
-html [type="button"] {
+html [type='button'] {
     cursor: pointer;
 }
 
@@ -880,7 +880,7 @@ button.add-butn.transparent:hover {
     border-left: 8px solid transparent;
     border-right: 8px solid transparent;
     bottom: -12px;
-    content: "";
+    content: '';
     left: 50%;
     position: absolute;
     transform: translate(-50%);
@@ -929,7 +929,7 @@ button.add-butn.transparent:hover {
     justify-content: center;
 }
 
-.fileContainer [type="file"] {
+.fileContainer [type='file'] {
     cursor: pointer;
     display: block;
     filter: alpha(opacity=0);
@@ -942,7 +942,7 @@ button.add-butn.transparent:hover {
     overflow: hidden;
 }
 
-.edit-phto .fileContainer [type="file"] {
+.edit-phto .fileContainer [type='file'] {
     height: 100%;
     width: 100%;
     cursor: pointer;
@@ -1031,7 +1031,7 @@ button.add-butn.transparent:hover {
 
 .sidebar .widget-title::before {
     bottom: 0;
-    content: "";
+    content: '';
     height: 2px;
     left: 2rem;
     position: absolute;
@@ -1186,7 +1186,7 @@ form button {
     padding: 0.3rem 1rem;
 }
 
-.attachments .fileContainer [type="file"] {
+.attachments .fileContainer [type='file'] {
     right: 6px;
     top: -18px;
     width: 2rem;
@@ -1360,14 +1360,7 @@ form button {
     transition: all 0.2s linear 0s;
 }
 
-.we-video-info
-    > ul
-    li
-    span.like:hover
-    .we-video-info
-    > ul
-    li
-    span.dislike:hover {
+.we-video-info > ul li span.like:hover .we-video-info > ul li span.dislike:hover {
     trnsform: scale(1.1);
 }
 
@@ -1402,7 +1395,7 @@ span.status {
 span.status::after {
     background: white none repeat scroll 0 0;
     border-radius: 100%;
-    content: "";
+    content: '';
     height: 6px;
     left: 50%;
     position: absolute;
@@ -1738,8 +1731,7 @@ form .lookingForAJob {
     display: flex;
     flex-direction: column;
     /*justify-content: end;*/
-    background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
-        url("../img/chat-bg.png");
+    background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('../img/chat-bg.png');
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -2161,7 +2153,7 @@ form .lookingForAJob {
 
 .loader::before,
 .loader::after {
-    content: "";
+    content: '';
     box-sizing: border-box;
     position: absolute;
     inset: 0px;
@@ -2196,19 +2188,15 @@ form .lookingForAJob {
 
     75%,
     100% {
-        clip-path: polygon(
-            50% 50%,
-            0 0,
-            100% 0,
-            100% 100%,
-            100% 100%,
-            100% 100%
-        );
+        clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 100%, 100% 100%, 100% 100%);
     }
 }
 
 .user-nav {
     position: relative;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
 }
 
 .user-nav .add-butn {
@@ -2285,8 +2273,7 @@ form .lookingForAJob {
     width: 100%;
     justify-content: space-around;
     display: flex;
-    box-shadow: rgba(136, 153, 166, 0.2) 0px 0px 1.5rem,
-        rgba(136, 153, 166, 0.15) 0px 0px 3px 1px;
+    box-shadow: rgba(136, 153, 166, 0.2) 0px 0px 1.5rem, rgba(136, 153, 166, 0.15) 0px 0px 3px 1px;
     align-items: center;
     border-radius: 3rem;
     flex-direction: column;
@@ -2388,13 +2375,13 @@ form .lookingForAJob {
     background-position: center right;
 }
 .edit-social-media.edit-icon {
-    background-image: url("../img/icons/edit-profile.svg");
+    background-image: url('../img/icons/edit-profile.svg');
 }
 
 .edit-social-media.close-icon {
-    background-image: url("../img/icons/close.svg");
+    background-image: url('../img/icons/close.svg');
 }
-.edit-profile-form input[name="fullName"] {
+.edit-profile-form input[name='fullName'] {
     margin-bottom: 5px;
     width: auto;
 }
@@ -2596,8 +2583,7 @@ span.text a {
     width: auto;
     height: auto;
     background: #181818;
-    box-shadow: rgba(136, 153, 166, 0.2) 0px 0px 1.5rem,
-        rgba(136, 153, 166, 0.15) 0px 0px 3px 1px;
+    box-shadow: rgba(136, 153, 166, 0.2) 0px 0px 1.5rem, rgba(136, 153, 166, 0.15) 0px 0px 3px 1px;
     border-radius: 2rem;
     display: flex;
     align-items: center;

@@ -1,27 +1,20 @@
-import { FormRenderProps } from "react-final-form";
-import React from "react";
-import { Captcha } from "../Login";
-import { FormValues } from "../LoginContainer";
-import { useGetFields } from "./fields";
-import ApiKeyModal from "../modals/ApiKeyModal";
+import { FormRenderProps } from 'react-final-form';
+import React from 'react';
+import { Captcha } from '../Login';
+import { FormValues } from '../LoginContainer';
+import { useGetFields } from './fields';
+import ApiKeyModal from '../modals/ApiKeyModal';
 
-const REGISTRATION_LINK = "https://social-network.samuraijs.com/signUp";
+const REGISTRATION_LINK = 'https://social-network.samuraijs.com/signUp';
 
 export type ToggleModal = (isShown: boolean) => void;
-type FormRenderFunction =
-    | ((props: FormRenderProps<FormValues>) => React.ReactNode)
-    | undefined;
+type FormRenderFunction = ((props: FormRenderProps<FormValues>) => React.ReactNode) | undefined;
 
 export const loginFormRender =
     (loginFailed: string | null, captcha: Captcha): FormRenderFunction =>
     ({ handleSubmit, submitting, pristine, form }) => {
-        const {
-            captchaField,
-            apiKeyField,
-            emailField,
-            passwordField,
-            rememberMeField,
-        } = useGetFields();
+        const { captchaField, apiKeyField, emailField, passwordField, rememberMeField } =
+            useGetFields();
         const resetForm = () => form.reset();
         return (
             <form onSubmit={handleSubmit}>
@@ -30,7 +23,7 @@ export const loginFormRender =
                     {passwordField}
                 </div>
                 <ApiKeyModal apiKeyField={apiKeyField} />
-                {loginFailed && loginFailed !== "" && (
+                {loginFailed && loginFailed !== '' && (
                     <div className="loginError">{loginFailed}</div>
                 )}
                 {captcha.url && (
@@ -41,11 +34,7 @@ export const loginFormRender =
                 )}
                 <div className="flex between mt-20">
                     <div>
-                        <button
-                            type="submit"
-                            disabled={submitting}
-                            className="add-butn mr-20"
-                        >
+                        <button type="submit" disabled={submitting} className="add-butn mr-20">
                             <span>Login</span>
                         </button>
                         <button

@@ -1,5 +1,5 @@
-import {FormApi} from "final-form";
-import {SearchDialogsFormValues} from "../../components/MainContent/Messages/Dialogs/DialogsSearchForm";
+import { FormApi } from 'final-form';
+import { SearchDialogsFormValues } from '../../components/MainContent/Messages/Dialogs/DialogsSearchForm';
 
 export const isSearchFieldEmpty = (
     e: KeyboardEvent,
@@ -7,7 +7,7 @@ export const isSearchFieldEmpty = (
     requestFunc: any,
     ...args: any
 ) => {
-    const formValues = form.getState().values as SearchDialogsFormValues
-    const shouldMakeRequest = e.key === 'Backspace' && !formValues.searchBody
-    if (shouldMakeRequest) return requestFunc(...args)
-}
+    const formValues = form.getState().values as SearchDialogsFormValues;
+    const shouldMakeRequest = e.key === 'Backspace' && !formValues.searchBody;
+    if (shouldMakeRequest) return requestFunc(...args);
+};

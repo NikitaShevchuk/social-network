@@ -1,16 +1,16 @@
-import React, { FC, useRef, useState } from "react";
-import { Form } from "react-final-form";
-import { loginFormRender } from "./Helpers/loginFormRender";
-import { FormValues } from "./LoginContainer";
-import { faInfoCircle } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import ConfirmModal from "../ModalWindow/ConfirmModal";
+import React, { FC, useRef, useState } from 'react';
+import { Form } from 'react-final-form';
+import { faInfoCircle } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { loginFormRender } from './Helpers/loginFormRender';
+import { FormValues } from './LoginContainer';
+import ConfirmModal from '../ModalWindow/ConfirmModal';
 
 export const testAccountData: FormValues = {
-    email: "shevchuk.nikita.gh@gmail.com",
-    password: "test_account_password",
-    cookie: "20eb1751-84d0-404e-821a-4627208085c2",
-    rememberMe: false,
+    email: 'shevchuk.nikita.gh@gmail.com',
+    password: 'test_account_password',
+    cookie: '20eb1751-84d0-404e-821a-4627208085c2',
+    rememberMe: false
 };
 
 export interface Captcha {
@@ -47,10 +47,7 @@ const Login: FC<LoginFormProps> = ({ submitForm, loginFailed, captcha }) => {
                 </div>
             </h4>
             <div className="editing-info">
-                <Form
-                    onSubmit={submitForm}
-                    render={loginFormRender(loginFailed, captcha)}
-                />
+                <Form onSubmit={submitForm} render={loginFormRender(loginFailed, captcha)} />
             </div>
         </div>
     );

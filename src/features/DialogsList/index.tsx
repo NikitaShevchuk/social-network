@@ -1,15 +1,15 @@
-import React, { FC, useEffect } from "react";
-import { RootState } from "../../redux/redux-store";
-import { dialogsReselect } from "../../redux/selectors/messagesSelector";
-import { connect, ConnectedProps } from "react-redux";
-import { setDialogs } from "../../redux/reducers/dialogs-reducer/middleware";
-import { getIsAuthorized } from "../../redux/selectors/authSelectors";
-import NoData from "../../common/NoData";
-import FetchError from "../../common/FetchError";
-import DialogsPreloader from "../../preloaders/DialogsPreloader";
-import MultiplyPreloader from "../../preloaders";
-import LoginButton from "../../components/Buttons/LoginButton";
-import PerfectScrollbar from "react-perfect-scrollbar";
+import React, { FC, useEffect } from 'react';
+import { connect, ConnectedProps } from 'react-redux';
+import PerfectScrollbar from 'react-perfect-scrollbar';
+import { RootState } from '../../redux/redux-store';
+import { dialogsReselect } from '../../redux/selectors/messagesSelector';
+import { setDialogs } from '../../redux/reducers/dialogs-reducer/middleware';
+import { getIsAuthorized } from '../../redux/selectors/authSelectors';
+import NoData from '../../common/NoData';
+import FetchError from '../../common/FetchError';
+import DialogsPreloader from '../../preloaders/DialogsPreloader';
+import MultiplyPreloader from '../../preloaders';
+import LoginButton from '../../components/Buttons/LoginButton';
 
 interface Props extends DialogsListConnectedProps {
     className?: string;
@@ -21,29 +21,24 @@ const DialogsList: FC<Props> = ({
     isAuthorized,
     dialogsIsLoading,
     dialogsError,
-    className,
+    className
 }) => {
     useEffect(() => {
         if (isAuthorized) setDialogs();
     }, [isAuthorized]);
-    if (!isAuthorized)
+    if (!isAuthorized) {
         return (
             <div className="notAuthorized">
                 <span className="text">Authorize to see messages</span>
                 <LoginButton />
             </div>
         );
+    }
     return (
-        <PerfectScrollbar
-            component="ul"
-            className={`peoples ${className ? className : ""}`}
-        >
+        <PerfectScrollbar component="ul" className={`peoples ${className || ''}`}>
             {/* Error */}
             {dialogsError && !dialogsIsLoading && (
-                <FetchError
-                    refetch={setDialogs}
-                    errorText="Can't load dialogs"
-                />
+                <FetchError refetch={setDialogs} errorText="Can't load dialogs" />
             )}
 
             {/* Is loading */}
@@ -70,7 +65,7 @@ const mapStateToProps = (state: RootState) => ({
     dialogs: dialogsReselect(state),
     isAuthorized: getIsAuthorized(state),
     dialogsIsLoading: state.dialogsPage.dialogsIsLoading,
-    dialogsError: state.dialogsPage.dialogsError,
+    dialogsError: state.dialogsPage.dialogsError
 });
 const connector = connect(mapStateToProps, { setDialogs });
 export default connector(DialogsList);

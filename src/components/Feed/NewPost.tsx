@@ -1,7 +1,7 @@
-import React from "react";
-import { Form, Field } from "react-final-form";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faFile, faMusic } from "@fortawesome/free-solid-svg-icons";
+import React from 'react';
+import { Form, Field } from 'react-final-form';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faFile, faMusic } from '@fortawesome/free-solid-svg-icons';
 
 const NewPostForm = ({ onSubmit }: any) => {
     return (
@@ -10,16 +10,16 @@ const NewPostForm = ({ onSubmit }: any) => {
             render={({ handleSubmit }) => (
                 <form onSubmit={handleSubmit}>
                     <Field
-                        name={"postBody"}
+                        name="postBody"
                         initialValue="Posts will be available later..."
-                        component={"textarea"}
+                        component="textarea"
                     />
                     <div className="attachments">
                         <div className="icons">
                             <FontAwesomeIcon icon={faMusic} />
                             <FontAwesomeIcon icon={faFile} />
                         </div>
-                        <button disabled className="add-butn">
+                        <button type="button" disabled className="add-butn">
                             Post
                         </button>
                     </div>
