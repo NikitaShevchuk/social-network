@@ -130,18 +130,12 @@
     figure {
         margin-bottom: 0;
         position: relative;
-        top: -100%;
-        width: 100%;
-        aspect-ratio: 1 / 1;
+        top: -80px;
+        width: 140px;
+        aspect-ratio: 1/1;
         border: 3px solid #181818;
         border-radius: 50%;
         overflow: hidden;
-        > img.preloader {
-            height: 147px;
-        }
-        > img {
-            width: 100%;
-        }
     }
     &:hover .editPhoto {
         opacity: 1;
