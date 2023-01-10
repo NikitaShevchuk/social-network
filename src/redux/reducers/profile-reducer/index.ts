@@ -18,7 +18,7 @@ export const initialProfile = {
         twitter: null,
         website: null,
         vk: null
-    },
+    } as const,
     lookingForAJob: false,
     userId: 0,
     lookingForAJobDescription: ''

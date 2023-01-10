@@ -1,45 +1,43 @@
-import React, { FC, useRef } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import React, { FC, useMemo, useRef } from 'react';
 import classNames from 'classnames';
-import { ContactsArray } from '../../../../../types/ProfileTypes';
 import style from '../../Profile.module.scss';
-import { createFieldWithInitVal } from '../../../../../common/helpers/createField';
-import { isLink } from '../../../../../common/helpers/validators';
 import useOnClickOutside from '../../../../../hooks/onClickOutside';
+import { shouldReturnEmpty } from './utils';
+import { createInput } from '../../../../../common/helpers/createField';
+import { isLink } from '../../../../../common/helpers/validators';
+import { ContactsArray } from '../../../../../types/ProfileTypes';
+import { RootState } from '../../../../../redux/redux-store';
+import { setSocialMediaEditMode } from '../../../../../redux/reducers/profile-reducer/actions';
 
 interface Props {
     contactsArray: ContactsArray;
-    socialMediaEditMode: boolean;
-    setSocialMediaEditMode: (isInEditMode: boolean) => void;
 }
 
-const Links: FC<Props> = ({ contactsArray, socialMediaEditMode, setSocialMediaEditMode }) => {
+const Links: FC<Props> = ({ contactsArray }) => {
+    const dispatch = useDispatch();
+    const { socialMediaEditMode } = useSelector((state: RootState) => state.profilePage);
     const editSocialMediaClassName = socialMediaEditMode
         ? style.additionalInfActive
         : style.additionalInf;
 
     const formRef = useRef<HTMLDivElement | null>(null);
-
+    const toggleEditMode = (editMode: boolean) => dispatch(setSocialMediaEditMode(editMode));
     useOnClickOutside({
-        callback: setSocialMediaEditMode,
+        callback: toggleEditMode,
         exceptions: ['edit-social-media'],
         ref: formRef
     });
-
+    const mappedContactsArray = useMemo(() => {
+        return contactsArray.map((singleContact) => {
+            const contactName = singleContact[0];
+            if (shouldReturnEmpty(contactName)) return '';
+            return createInput([isLink], 'text', singleContact[0], singleContact[0]);
+        });
+    }, []);
     return (
         <div ref={formRef} className={classNames(editSocialMediaClassName, 'links-form')}>
-            {contactsArray.map((singleContact) => {
-                const contactName = singleContact[0];
-                const shouldReturnEmpty =
-                    contactName === 'website' || contactName === 'vk' || contactName === 'mainLink';
-                if (shouldReturnEmpty) return '';
-
-                return createFieldWithInitVal(
-                    [isLink],
-                    singleContact[0],
-                    contactsArray.indexOf(singleContact),
-                    singleContact[1] as string
-                );
-            })}
+            {mappedContactsArray}
         </div>
     );
 };

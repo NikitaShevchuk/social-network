@@ -18,8 +18,6 @@ interface Props {
     submitting: boolean;
     isMyProfile: boolean;
     profileEditMode: boolean;
-    socialMediaEditMode: boolean;
-    setSocialMediaEditMode: (isInEditMode: boolean) => void;
     disableEditMode: () => void;
     contactsArray: ContactsArray;
     ref: any;
@@ -34,8 +32,6 @@ const EditProfileForm: FC<Props> = forwardRef(
             disableEditMode,
             isMyProfile,
             profileEditMode,
-            socialMediaEditMode,
-            setSocialMediaEditMode,
             contactsArray
         },
         ref
@@ -80,11 +76,7 @@ const EditProfileForm: FC<Props> = forwardRef(
                         Cancel
                     </button>
                 </div>
-                <Links
-                    contactsArray={contactsArray}
-                    socialMediaEditMode={socialMediaEditMode}
-                    setSocialMediaEditMode={setSocialMediaEditMode}
-                />
+                <Links contactsArray={contactsArray} />
             </form>
         );
     }

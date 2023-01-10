@@ -10,10 +10,7 @@ import { createUpdatedProfile, validateInitialValues } from './utils';
 import EditProfileForm from './form';
 import { RootState } from '../../../../redux/redux-store';
 import { updateProfile } from '../../../../redux/reducers/profile-reducer/middleware';
-import {
-    setProfileEditMode,
-    setSocialMediaEditMode
-} from '../../../../redux/reducers/profile-reducer/actions';
+import { setProfileEditMode } from '../../../../redux/reducers/profile-reducer/actions';
 
 interface Props extends EditProfileConnectedProps {
     updateProfile: (updatedProfile: EditProfilePutRequestData) => void;
@@ -27,11 +24,9 @@ const EditProfile: FC<Props> = memo(
         updateProfile,
         isMyProfile,
         profile,
-        setSocialMediaEditMode,
         contactsArray,
         setProfileEditMode,
-        profileEditMode,
-        socialMediaEditMode
+        profileEditMode
     }) => {
         const toggleSubmenu = useRef<ForwardedRef<HTMLFormElement | null>>(null);
 
@@ -43,7 +38,7 @@ const EditProfile: FC<Props> = memo(
         const disableEditMode = () => setProfileEditMode(false);
         return (
             <Form
-                initialValues={validateInitialValues(profile)}
+                initialValues={validateInitialValues({ ...profile, ...profile.contacts })}
                 onSubmit={onSubmit}
                 render={({ handleSubmit, submitting, pristine }) => (
                     <EditProfileForm
@@ -54,8 +49,6 @@ const EditProfile: FC<Props> = memo(
                         isMyProfile={isMyProfile}
                         profileEditMode={profileEditMode}
                         disableEditMode={disableEditMode}
-                        socialMediaEditMode={socialMediaEditMode}
-                        setSocialMediaEditMode={setSocialMediaEditMode}
                         contactsArray={contactsArray}
                     />
                 )}
@@ -65,14 +58,12 @@ const EditProfile: FC<Props> = memo(
 );
 
 const mapStateToProps = (state: RootState) => ({
-    socialMediaEditMode: state.profilePage.socialMediaEditMode,
     contactsArray: state.profilePage.contactsArray
 });
 
 const connector = connect(mapStateToProps, {
     updateProfile,
-    setProfileEditMode,
-    setSocialMediaEditMode
+    setProfileEditMode
 });
 export default connector(EditProfile);
 type EditProfileConnectedProps = ConnectedProps<typeof connector>;
