@@ -21,10 +21,8 @@ const ProfilePreloader = () => {
                     <rect x="20" y="404" rx="0" ry="0" width="400" height="18" />
                     <rect x="61%" y="210" rx="20" ry="20" width="130" height="35" />
                 </ContentLoader>
-                <div className="dots__wrapper">
-                    <div className="dot" />
-                    <div className="dot" />
-                    <div className="dot" />
+                <div className="flex center">
+                    <span className="loader small" />
                 </div>
             </div>
         </div>

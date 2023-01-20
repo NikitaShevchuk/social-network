@@ -78,6 +78,16 @@
         height: 35px;
         min-height: 35px;
     }
+    .central-meta.messages {
+        flex: none;
+        max-width: 100%;
+    }
+    .peoples {
+        height: 90vh;
+    }
+    .chatArea {
+        height: 89vh;
+    }
 }
 
 @media (max-width: 767px) {
@@ -113,5 +123,14 @@
     }
     .user-nav__subnav.active {
         bottom: 140%;
+    }
+    .timeline-info {
+        padding: 0 2rem;
+    }
+    .loadMore {
+        padding: 2rem;
+    }
+    .additional-profile-info {
+        right: 1rem;
     }
 }

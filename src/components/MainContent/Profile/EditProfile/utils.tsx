@@ -71,6 +71,7 @@ export const useGetFields = () =>
     }, []);
 
 type ProfileEntry = [keyof typeof initialProfile, any];
+type ContactEntry = [keyof typeof initialProfile.contacts, any];
 export const validateInitialValues = (profile: Profile) => {
     const resultProfile: Profile = JSON.parse(JSON.stringify(profile));
     const profileEntries = Object.entries(profile) as ProfileEntry[];
@@ -79,6 +80,10 @@ export const validateInitialValues = (profile: Profile) => {
         if (typeof value === 'boolean') return;
         // @ts-ignore
         if (!value && value !== '') resultProfile[key] = '';
+    });
+    const contactsEntries = Object.entries(resultProfile.contacts) as ContactEntry[];
+    contactsEntries.forEach(([key, value]) => {
+        if (!value && value !== '') resultProfile.contacts[key] = '';
     });
     return resultProfile;
 };

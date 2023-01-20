@@ -20,6 +20,7 @@ export const createInput = (
         type={inputType}
         label={label || null}
         component={Input}
+        key={name}
     />
 );
 
@@ -49,20 +50,4 @@ export const createTextArea = (validators: ValidatorType[], name: string) => (
 
 export const createHiddenInput = (name: string) => (
     <Field name={name} type="hidden" component="input" />
-);
-
-export const createFieldWithInitVal = (
-    validators: ValidatorType[],
-    name: string,
-    key: number | string,
-    initialValue: string
-) => (
-    <Field
-        name={name}
-        label={name}
-        initialValue={initialValue}
-        component={Input}
-        validate={composeValidators(...validators)}
-        key={key}
-    />
 );

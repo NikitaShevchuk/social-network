@@ -24,7 +24,7 @@ const ProfileLinks: FC<Props> = ({
     const hasAnyLink = Object.values(contacts).find((contact) => contact !== null);
     const contactIcons = useCreateIcons(contactsArray);
     if (!hasAnyLink && !profileEditMode) return <span />;
-
+    // todo: update profile links icons on profile edit
     return (
         <div className="additional-profile-info">
             <div className="social-media">

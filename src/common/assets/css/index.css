@@ -681,7 +681,7 @@ a:hover.youtube {
 
 .bg {
     display: flex;
-    padding: 25.5% 0 0 0;
+    padding: 200px 0 0 0;
     background: linear-gradient(
         90deg,
         rgba(131, 58, 180, 1) 0%,
