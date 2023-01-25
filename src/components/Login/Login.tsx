@@ -7,9 +7,9 @@ import { FormValues } from './LoginContainer';
 import ConfirmModal from '../ModalWindow/ConfirmModal';
 
 export const testAccountData: FormValues = {
-    email: 'shevchuk.nikita.gh@gmail.com',
+    email: 'pataxa3501@unicsite.com',
     password: 'test_account_password',
-    cookie: '20eb1751-84d0-404e-821a-4627208085c2',
+    cookie: 'f6b7778d-6b5e-4fad-a5db-d281ace7d433',
     rememberMe: false
 };
 

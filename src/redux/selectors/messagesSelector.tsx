@@ -17,10 +17,10 @@ export const messagesReselect = createSelector(
     getProfileImg,
     getSenderPhoto,
     (messages, myId, profileImg, senderPhoto) =>
-        messages.map((mes: Message) => (
+        messages.map((singleMessage: Message) => (
             <SingleMessage
-                {...mes}
-                key={mes.id}
+                {...singleMessage}
+                key={singleMessage.id}
                 myId={myId}
                 profileImg={profileImg}
                 senderPhoto={senderPhoto}
