@@ -28,7 +28,7 @@ const Messages: FC<MessagesPropsType> = ({
     const getChatRef = (chatRef: HTMLElement) => setChatRef(chatRef);
     return (
         <div className="peoples-mesg-box">
-            {userId && (
+            {!!userId && (
                 <div className="chatArea opacity-animation">
                     <ConversationHead />
                     <PerfectScrollbar
