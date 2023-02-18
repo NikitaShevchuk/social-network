@@ -1,4 +1,4 @@
-<img src="https://nikitashevchuk.github.io/social-network/assets/logo-8213e904.svg" style="max-width: 300px" alt="Logo of the project" align="right">
+<img src="https://nikitashevchuk.github.io/social-network/assets/logo-8213e904.svg" width="300" alt="Logo of the project" align="right">
 
 # Deployed project: https://nikitashevchuk.github.io/social-network
 
