@@ -38,8 +38,6 @@ Requires a node.js & git installed on your machine
 
 ### Building
 
-If your project needs some additional steps for the developer to build the
-project after some code changes, state them here. for example:
 
 ```shell
 yarn build
